@@ -4,6 +4,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace SignalR_UnitTestingSupport.Hubs
 {
@@ -87,6 +88,86 @@ namespace SignalR_UnitTestingSupport.Hubs
             _clientsMock
                 .Setup(x => x.Users(It.IsAny<IReadOnlyList<string>>()))
                 .Returns(_clientsUsersMock.Object);
+        }
+
+        protected void _verifySomebodyAddedToGroup(Times times)
+        {
+            _groupsMock
+                .Verify(x => x.AddToGroupAsync(
+                    It.IsAny<string>(),
+                    It.IsAny<string>(),
+                    It.IsAny<CancellationToken>()),
+                    times
+                );
+        }
+
+        protected void _verifySomebodyAddedToGroup(Times times, string groupName)
+        {
+            _groupsMock
+                .Verify(x => x.AddToGroupAsync(
+                    It.IsAny<string>(),
+                    groupName,
+                    It.IsAny<CancellationToken>()),
+                    times
+                );
+        }
+
+        protected void _verifySomebodyAddedToGroup(Times times, string groupName, string connectionId)
+        {
+            _groupsMock
+                .Verify(x => x.AddToGroupAsync(
+                    connectionId,
+                    groupName,
+                    It.IsAny<CancellationToken>()),
+                    times
+                );
+        }
+
+        protected void _verifySomebodyRemovedFromGroup(Times times)
+        {
+            _groupsMock
+                .Verify(x => x.RemoveFromGroupAsync(
+                    It.IsAny<string>(),
+                    It.IsAny<string>(),
+                    It.IsAny<CancellationToken>()),
+                    times
+                );
+        }
+
+        protected void _verifySomebodyRemovedFromGroup(Times times, string groupName)
+        {
+            _groupsMock
+                .Verify(x => x.RemoveFromGroupAsync(
+                    It.IsAny<string>(),
+                    groupName,
+                    It.IsAny<CancellationToken>()),
+                    times
+                );
+        }
+
+        protected void _verifySomebodyRemovedFromGroup(Times times, string groupName, string connectionId)
+        {
+            _groupsMock
+                .Verify(x => x.RemoveFromGroupAsync(
+                    connectionId,
+                    groupName,
+                    It.IsAny<CancellationToken>()),
+                    times
+                );
+        }
+
+        protected void _verifyContextItemsContainKeyValuePair(object key, object value)
+        {
+            try
+            {
+                Assert.IsTrue(_itemsFake.ContainsKey(key));
+                Assert.IsTrue(_itemsFake.ContainsValue(value));
+            }
+            catch(AssertionException)
+            {
+                throw new AssertionException($"Context items don`t contain that key-value pair: {key}-{value}");
+            }
+            
         }
     }
 }

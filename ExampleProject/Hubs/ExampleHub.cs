@@ -10,8 +10,7 @@ namespace ExampleProject.Hubs
     {
         public ExampleHub()
         {
-            IHubClients<IClientProxy>
-            Clients.a
+            
         }
     }
 }
