@@ -79,7 +79,7 @@ namespace SignalR_UnitTestingSupport.Hubs
         {
             try
             {
-                if (_dbInMemorySqlite != null && _dbInMemorySqliteLazy.IsValueCreated)
+                if (_dbInMemorySqliteLazy != null && _dbInMemorySqliteLazy.IsValueCreated)
                 {
                     _dbInMemorySqlite.Dispose();
                 }
