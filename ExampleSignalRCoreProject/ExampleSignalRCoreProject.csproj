@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Hubs\" />
+    <Folder Include="NewFolder\" />
     <Folder Include="wwwroot\" />
   </ItemGroup>
 

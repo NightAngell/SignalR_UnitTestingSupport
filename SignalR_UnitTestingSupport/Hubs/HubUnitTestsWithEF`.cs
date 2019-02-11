@@ -12,7 +12,7 @@ namespace SignalR_UnitTestingSupport.Hubs
     /// <summary>
     /// Hub unit tests base with Entity Framework Core
     /// </summary>
-    abstract class HubUnitTestsWithEF<TIHubResponses, TDbContext>
+    public abstract class HubUnitTestsWithEF<TIHubResponses, TDbContext>
         : HubUnitTestsBase<TIHubResponses>
         where TIHubResponses : class
         where TDbContext : DbContext
@@ -104,11 +104,14 @@ namespace SignalR_UnitTestingSupport.Hubs
 
         private TDbContext _initInMemorySqlite()
         {
+            var connection = new SqliteConnection("DataSource=:memory:");
+            connection.Open();
+
             var dbContextSqliteOptions = new DbContextOptionsBuilder<TDbContext>()
-                .UseSqlite("DataSource=:memory:")
+                .UseSqlite(connection)
                 .Options;
 
-            var dbContext = new DbContext(dbContextSqliteOptions) as TDbContext;
+            var dbContext = (TDbContext)Activator.CreateInstance(typeof(TDbContext), dbContextSqliteOptions);
             dbContext.Database.EnsureCreated();
 
             return dbContext;
@@ -119,8 +122,8 @@ namespace SignalR_UnitTestingSupport.Hubs
             var dbContextInMemoryOptions = new DbContextOptionsBuilder<TDbContext>()
                 .UseInMemoryDatabase()
                 .Options;
-
-            var dbContext = new DbContext(dbContextInMemoryOptions) as TDbContext;
+            
+            var dbContext = (TDbContext)Activator.CreateInstance(typeof(TDbContext), dbContextInMemoryOptions);
             dbContext.Database.EnsureCreated();
 
             return dbContext;

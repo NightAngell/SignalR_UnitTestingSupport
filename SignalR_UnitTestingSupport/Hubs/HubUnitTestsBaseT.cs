@@ -8,7 +8,7 @@ using System.Threading;
 
 namespace SignalR_UnitTestingSupport.Hubs
 {
-    abstract class HubUnitTestsBase<TIHubResponses> where TIHubResponses : class
+    public abstract class HubUnitTestsBase<TIHubResponses> where TIHubResponses : class
     {
         protected Mock<HubCallerContext> _contextMock;
         protected Mock<IGroupManager> _groupsMock;
@@ -52,42 +52,79 @@ namespace SignalR_UnitTestingSupport.Hubs
         private void _setUpClients()
         {
             _clientsMock = new Mock<IHubCallerClients<TIHubResponses>>();
+
+            _clientsAllMock = new Mock<TIHubResponses>();
             _clientsMock
                 .Setup(x => x.All)
                 .Returns(_clientsAllMock.Object);
+
+            _clientsAllExceptMock = new Mock<TIHubResponses>();
             _clientsMock
                 .Setup(x => x.AllExcept(It.IsAny<IReadOnlyList<string>>()))
                 .Returns(_clientsAllExceptMock.Object);
+
+            _clientsCallerMock = new Mock<TIHubResponses>();
             _clientsMock
                 .Setup(x => x.Caller)
                 .Returns(_clientsCallerMock.Object);
+
+            _clientsClientMock = new Mock<TIHubResponses>();
             _clientsMock
                 .Setup(x => x.Client(It.IsAny<string>()))
                 .Returns(_clientsClientMock.Object);
+
+            _clientsClientsMock = new Mock<TIHubResponses>();
             _clientsMock
                 .Setup(x => x.Clients(It.IsAny<IReadOnlyList<string>>()))
                 .Returns(_clientsClientsMock.Object);
+
+            _clientsGroupMock = new Mock<TIHubResponses>();
             _clientsMock
                 .Setup(x => x.Group(It.IsAny<string>()))
                 .Returns(_clientsGroupMock.Object);
+
+            _clientsGroupExceptMock = new Mock<TIHubResponses>();
             _clientsMock
                 .Setup(x => x.GroupExcept(It.IsAny<string>(), It.IsAny<IReadOnlyList<string>>()))
                 .Returns(_clientsGroupExceptMock.Object);
+
+            _clientsGroupsMock = new Mock<TIHubResponses>();
             _clientsMock
                 .Setup(x => x.Groups(It.IsAny<IReadOnlyList<string>>()))
                 .Returns(_clientsGroupsMock.Object);
+
+            _clientsOthersMock = new Mock<TIHubResponses>();
             _clientsMock
                 .Setup(x => x.Others)
                 .Returns(_clientsOthersMock.Object);
+
+            _clientsOthersInGroupMock = new Mock<TIHubResponses>();
             _clientsMock
                 .Setup(x => x.OthersInGroup(It.IsAny<string>()))
                 .Returns(_clientsOthersInGroupMock.Object);
+
+            _clientsUserMock = new Mock<TIHubResponses>();
             _clientsMock
                 .Setup(x => x.User(It.IsAny<string>()))
                 .Returns(_clientsUserMock.Object);
+
+            _clientsUsersMock = new Mock<TIHubResponses>();
             _clientsMock
                 .Setup(x => x.Users(It.IsAny<IReadOnlyList<string>>()))
                 .Returns(_clientsUsersMock.Object);
+        }
+
+        /// <summary>
+        /// Assign to hub Clients, Context and Groups mocks objects.
+        /// </summary>
+        protected void _assignToHubRequiredProperties<T>(T hub) where T : Hub<TIHubResponses>
+        {
+            if (hub == null)
+                throw new ArgumentNullException("Hub not initialized");
+
+            hub.Clients = _clientsMock.Object;
+            hub.Context = _contextMock.Object;
+            hub.Groups = _groupsMock.Object;
         }
 
         protected void _verifySomebodyAddedToGroup(Times times)
