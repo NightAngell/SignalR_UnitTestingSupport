@@ -12,6 +12,7 @@ namespace ExampleSignalRCoreProject.Hubs
     public class ExampleHub : Hub<ExampleHubResponses>
     {
         Db _db;
+
         public ExampleHub(Db db)
         {
             _db = db;

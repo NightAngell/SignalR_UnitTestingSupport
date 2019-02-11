@@ -8,7 +8,9 @@ using ExampleSignalRCoreProject.Hubs.Interfaces;
 using ExampleSignalRCoreProject.Models;
 using Moq;
 using NUnit.Framework;
+using Microsoft.EntityFrameworkCore;
 using SignalR_UnitTestingSupport.Hubs;
+using System.Linq;
 
 namespace TestsWithUnitTestingSupport.Hubs
 {
@@ -35,15 +37,9 @@ namespace TestsWithUnitTestingSupport.Hubs
         [Test]
         public async Task AddNoteWithLoremIpsumAsContentToDb_NoteAdded()
         {
-            var note = new Note()
-            {
-                Content = "Lorem Ipsum"
-            };
-            _dbInMemorySqlite.Note.Add(note);
+            await _exampleHub.AddNoteWithLoremIpsumAsContentToDb();
 
-            await _dbInMemorySqlite.SaveChangesAsync();
-
-            var noteFromDb = _dbInMemorySqlite.Note.Find(note.Id);
+            var noteFromDb = _dbInMemorySqlite.Note.FirstOrDefault();
             Assert.NotNull(noteFromDb);
         }
     }
