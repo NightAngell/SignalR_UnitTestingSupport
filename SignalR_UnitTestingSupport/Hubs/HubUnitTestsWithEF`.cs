@@ -22,7 +22,7 @@ namespace SignalR_UnitTestingSupport.Hubs
         private Lazy<TDbContext> _dbInMemoryInMemoryLazy;
 
         /// <summary>
-        /// By default, pure DbContext mock, without any setup.
+        /// By default, pure TDbContext mock, without any setup.
         /// </summary>
         protected Mock<TDbContext> _dbContextMock
         {
@@ -55,6 +55,9 @@ namespace SignalR_UnitTestingSupport.Hubs
             }
         }
 
+        /// <summary>
+        /// NUnit SetUp for HubUnitTestsWithEf`. Only NUnit should call this method.
+        /// </summary>
         [SetUp]
         public void EfSetUp()
         {
@@ -74,6 +77,9 @@ namespace SignalR_UnitTestingSupport.Hubs
             }
         }
 
+        /// <summary>
+        /// NUnit TearDown for HubUnitTestsWithEf`. Only NUnit should call this method.
+        /// </summary>
         [TearDown]
         public void TearDownEFContexts()
         {
@@ -104,6 +110,7 @@ namespace SignalR_UnitTestingSupport.Hubs
 
         private TDbContext _initInMemorySqlite()
         {
+            //connection is closed automatically in TearDown when we dispose dbContext
             var connection = new SqliteConnection("DataSource=:memory:");
             connection.Open();
 
