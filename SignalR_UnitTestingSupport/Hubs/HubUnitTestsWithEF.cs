@@ -1,5 +1,4 @@
-﻿using Microsoft.Data.Sqlite;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Moq;
 using NUnit.Framework;
 using SignalR_UnitTestingSupport.Services;
@@ -7,15 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-
 namespace SignalR_UnitTestingSupport.Hubs
 {
     /// <summary>
     /// Hub unit tests base with Entity Framework Core
     /// </summary>
-    public abstract class HubUnitTestsWithEF<TIHubResponses, TDbContext>
-        : HubUnitTestsBase<TIHubResponses>
-        where TIHubResponses : class
+    public class HubUnitTestsWithEF<TDbContext> : HubUnitTestsBase
         where TDbContext : DbContext
     {
         DbMockAndInMemoryProvider<TDbContext> _dbProvider = new DbMockAndInMemoryProvider<TDbContext>();

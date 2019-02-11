@@ -22,25 +22,39 @@ namespace TestsWithUnitTestingSupport.Hubs
         [Test]
         public async Task OnConnectedAsync_AllClientsNotifiedAboutSomethingElse()
         {
-            _exampleHub = new ExampleHub(_dbContextMock.Object);
-            _assignToHubRequiredProperties(_exampleHub);
+            //Arrange
+            _exampleHub = new ExampleHub(DbContextMock.Object);
+            AssignToHubRequiredProperties(_exampleHub);
+
+            //Action
             await  _exampleHub.OnConnectedAsync();
 
-            _clientsAllMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
+            //Assert
+            ClientsAllMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [Test]
         public async Task AddNoteWithLoremIpsumAsContentToDb_dbProviderIsSqliteInMemory_NoteAdded()
         {
-            _exampleHub = new ExampleHub(_dbInMemorySqlite);
-            _assignToHubRequiredProperties(_exampleHub);
+            _exampleHub = new ExampleHub(DbInMemorySqlite);
+            AssignToHubRequiredProperties(_exampleHub);
 
             await _exampleHub.AddNoteWithLoremIpsumAsContentToDb();
 
-            var noteFromDb = _dbInMemorySqlite.Note.FirstOrDefault();
+            var noteFromDb = DbInMemorySqlite.Note.FirstOrDefault();
             Assert.NotNull(noteFromDb);
         }
 
+        [Test]
+        public async Task AddNoteWithLoremIpsumAsContentToDb_dbProviderIsInMemory_NoteAdded()
+        {
+            _exampleHub = new ExampleHub(DbInMemory);
+            AssignToHubRequiredProperties(_exampleHub);
 
+            await _exampleHub.AddNoteWithLoremIpsumAsContentToDb();
+
+            var noteFromDb = DbInMemory.Note.FirstOrDefault();
+            Assert.NotNull(noteFromDb);
+        }
     }
 }
