@@ -4,7 +4,7 @@
     "windowsAuthentication": false, 
     "anonymousAuthentication": true, 
     "iisExpress": {
-      "applicationUrl": "http://localhost:56634",
+      "applicationUrl": "http://localhost:60925",
       "sslPort": 0
     }
   },
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "ExampleProject": {
+    "ExampleSignalRCoreProject": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/values",
