@@ -17,11 +17,20 @@ namespace SignalR_UnitTestingSupport.Hubs
         where TIHubResponses : class
         where TDbContext : DbContext
     {
-        protected Mock<TDbContext> _dbContextMock;
-
+        private Lazy<Mock<TDbContext>> _dbContextMockLazy;
         private Lazy<TDbContext> _dbInMemorySqliteLazy;
-
         private Lazy<TDbContext> _dbInMemoryInMemoryLazy;
+
+        /// <summary>
+        /// By default, pure DbContext mock, without any setup.
+        /// </summary>
+        protected Mock<TDbContext> _dbContextMock
+        {
+            get
+            {
+                return _dbContextMockLazy.Value;
+            }
+        }
 
         /// <summary>
         /// Relational database in memory
@@ -49,9 +58,20 @@ namespace SignalR_UnitTestingSupport.Hubs
         [SetUp]
         public void EfSetUp()
         {
-            _dbContextMock = new Mock<TDbContext>();
-            _dbInMemorySqliteLazy = new Lazy<TDbContext>(_initInMemorySqlite);
-            _dbInMemoryInMemoryLazy = new Lazy<TDbContext>(_initInMemoryInMemory);
+            if (_dbContextMockLazy == null || _dbContextMockLazy.IsValueCreated)
+            {
+                _dbContextMockLazy = new Lazy<Mock<TDbContext>>();
+            }
+
+            if (_dbInMemorySqliteLazy == null || _dbInMemorySqliteLazy.IsValueCreated)
+            {
+                _dbInMemorySqliteLazy = new Lazy<TDbContext>(_initInMemorySqlite);
+            }
+
+            if (_dbInMemoryInMemoryLazy == null || _dbInMemoryInMemoryLazy.IsValueCreated)
+            {
+                _dbInMemoryInMemoryLazy = new Lazy<TDbContext>(_initInMemoryInMemory);
+            }
         }
 
         [TearDown]
@@ -59,7 +79,7 @@ namespace SignalR_UnitTestingSupport.Hubs
         {
             try
             {
-                if (_dbInMemorySqliteLazy.IsValueCreated)
+                if (_dbInMemorySqlite != null && _dbInMemorySqliteLazy.IsValueCreated)
                 {
                     _dbInMemorySqlite.Dispose();
                 }
@@ -71,7 +91,7 @@ namespace SignalR_UnitTestingSupport.Hubs
 
             try
             {
-                if (_dbInMemoryInMemoryLazy.IsValueCreated)
+                if (_dbInMemoryInMemoryLazy != null && _dbInMemoryInMemoryLazy.IsValueCreated)
                 {
                     _dbInMemory.Dispose();
                 }
@@ -80,7 +100,6 @@ namespace SignalR_UnitTestingSupport.Hubs
             {
                 //TODO: Add logger later
             }
-            
         }
 
         private TDbContext _initInMemorySqlite()
