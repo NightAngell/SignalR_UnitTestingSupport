@@ -63,7 +63,7 @@ namespace SignalR_UnitTestingSupport.Hubs
         {
             if (_dbContextMockLazy == null || _dbContextMockLazy.IsValueCreated)
             {
-                _dbContextMockLazy = new Lazy<Mock<TDbContext>>();
+                _dbContextMockLazy = new Lazy<Mock<TDbContext>>(_initDbContextMock);
             }
 
             if (_dbInMemorySqliteLazy == null || _dbInMemorySqliteLazy.IsValueCreated)
@@ -106,6 +106,11 @@ namespace SignalR_UnitTestingSupport.Hubs
             {
                 //TODO: Add logger later
             }
+        }
+
+        private Mock<TDbContext> _initDbContextMock()
+        {
+            return new Mock<TDbContext>(new DbContextOptions<TDbContext>());
         }
 
         private TDbContext _initInMemorySqlite()

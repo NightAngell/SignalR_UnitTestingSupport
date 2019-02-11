@@ -19,28 +19,28 @@ namespace TestsWithUnitTestingSupport.Hubs
     {
         ExampleHub _exampleHub;
 
-        [SetUp]
-        public void SetUp()
-        {
-            _exampleHub = new ExampleHub(_dbInMemorySqlite);
-            _assignToHubRequiredProperties(_exampleHub);
-        }
-
         [Test]
         public async Task OnConnectedAsync_AllClientsNotifiedAboutSomethingElse()
         {
-           await  _exampleHub.OnConnectedAsync();
+            _exampleHub = new ExampleHub(_dbContextMock.Object);
+            _assignToHubRequiredProperties(_exampleHub);
+            await  _exampleHub.OnConnectedAsync();
 
             _clientsAllMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [Test]
-        public async Task AddNoteWithLoremIpsumAsContentToDb_NoteAdded()
+        public async Task AddNoteWithLoremIpsumAsContentToDb_dbProviderIsSqliteInMemory_NoteAdded()
         {
+            _exampleHub = new ExampleHub(_dbInMemorySqlite);
+            _assignToHubRequiredProperties(_exampleHub);
+
             await _exampleHub.AddNoteWithLoremIpsumAsContentToDb();
 
             var noteFromDb = _dbInMemorySqlite.Note.FirstOrDefault();
             Assert.NotNull(noteFromDb);
         }
+
+
     }
 }
