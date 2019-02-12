@@ -37,7 +37,7 @@ namespace SignalR_UnitTestingSupport.Hubs
         /// <summary>
         /// Assign to hub Clients, Context and Groups mocks objects.
         /// </summary>
-        protected void _assignToHubRequiredProperties(Hub hub)
+        public void AssignToHubRequiredProperties(Hub hub)
         {
             if (hub == null)
                 throw new ArgumentNullException("Hub not initialized");
