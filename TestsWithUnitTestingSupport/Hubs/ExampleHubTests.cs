@@ -20,17 +20,208 @@ namespace TestsWithUnitTestingSupport.Hubs
         ExampleHub _exampleHub;
 
         [Test]
+        public void TryGetDbContexMock_DbContextMockSuccesfullyTaken()
+        {
+            Assert.NotNull(DbContextMock.Object);
+        }
+
+        [Test]
+        public void TryGetDbInMemorySqlite_ClearDbInMemorySqliteSuccesfullyTaken()
+        {
+            Assert.Zero(DbInMemorySqlite.Note.Count());
+        }
+
+        [Test]
+        public void TryGetDbInMemory_ClearDbInMemoryMockSuccesfullyTaken()
+        {
+            Assert.Zero(DbInMemory.Note.Count());
+        }
+
+        [Test]
+        [TestCase]
+        [TestCase]
+        public async Task TryGetDbInMemorySqlite_WeGetClearInstanceOfDbInEveryTest()
+        {
+            Assert.IsTrue(DbInMemorySqlite.Note.Count() == 0);
+
+            DbInMemorySqlite.Note.Add(new Note { Content = "test content" });
+            await DbInMemorySqlite.SaveChangesAsync();
+        }
+
+        [Test]
+        [TestCase]
+        [TestCase]
+        public async Task TryGetDbInMemory_WeGetClearInstanceOfDbInEveryTest()
+        {
+            Assert.IsTrue(DbInMemory.Note.Count() == 0);
+
+            DbInMemory.Note.Add(new Note { Content = "test content" });
+            await DbInMemory.SaveChangesAsync();
+        }
+
+        [Test]
         public async Task OnConnectedAsync_AllClientsNotifiedAboutSomethingElse()
         {
-            //Arrange
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            //Action
             await  _exampleHub.OnConnectedAsync();
 
-            //Assert
             ClientsAllMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
+        }
+
+        [Test]
+        public void NotifyAboutSomethingElseAllExcept_AllExceptNotified()
+        {
+            _exampleHub = new ExampleHub(DbContextMock.Object);
+            AssignToHubRequiredProperties(_exampleHub);
+
+            _exampleHub.NotifyAboutSomethingElseAllExcept();
+
+            ClientsAllExceptMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
+        }
+
+        [Test]
+        public void NotifyCallerAboutSomethingElse_CallerNotified()
+        {
+            _exampleHub = new ExampleHub(DbContextMock.Object);
+            AssignToHubRequiredProperties(_exampleHub);
+
+            _exampleHub.NotifyCallerAboutSomethingElse();
+
+            ClientsCallerMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
+        }
+
+        [Test]
+        public void NotifyClientAboutSomethingElse_ClientNotified()
+        {
+            _exampleHub = new ExampleHub(DbContextMock.Object);
+            AssignToHubRequiredProperties(_exampleHub);
+
+            _exampleHub.NotifyClientAboutSomethingElse();
+
+            ClientsClientMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
+        }
+
+        [Test]
+        public void NotifyClientsAboutSomethingElse_ClientsNotified()
+        {
+            _exampleHub = new ExampleHub(DbContextMock.Object);
+            AssignToHubRequiredProperties(_exampleHub);
+
+            _exampleHub.NotifyClientsAboutSomethingElse();
+
+            ClientsClientsMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
+        }
+
+        [Test]
+        public void NotifyGroupAboutSomethingElse_GroupNotified()
+        {
+            _exampleHub = new ExampleHub(DbContextMock.Object);
+            AssignToHubRequiredProperties(_exampleHub);
+
+            _exampleHub.NotifyGroupAboutSomethingElse();
+
+            ClientsGroupMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
+        }
+
+        [Test]
+        public void NotifyGroupExceptAboutSomethingElse_GropuExceptNotified()
+        {
+            _exampleHub = new ExampleHub(DbContextMock.Object);
+            AssignToHubRequiredProperties(_exampleHub);
+
+            _exampleHub.NotifyGroupExceptAboutSomethingElse();
+
+            ClientsGroupExceptMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
+        }
+
+        [Test]
+        public void NotifyGroupsAboutSomethingElse_GropusNotified()
+        {
+            _exampleHub = new ExampleHub(DbContextMock.Object);
+            AssignToHubRequiredProperties(_exampleHub);
+
+            _exampleHub.NotifyGroupsAboutSomethingElse();
+
+            ClientsGroupsMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
+        }
+
+        [Test]
+        public void NotifyOthersAboutSomethingElse_OthersNotified()
+        {
+            _exampleHub = new ExampleHub(DbContextMock.Object);
+            AssignToHubRequiredProperties(_exampleHub);
+
+            _exampleHub.NotifyOthersAboutSomethingElse();
+
+            ClientsOthersMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
+        }
+
+        [Test]
+        public void NotifyOthersInGroupAboutSomethingElse_OthersInGroupNotified()
+        {
+            _exampleHub = new ExampleHub(DbContextMock.Object);
+            AssignToHubRequiredProperties(_exampleHub);
+
+            _exampleHub.NotifyOthersInGroupAboutSomethingElse();
+
+            ClientsOthersInGroupMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
+        }
+
+        [Test]
+        public void NotifyUserAboutSomethingElse_UserNotified()
+        {
+            _exampleHub = new ExampleHub(DbContextMock.Object);
+            AssignToHubRequiredProperties(_exampleHub);
+
+            _exampleHub.NotifyUserAboutSomethingElse();
+
+            ClientsUserMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
+        }
+
+        [Test]
+        public void NotifyUsersAboutSomethingElse_UsersNotified()
+        {
+            _exampleHub = new ExampleHub(DbContextMock.Object);
+            AssignToHubRequiredProperties(_exampleHub);
+
+            _exampleHub.NotifyUsersAboutSomethingElse();
+
+            ClientsUsersMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
+        }
+
+        [Test]
+        public void AddLoremAsKeyAndIpsumAsValueToContextItems_ContextContainThatKeyValuPair()
+        {
+            _exampleHub = new ExampleHub(DbContextMock.Object);
+            AssignToHubRequiredProperties(_exampleHub);
+
+            _exampleHub.AddLoremAsKeyAndIpsumAsValueToContextItems();
+
+            VerifyContextItemsContainKeyValuePair("Lorem", "Ipsum");
+        }
+
+        [Test]
+        public void AddSomebodyToGroup_SomebodyAdded()
+        {
+            _exampleHub = new ExampleHub(DbContextMock.Object);
+            AssignToHubRequiredProperties(_exampleHub);
+
+            _exampleHub.AddSomebodyToGroup();
+
+            VerifySomebodyAddedToGroup(Times.Once());
+        }
+
+        [Test]
+        public void RemoveSomebodyFromGroup_SomebodyRemoved()
+        {
+            _exampleHub = new ExampleHub(DbContextMock.Object);
+            AssignToHubRequiredProperties(_exampleHub);
+
+            _exampleHub.RemoveSomebodyFromGroup();
+
+            VerifySomebodyRemovedFromGroup(Times.Once());
         }
 
         [Test]

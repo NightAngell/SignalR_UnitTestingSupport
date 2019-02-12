@@ -106,7 +106,7 @@ namespace SignalR_UnitTestingSupport.Services
         private TDbContext _initInMemoryInMemory()
         {
             var dbContextInMemoryOptions = new DbContextOptionsBuilder<TDbContext>()
-                .UseInMemoryDatabase()
+                .UseInMemoryDatabase(Guid.NewGuid().ToString())
                 .Options;
 
             var dbContext = (TDbContext)Activator.CreateInstance(typeof(TDbContext), dbContextInMemoryOptions);
