@@ -1,9 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
 
-    <IsPackable>false</IsPackable>
+    <IsPackable>true</IsPackable>
 
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 
@@ -19,7 +19,7 @@
 
     <PackageReleaseNotes>Easy to use, small, SignalR Core unit testing support with NUnit and Moq.</PackageReleaseNotes>
 
-    <PackageId>AspNetCore.SignalR.UnitTestingSupport.NUnit</PackageId>
+    <PackageId>SignalR.UnitTestingSupport.NUnit</PackageId>
 
     <Authors>Mateusz Soboń (NightAngell)</Authors>
 
@@ -28,6 +28,14 @@
     <Product>SignalRCore_UnitTestingSupport</Product>
 
     <Description>Easy to use, small, SignalR Core unit testing support with NUnit and Moq.</Description>
+
+    <ApplicationIcon />
+
+    <OutputType>Library</OutputType>
+
+    <StartupObject />
+
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
@@ -36,7 +44,6 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.1" />
     <PackageReference Include="Moq" Version="4.10.1" />
     <PackageReference Include="nunit" Version="3.10.1" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
   </ItemGroup>
 
