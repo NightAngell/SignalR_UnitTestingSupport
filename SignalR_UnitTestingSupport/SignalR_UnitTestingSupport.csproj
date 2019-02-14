@@ -4,6 +4,30 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+
+    <Copyright>Mateusz Soboń (NightAngell)</Copyright>
+
+    <PackageLicenseUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport/blob/master/LICENSE</PackageLicenseUrl>
+
+    <PackageProjectUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</PackageProjectUrl>
+
+    <RepositoryUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</RepositoryUrl>
+
+    <PackageTags>SignalR SignalRCore SignalRUnitTest SignalRCoreUnitTest SignalRUnitTesting SignalRCoreUnitTesting SignalRUnitTests SignalRCoreUnitTests Unit Test Tests Testing NUnit SignalRUnitTestingSupport SignalRCoreUnitTestingSupport AspNetCore AspNetCore.SignalR</PackageTags>
+
+    <PackageReleaseNotes>Easy to use, small, SignalR Core unit testing support with NUnit and Moq.</PackageReleaseNotes>
+
+    <PackageId>AspNetCore.SignalR.UnitTestingSupport.NUnit</PackageId>
+
+    <Authors>Mateusz Soboń (NightAngell)</Authors>
+
+    <Company />
+
+    <Product>SignalRCore_UnitTestingSupport</Product>
+
+    <Description>Easy to use, small, SignalR Core unit testing support with NUnit and Moq.</Description>
   </PropertyGroup>
 
   <ItemGroup>
