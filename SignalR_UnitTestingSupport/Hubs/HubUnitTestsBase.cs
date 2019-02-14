@@ -4,8 +4,6 @@ using NUnit.Framework;
 using SignalR_UnitTestingSupport.Hubs.Internal;
 using System;
 using System.Collections.Generic;
-using System.Text;
-using System.Threading;
 
 namespace SignalR_UnitTestingSupport.Hubs
 {

@@ -1,11 +1,7 @@
-﻿using Microsoft.Data.Sqlite;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Moq;
 using NUnit.Framework;
 using SignalR_UnitTestingSupport.Services;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 
 namespace SignalR_UnitTestingSupport.Hubs
