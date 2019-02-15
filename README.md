@@ -33,12 +33,12 @@ class ExampleHubTests : HubUnitTestsBase {}
 ```csharp
 class ExampleHubTests : HubUnitTestsBase<T> {}
 ```
-#### 3. For testing ```Hub``` with ```EntityFrameworkCore DbContext```
+#### 3. For testing ```Hub``` with ```EntityFrameworkCore```
 ```csharp
 class ExampleHubTests : HubUnitTestsWithEF<TDbContext> {}
 ```
 > TDbContext is any class which inherit from ```Microsoft.EntityFrameworkCore.DbContext``` od DbContext itself.
-#### 4. For testing ```Hub<T>``` with ```EntityFrameworkCore DbContext```
+#### 4. For testing ```Hub<T>``` with ```EntityFrameworkCore```
 ```csharp
 class ExampleHubTests : HubUnitTestsWithEF<T, TDbContext> {}
 ```
