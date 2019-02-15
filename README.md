@@ -9,11 +9,11 @@ SignalR.UnitTestingSupport.NUnit
 ```
 #### 2. Using Packet Manager Console
 ```
-Install-Package SignalR.UnitTestingSupport.NUnit -Version 1.0.0
+Install-Package SignalR.UnitTestingSupport.NUnit -Version 1.0.1
 ```
 #### 3. Using .Net CLI
 ```
-dotnet add package SignalR.UnitTestingSupport.NUnit --version 1.0.0
+dotnet add package SignalR.UnitTestingSupport.NUnit --version 1.0.1
 ```
 ## Important!
 Install ```NUnit3TestAdapter``` nuget for visual studio testing. See: https://www.nuget.org/packages/NUnit3TestAdapter/
