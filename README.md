@@ -1,5 +1,6 @@
-# How to install it
+# How to install
 > For the latest versions of nuget see: https://www.nuget.org/packages/SignalR.UnitTestingSupport.NUnit/
+> For full docs see: https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki
 #### 1. Using Visual Studio Nuget Package Manager
 > If you dont know how install nuget via Visual Studio see this: https://www.youtube.com/watch?v=jX5HlrerIos
 ```
@@ -16,7 +17,7 @@ dotnet add package SignalR.UnitTestingSupport.NUnit --version 1.0.0
 ## Important!
 Install ```NUnit3TestAdapter``` nuget for visual studio testing. See: https://www.nuget.org/packages/NUnit3TestAdapter/
 
-# How to use it
+# How to use
 After you add nuget to your test project, SignalR_UnitTestingSupport is ready to use.
 Create test class for hub for example:
 ```csharp
