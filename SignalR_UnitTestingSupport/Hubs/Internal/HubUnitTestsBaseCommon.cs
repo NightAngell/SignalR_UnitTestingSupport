@@ -21,6 +21,9 @@ namespace SignalR_UnitTestingSupport.Hubs.Internal
             ContextMock = new Mock<HubCallerContext>();
             ItemsFake = new Dictionary<object, object>();
             ContextMock.Setup(x => x.Items).Returns(ItemsFake);
+
+            string connId = System.Guid.NewGuid().ToString();
+            ContextMock.Setup(x => x.ConnectionId).Returns(connId);
         }
 
         internal void _setUpGroups()
@@ -92,6 +95,17 @@ namespace SignalR_UnitTestingSupport.Hubs.Internal
                 );
         }
 
+        public void VerifyUserAddedToGroupByConnId(Times times, string connectionId)
+        {
+            GroupsMock
+                .Verify(x => x.AddToGroupAsync(
+                    connectionId,
+                    It.IsAny<string>(),
+                    It.IsAny<CancellationToken>()),
+                    times
+                );
+        }
+
         public void VerifySomebodyRemovedFromGroup(Times times)
         {
             GroupsMock
@@ -120,6 +134,17 @@ namespace SignalR_UnitTestingSupport.Hubs.Internal
                 .Verify(x => x.RemoveFromGroupAsync(
                     connectionId,
                     groupName,
+                    It.IsAny<CancellationToken>()),
+                    times
+                );
+        }
+
+        public void VerifyUserRemovedFromGroupByConnId(Times times, string connectionId)
+        {
+            GroupsMock
+                .Verify(x => x.RemoveFromGroupAsync(
+                    connectionId,
+                    It.IsAny<string>(),
                     It.IsAny<CancellationToken>()),
                     times
                 );
