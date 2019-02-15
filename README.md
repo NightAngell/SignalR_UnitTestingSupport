@@ -14,7 +14,7 @@ Install-Package SignalR.UnitTestingSupport.NUnit -Version 1.0.0
 dotnet add package SignalR.UnitTestingSupport.NUnit --version 1.0.0
 ```
 ## Important!
-Install ```NUnit3TestAdapter``` nuget. See: https://www.nuget.org/packages/NUnit3TestAdapter/
+Install ```NUnit3TestAdapter``` nuget for visual studio testing. See: https://www.nuget.org/packages/NUnit3TestAdapter/
 
 # How to use it
 After you add nuget to your test project, SignalR_UnitTestingSupport is ready to use.
@@ -45,5 +45,4 @@ class ExampleHubTests : HubUnitTestsWithEF<T, TDbContext> {}
 ### Important
 ```HubUnitTestsBaseCommon``` is internal class (it must be marked by code as public). Do not use it.
 
-
-#TODO Methods, Examples, I do it today later
+## For full docs see: [I'm an inline-style link](https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki)
