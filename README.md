@@ -45,4 +45,4 @@ class ExampleHubTests : HubUnitTestsWithEF<T, TDbContext> {}
 ### Important
 ```HubUnitTestsBaseCommon``` is internal class (it must be marked by code as public). Do not use it.
 
-## For full docs see: [I'm an inline-style link](https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki)
+## For full docs see: [Docs](https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki)
