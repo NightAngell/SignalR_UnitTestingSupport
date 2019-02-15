@@ -1,7 +1,7 @@
-# How to install
 > For the latest versions of nuget see: https://www.nuget.org/packages/SignalR.UnitTestingSupport.NUnit/
 
 > For full docs see: https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki
+# How to install
 #### 1. Using Visual Studio Nuget Package Manager
 > If you dont know how install nuget via Visual Studio see this: https://www.youtube.com/watch?v=jX5HlrerIos
 ```
