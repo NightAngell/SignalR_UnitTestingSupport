@@ -37,12 +37,12 @@ class ExampleHubTests : HubUnitTestsBase<T> {}
 ```csharp
 class ExampleHubTests : HubUnitTestsWithEF<TDbContext> {}
 ```
-> TDbContext is any class which inherit from ```Microsoft.EntityFrameworkCore.DbContext``` od DbContext itself.
+> TDbContext is any class which inherit from ```Microsoft.EntityFrameworkCore.DbContext``` or DbContext itself.
 #### 4. For testing ```Hub<T>``` with ```EntityFrameworkCore```
 ```csharp
 class ExampleHubTests : HubUnitTestsWithEF<T, TDbContext> {}
 ```
-> TDbContext is any class which inherit from ```Microsoft.EntityFrameworkCore.DbContext``` od DbContext itself.
+> TDbContext is any class which inherit from ```Microsoft.EntityFrameworkCore.DbContext``` or DbContext itself.
 
 ### Important
 ```HubUnitTestsBaseCommon``` is internal class (it must be marked by code as public). Do not use it.
