@@ -145,7 +145,7 @@ namespace SignalR_UnitTestingSupportXUnit.Hubs
                 .Returns(ClientsUsersMock.Object);
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             //Nothing to dispose here
         }

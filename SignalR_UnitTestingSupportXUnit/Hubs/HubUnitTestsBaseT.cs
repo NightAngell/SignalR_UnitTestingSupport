@@ -146,7 +146,7 @@ namespace SignalR_UnitTestingSupportXUnit.Hubs
             hub.Groups = GroupsMock.Object;
         }
 
-        public void Dispose()
+        public virtual void Dispose()
         {
             //Nothing to dispose here
         }
