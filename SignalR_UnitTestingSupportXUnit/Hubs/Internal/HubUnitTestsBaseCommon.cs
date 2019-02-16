@@ -4,7 +4,7 @@ using Xunit;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace SignalR_UnitTestingSupport.Hubs.Internal
+namespace SignalR_UnitTestingSupportXUnit.Hubs.Internal
 {
     /// <summary>
     /// Internal class. Use HubUnitTestsBase or HubUnitTestsWithEF 

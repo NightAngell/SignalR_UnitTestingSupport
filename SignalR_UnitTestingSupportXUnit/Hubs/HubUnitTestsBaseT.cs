@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Moq;
 using Xunit;
-using SignalR_UnitTestingSupport.Hubs.Internal;
+using SignalR_UnitTestingSupportXUnit.Hubs.Internal;
 using System;
 using System.Collections.Generic;
 
-namespace SignalR_UnitTestingSupport.Hubs
+namespace SignalR_UnitTestingSupportXUnit.Hubs
 {
     public class HubUnitTestsBase<TIHubResponses> : HubUnitTestsBaseCommon, IDisposable
         where TIHubResponses : class

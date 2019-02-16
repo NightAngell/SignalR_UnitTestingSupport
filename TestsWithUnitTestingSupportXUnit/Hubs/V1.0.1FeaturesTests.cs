@@ -1,7 +1,7 @@
 ﻿using ExampleSignalRCoreProject.Hubs;
 using Moq;
 using Xunit;
-using SignalR_UnitTestingSupport.Hubs;
+using SignalR_UnitTestingSupportXUnit.Hubs;
 using System;
 using System.Collections.Generic;
 using System.Text;

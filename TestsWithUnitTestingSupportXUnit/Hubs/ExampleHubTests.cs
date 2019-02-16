@@ -9,7 +9,7 @@ using ExampleSignalRCoreProject.Models;
 using Moq;
 using Xunit;
 using Microsoft.EntityFrameworkCore;
-using SignalR_UnitTestingSupport.Hubs;
+using SignalR_UnitTestingSupportXUnit.Hubs;
 using System.Linq;
 
 namespace TestsWithUnitTestingSupport.Hubs

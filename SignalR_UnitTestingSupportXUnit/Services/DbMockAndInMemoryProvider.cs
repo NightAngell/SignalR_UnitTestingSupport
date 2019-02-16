@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SignalR_UnitTestingSupport.Services
+namespace SignalR_UnitTestingSupportXUnit.Services
 {
     internal class DbMockAndInMemoryProvider<TDbContext> where TDbContext : DbContext
     {

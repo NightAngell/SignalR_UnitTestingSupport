@@ -1,10 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Moq;
 using Xunit;
-using SignalR_UnitTestingSupport.Services;
+using SignalR_UnitTestingSupportXUnit.Services;
 using System;
 
-namespace SignalR_UnitTestingSupport.Hubs
+namespace SignalR_UnitTestingSupportXUnit.Hubs
 {
     /// <summary>
     /// Hub unit tests base with Entity Framework Core
