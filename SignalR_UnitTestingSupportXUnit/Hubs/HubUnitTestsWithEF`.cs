@@ -55,7 +55,7 @@ namespace SignalR_UnitTestingSupportXUnit.Hubs
             _dbProvider.SetUp();
         }
 
-        public new void Dispose()
+        public override void Dispose()
         {
             _dbProvider.TearDown();
         }
