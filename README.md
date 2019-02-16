@@ -6,17 +6,22 @@
 > If you dont know how install nuget via Visual Studio see this: https://www.youtube.com/watch?v=jX5HlrerIos
 ```
 SignalR.UnitTestingSupport.NUnit
+SignalR.UnitTestingSupport.xUnit
 ```
 #### 2. Using Packet Manager Console
 ```
 Install-Package SignalR.UnitTestingSupport.NUnit -Version 1.0.1
+Install-Package SignalR.UnitTestingSupport.xUnit -Version 1.0.0
 ```
 #### 3. Using .Net CLI
 ```
 dotnet add package SignalR.UnitTestingSupport.NUnit --version 1.0.1
+dotnet add package SignalR.UnitTestingSupport.xUnit --version 1.0.0
 ```
 ## Important!
-Install ```NUnit3TestAdapter``` nuget for visual studio testing. See: https://www.nuget.org/packages/NUnit3TestAdapter/
+Install ```NUnit3TestAdapter``` nuget for visual studio testing with NUnit in visual studio. https://www.nuget.org/packages/NUnit3TestAdapter/
+
+Install ```xunit.runner.visualstudio``` nuget for visual studio testing with xUnit. https://www.nuget.org/packages/xunit.runner.visualstudio/
 
 # How to use
 After you add nuget to your test project, SignalR_UnitTestingSupport is ready to use.
