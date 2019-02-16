@@ -1,6 +1,6 @@
 > For the latest versions of NUnit version see: https://www.nuget.org/packages/SignalR.UnitTestingSupport.NUnit/
 
-> For the latest versions of NUnit version see: https://www.nuget.org/packages/SignalR.UnitTestingSupport.xUnit
+> For the latest versions of xUnit version see: https://www.nuget.org/packages/SignalR.UnitTestingSupport.xUnit
 
 > For full docs see: https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki
 # How to install
