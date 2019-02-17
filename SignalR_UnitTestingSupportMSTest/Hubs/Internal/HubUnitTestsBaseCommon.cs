@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace SignalR_UnitTestingSupport.Hubs.Internal
+namespace SignalR_UnitTestingSupportMSTest.Hubs.Internal
 {
     /// <summary>
     /// Internal class. Use HubUnitTestsBase or HubUnitTestsWithEF 
