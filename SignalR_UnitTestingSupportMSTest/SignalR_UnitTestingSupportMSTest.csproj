@@ -15,7 +15,7 @@
 
     <RepositoryUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</RepositoryUrl>
 
-    <PackageTags>SignalR SignalRCore SignalRUnitTest SignalRCoreUnitTest SignalRUnitTesting SignalRCoreUnitTesting SignalRUnitTests SignalRCoreUnitTests Unit Test Tests Testing NUnit SignalRUnitTestingSupport SignalRCoreUnitTestingSupport AspNetCore AspNetCore.SignalR aspnetcore "AspNetCore SignalR Unit Test"  "AspNetCore SignalR Unit Tests"  "AspNetCore SignalR Unit Testing"</PackageTags>
+    <PackageTags>SignalR SignalRCore SignalRUnitTest SignalRCoreUnitTest SignalRUnitTesting SignalRCoreUnitTesting SignalRUnitTests SignalRCoreUnitTests Unit Test Tests Testing MSTest SignalRUnitTestingSupport SignalRCoreUnitTestingSupport AspNetCore AspNetCore.SignalR aspnetcore "AspNetCore SignalR Unit Test"  "AspNetCore SignalR Unit Tests"  "AspNetCore SignalR Unit Testing"</PackageTags>
 
     <PackageReleaseNotes>Easy to use, small, SignalR Core unit testing support with MSTest and Moq. For Nunit or xUnit version see my github.</PackageReleaseNotes>
 
