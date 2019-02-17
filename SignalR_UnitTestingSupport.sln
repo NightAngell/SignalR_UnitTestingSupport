@@ -13,6 +13,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR_UnitTestingSupportX
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestsWithUnitTestingSupportXUnit", "TestsWithUnitTestingSupportXUnit\TestsWithUnitTestingSupportXUnit.csproj", "{E04CBB5A-6DC5-4F71-80C7-2518ECC66D93}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR_UnitTestingSupportMSTest", "SignalR_UnitTestingSupportMSTest\SignalR_UnitTestingSupportMSTest.csproj", "{0341E23C-2738-4B90-9323-712881C8FBE7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestsWithUnitTestingSupportMSTest", "TestsWithUnitTestingSupportMSTest\TestsWithUnitTestingSupportMSTest.csproj", "{6D0D8B58-A282-4FA3-B5C7-ED2413448098}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{E04CBB5A-6DC5-4F71-80C7-2518ECC66D93}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E04CBB5A-6DC5-4F71-80C7-2518ECC66D93}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E04CBB5A-6DC5-4F71-80C7-2518ECC66D93}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0341E23C-2738-4B90-9323-712881C8FBE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0341E23C-2738-4B90-9323-712881C8FBE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0341E23C-2738-4B90-9323-712881C8FBE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0341E23C-2738-4B90-9323-712881C8FBE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D0D8B58-A282-4FA3-B5C7-ED2413448098}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D0D8B58-A282-4FA3-B5C7-ED2413448098}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D0D8B58-A282-4FA3-B5C7-ED2413448098}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D0D8B58-A282-4FA3-B5C7-ED2413448098}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
