@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Moq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SignalR_UnitTestingSupport.Hubs.Internal;
+using SignalR_UnitTestingSupportMSTest.Hubs.Internal;
 using System;
 using System.Collections.Generic;
 
-namespace SignalR_UnitTestingSupport.Hubs
+namespace SignalR_UnitTestingSupportMSTest.Hubs
 {
     public abstract class HubUnitTestsBase : HubUnitTestsBaseCommon
     {

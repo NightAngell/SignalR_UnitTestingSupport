@@ -3,7 +3,7 @@ using ExampleSignalRCoreProject.Hubs;
 using Microsoft.AspNetCore.SignalR;
 using Moq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SignalR_UnitTestingSupport.Hubs;
+using SignalR_UnitTestingSupportMSTest.Hubs;
 using System;
 using System.Threading;
 using System.Threading.Tasks;

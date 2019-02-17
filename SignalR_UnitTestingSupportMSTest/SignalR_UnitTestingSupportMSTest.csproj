@@ -15,19 +15,19 @@
 
     <RepositoryUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</RepositoryUrl>
 
-    <PackageTags>SignalR SignalRCore SignalRUnitTest SignalRCoreUnitTest SignalRUnitTesting SignalRCoreUnitTesting SignalRUnitTests SignalRCoreUnitTests Unit Test Tests Testing NUnit SignalRUnitTestingSupport SignalRCoreUnitTestingSupport AspNetCore AspNetCore.SignalR aspnetcore "AspNetCore SignalR Unit Test"  "AspNetCore SignalR Unit Tests"  "AspNetCore SignalR Unit Testing"</PackageTags>
+    <PackageTags>SignalR SignalRCore SignalRUnitTest SignalRCoreUnitTest SignalRUnitTesting SignalRCoreUnitTesting SignalRUnitTests SignalRCoreUnitTests Unit Test Tests Testing MSTest SignalRUnitTestingSupport SignalRCoreUnitTestingSupport AspNetCore AspNetCore.SignalR aspnetcore "AspNetCore SignalR Unit Test"  "AspNetCore SignalR Unit Tests"  "AspNetCore SignalR Unit Testing"</PackageTags>
 
-    <PackageReleaseNotes>Easy to use, small, SignalR Core unit testing support with NUnit and Moq.</PackageReleaseNotes>
+    <PackageReleaseNotes>Easy to use, small, SignalR Core unit testing support with MSTest and Moq. For Nunit or xUnit version see my github.</PackageReleaseNotes>
 
-    <PackageId>SignalR.UnitTestingSupport.NUnit</PackageId>
+    <PackageId>SignalR.UnitTestingSupport.MSTest</PackageId>
 
     <Authors>Mateusz Soboń (NightAngell)</Authors>
 
     <Company />
 
-    <Product>SignalRCore_UnitTestingSupport</Product>
+    <Product>SignalRCore_UnitTestingSupportMSTest</Product>
 
-    <Description>Easy to use, small, SignalR Core unit testing support with NUnit and Moq.</Description>
+    <Description>Easy to use, small, SignalR Core unit testing support with MSTest and Moq. For Nunit or xUnit version see my github.</Description>
 
     <ApplicationIcon />
 
@@ -37,11 +37,11 @@
 
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 
-    <Version>1.0.1</Version>
+    <Version>1.0.0</Version>
 
-    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
 
-    <FileVersion>1.0.0.1</FileVersion>
+    <FileVersion>1.0.0.0</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>
