@@ -30,7 +30,7 @@ Install ```NUnit3TestAdapter``` nuget for visual studio testing with NUnit in vi
 
 Install ```xunit.runner.visualstudio``` nuget for visual studio testing with xUnit. https://www.nuget.org/packages/xunit.runner.visualstudio/
 
-Install ```MSTest.TestAdapter``` nuget for visual studio testing with MSTest. 
+Install ```MSTest.TestAdapter``` nuget for visual studio testing with MSTest.              
 https://www.nuget.org/packages/MSTest.TestAdapter/
 
 # How to use
