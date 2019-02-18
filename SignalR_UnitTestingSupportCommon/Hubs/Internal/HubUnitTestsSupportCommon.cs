@@ -7,10 +7,9 @@ using System.Threading;
 namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
 {
     /// <summary>
-    /// Internal class. Use HubUnitTestsBase or HubUnitTestsWithEF 
-    /// (both provided as generic and non generic)
+    /// Internal class which provide common part for all unit testing support classes.
     /// </summary>
-    public abstract class HubUnitTestsBaseCommon
+    public abstract class HubUnitTestsSupportCommon
     {
         public Dictionary<object, object> ItemsFake { get; internal set; }
         public Mock<HubCallerContext> ContextMock { get; internal set; }

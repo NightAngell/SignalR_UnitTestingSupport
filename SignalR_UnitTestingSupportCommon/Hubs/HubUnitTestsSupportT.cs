@@ -1,13 +1,14 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Moq;
-using NUnit.Framework;
-using SignalR_UnitTestingSupport.Hubs.Internal;
+using SignalR_UnitTestingSupportCommon.Hubs.Internal;
 using System;
 using System.Collections.Generic;
+using System.Text;
 
-namespace SignalR_UnitTestingSupport.Hubs
+namespace SignalR_UnitTestingSupportCommon.Hubs
 {
-    public class HubUnitTestsBase<TIHubResponses> : HubUnitTestsBaseCommon where TIHubResponses : class
+    public class HubUnitTestsSupport<TIHubResponses> : HubUnitTestsSupportCommon
+        where TIHubResponses : class
     {
         public Mock<IHubCallerClients<TIHubResponses>> ClientsMock { get; private set; }
 
@@ -24,12 +25,11 @@ namespace SignalR_UnitTestingSupport.Hubs
         public Mock<TIHubResponses> ClientsUserMock { get; private set; }
         public Mock<TIHubResponses> ClientsUsersMock { get; private set; }
 
-        [SetUp]
-        public void BaseSetUp()
+        public void SetUp()
         {
             _setUpContext();
             _setUpGroups();
-            _setUpClients();            
+            _setUpClients();
         }
 
         internal override void SetUpClients()
