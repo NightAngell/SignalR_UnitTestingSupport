@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Moq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using SignalR_UnitTestingSupportMSTest.Services;
+using SignalR_UnitTestingSupportCommon.Services;
 
 namespace SignalR_UnitTestingSupportMSTest.Hubs
 {
@@ -48,8 +48,9 @@ namespace SignalR_UnitTestingSupportMSTest.Hubs
         }
 
         /// <summary>
-        /// NUnit SetUp for HubUnitTestsWithEf`. Only NUnit should call this method.
+        /// Only MSTest Should Call it. Do not call it directly.
         /// </summary>
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         [TestInitialize]
         public void EfSetUp()
         {
@@ -57,8 +58,9 @@ namespace SignalR_UnitTestingSupportMSTest.Hubs
         }
 
         /// <summary>
-        /// NUnit TearDown for HubUnitTestsWithEf`. Only NUnit should call this method.
+        /// Only MSTest Should Call it. Do not call it directly.
         /// </summary>
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         [TestCleanup]
         public void TearDownEFContexts()
         {

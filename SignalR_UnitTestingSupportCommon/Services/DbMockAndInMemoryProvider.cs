@@ -5,9 +5,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace SignalR_UnitTestingSupport.Services
+namespace SignalR_UnitTestingSupportCommon.Services
 {
-    internal class DbMockAndInMemoryProvider<TDbContext> where TDbContext : DbContext
+    public class DbMockAndInMemoryProvider<TDbContext> where TDbContext : DbContext
     {
         private Lazy<Mock<TDbContext>> _dbContextMockLazy;
         private Lazy<TDbContext> _dbInMemorySqliteLazy;

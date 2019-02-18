@@ -1,22 +1,33 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Moq;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SignalR_UnitTestingSupportCommon.Exceptions;
+using SignalR_UnitTestingSupportCommon.Interfaces;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace SignalR_UnitTestingSupportMSTest.Hubs.Internal
+namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
 {
     /// <summary>
-    /// Internal class. Use HubUnitTestsBase or HubUnitTestsWithEF 
-    /// (both provided as generic and non generic)
+    /// Internal class which provide common part for all unit testing support classes.
     /// </summary>
-    public abstract class HubUnitTestsBaseCommon
+    public abstract class HubUnitTestsBaseCommon : IHubUnitTestsBaseCommon
     {
         public Dictionary<object, object> ItemsFake { get; internal set; }
         public Mock<HubCallerContext> ContextMock { get; internal set; }
         public Mock<IGroupManager> GroupsMock { get; internal set; }
 
-        internal void _setUpContext()
+        /// <summary>
+        /// Only for internal base classes implementation. Do not use it in tests directly.
+        /// </summary>
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public virtual void SetUp()
+        {
+            _setUpContext();
+            _setUpGroups();
+            _setUpClients();
+        }
+
+        private void _setUpContext()
         {
             ContextMock = new Mock<HubCallerContext>();
             ItemsFake = new Dictionary<object, object>();
@@ -26,12 +37,12 @@ namespace SignalR_UnitTestingSupportMSTest.Hubs.Internal
             ContextMock.Setup(x => x.ConnectionId).Returns(connId);
         }
 
-        internal void _setUpGroups()
+        private void _setUpGroups()
         {
             GroupsMock = new Mock<IGroupManager>();
         }
 
-        internal void _setUpClients()
+        private void _setUpClients()
         {
             SetUpClients();
             SetUpClientsAll();
@@ -48,19 +59,19 @@ namespace SignalR_UnitTestingSupportMSTest.Hubs.Internal
             SetUpClientsUsers();
         }
 
-        internal abstract void SetUpClients();
-        internal abstract void SetUpClientsAll();
-        internal abstract void SetUpClientsAllExcept();
-        internal abstract void SetUpClientsCaller();
-        internal abstract void SetUpClientsClient();
-        internal abstract void SetUpClientsClients();
-        internal abstract void SetUpClientsGroup();
-        internal abstract void SetUpClientsGroupExcept();
-        internal abstract void SetUpClientsGroups();
-        internal abstract void SetUpClientsOthersMock();
-        internal abstract void SetUpClientsOthersInGroup();
-        internal abstract void SetUpClientsUser();
         internal abstract void SetUpClientsUsers();
+        internal abstract void SetUpClientsUser();
+        internal abstract void SetUpClientsOthersInGroup();
+        internal abstract void SetUpClientsOthersMock();
+        internal abstract void SetUpClientsGroups();
+        internal abstract void SetUpClientsGroupExcept();
+        internal abstract void SetUpClientsGroup();
+        internal abstract void SetUpClientsClients();
+        internal abstract void SetUpClientsClient();
+        internal abstract void SetUpClientsCaller();
+        internal abstract void SetUpClientsAllExcept();
+        internal abstract void SetUpClientsAll();
+        internal abstract void SetUpClients();
 
         public void VerifySomebodyAddedToGroup(Times times)
         {
@@ -152,16 +163,38 @@ namespace SignalR_UnitTestingSupportMSTest.Hubs.Internal
 
         public void VerifyContextItemsContainKeyValuePair(object key, object value)
         {
+            bool shouldThrowException = false;
+            string exceptionMessage = $"Context items don`t contain that key-value pair: {key}-{value}. ";
+
             try
             {
-                Assert.IsTrue(ItemsFake.ContainsKey(key));
-                Assert.IsTrue(ItemsFake.ContainsValue(value));
+                if (!ItemsFake.ContainsValue(value))
+                {
+                    shouldThrowException = true;
+                    exceptionMessage = $"It don`t contain that value";
+                }
+                else
+                {
+                    exceptionMessage = $"It contain that value";
+                }
+
+                if (!ItemsFake.ContainsKey(key))
+                {
+                    shouldThrowException = true;
+                    exceptionMessage = $" and It don`t contain that key";
+                }
+                else
+                {
+                    exceptionMessage = $" and It contain that key";
+                }
             }
-            catch (AssertFailedException)
+            catch (System.ArgumentNullException)
             {
-                throw new AssertFailedException($"Context items don`t contain that key-value pair: {key}-{value}");
+                exceptionMessage = $" and key is null";
+                throw new NegativeTestResultException($"{exceptionMessage}");
             }
 
+            if (shouldThrowException) throw new NegativeTestResultException($"{exceptionMessage}");
         }
     }
 }
