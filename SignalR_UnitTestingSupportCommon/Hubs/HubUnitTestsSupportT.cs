@@ -25,7 +25,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
         public Mock<TIHubResponses> ClientsUserMock { get; private set; }
         public Mock<TIHubResponses> ClientsUsersMock { get; private set; }
 
-        public void SetUp()
+        public virtual void SetUp()
         {
             _setUpContext();
             _setUpGroups();

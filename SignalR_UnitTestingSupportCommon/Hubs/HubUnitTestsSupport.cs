@@ -24,7 +24,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
         public Mock<IClientProxy> ClientsUserMock { get; private set; }
         public Mock<IClientProxy> ClientsUsersMock { get; private set; }
 
-        public void SetUp()
+        public virtual void SetUp()
         {
             _setUpContext();
             _setUpGroups();
