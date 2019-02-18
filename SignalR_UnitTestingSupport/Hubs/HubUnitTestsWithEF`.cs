@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Moq;
 using NUnit.Framework;
+using SignalR_UnitTestingSupportCommon.Interfaces;
 using SignalR_UnitTestingSupportCommon.Services;
 
 namespace SignalR_UnitTestingSupport.Hubs
@@ -9,7 +10,7 @@ namespace SignalR_UnitTestingSupport.Hubs
     /// Hub unit tests base with Entity Framework Core
     /// </summary>
     public abstract class HubUnitTestsWithEF<TIHubResponses, TDbContext>
-        : HubUnitTestsBase<TIHubResponses>
+        : HubUnitTestsBase<TIHubResponses>, IHubUnitTestsWithEF<TDbContext>
         where TIHubResponses : class
         where TDbContext : DbContext
     {
@@ -50,8 +51,9 @@ namespace SignalR_UnitTestingSupport.Hubs
         }
 
         /// <summary>
-        /// NUnit SetUp for HubUnitTestsWithEf`. Only NUnit should call this method.
+        /// Only NUnit Should Call it. Do not call it directly.
         /// </summary>
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         [SetUp]
         public void EfSetUp()
         {
@@ -59,8 +61,9 @@ namespace SignalR_UnitTestingSupport.Hubs
         }
 
         /// <summary>
-        /// NUnit TearDown for HubUnitTestsWithEf`. Only NUnit should call this method.
+        /// Only NUnit Should Call it. Do not call it directly.
         /// </summary>
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         [TearDown]
         public void TearDownEFContexts()
         {

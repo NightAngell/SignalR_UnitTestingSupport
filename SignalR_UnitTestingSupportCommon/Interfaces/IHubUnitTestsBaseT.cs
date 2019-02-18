@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Moq;
 
-namespace SignalR_UnitTestingSupport.Hubs
+namespace SignalR_UnitTestingSupportCommon.Interfaces
 {
     /// <summary>
     /// To be sure we implement all features for testing pure Hub<T>
@@ -24,6 +24,5 @@ namespace SignalR_UnitTestingSupport.Hubs
         Mock<TIHubResponses> ClientsUsersMock { get; }
 
         void AssignToHubRequiredProperties(Hub<TIHubResponses> hub);
-        void BaseSetUp();
     }
 }

@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Moq;
 
-namespace SignalR_UnitTestingSupport.Hubs
+namespace SignalR_UnitTestingSupportCommon.Interfaces
 {
     /// <summary>
     /// To be sure we implement all features for testing pure Hub (or Hub<T>) plus entity framework core

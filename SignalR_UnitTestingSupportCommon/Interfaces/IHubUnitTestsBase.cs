@@ -23,6 +23,5 @@ namespace SignalR_UnitTestingSupportCommon.Interfaces
         Mock<IClientProxy> ClientsUsersMock { get; }
 
         void AssignToHubRequiredProperties(Hub hub);
-        void HubUnitTestSupportSetUp();
     }
 }
