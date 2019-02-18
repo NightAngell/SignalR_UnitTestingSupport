@@ -1,136 +1,37 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Moq;
 using NUnit.Framework;
-using SignalR_UnitTestingSupport.Hubs.Internal;
+using SignalR_UnitTestingSupportCommon.Hubs;
+using SignalR_UnitTestingSupportCommon.Hubs.Internal;
+using SignalR_UnitTestingSupportCommon.Interfaces;
 using System;
 using System.Collections.Generic;
 
 namespace SignalR_UnitTestingSupport.Hubs
 {
-    public class HubUnitTestsBase<TIHubResponses> : HubUnitTestsBaseCommon where TIHubResponses : class
+    public class HubUnitTestsBase<TIHubResponses> : HubUnitTestsBaseCommon , IHubUnitTestsBase<TIHubResponses>
+        where TIHubResponses : class
     {
-        public Mock<IHubCallerClients<TIHubResponses>> ClientsMock { get; private set; }
+        readonly HubUnitTestsSupport<TIHubResponses> _commonSupport = new HubUnitTestsSupport<TIHubResponses>();
+        public Mock<IHubCallerClients<TIHubResponses>> ClientsMock => _commonSupport.ClientsMock;
 
-        public Mock<TIHubResponses> ClientsAllMock { get; private set; }
-        public Mock<TIHubResponses> ClientsAllExceptMock { get; private set; }
-        public Mock<TIHubResponses> ClientsCallerMock { get; private set; }
-        public Mock<TIHubResponses> ClientsClientMock { get; private set; }
-        public Mock<TIHubResponses> ClientsClientsMock { get; private set; }
-        public Mock<TIHubResponses> ClientsGroupMock { get; private set; }
-        public Mock<TIHubResponses> ClientsGroupExceptMock { get; private set; }
-        public Mock<TIHubResponses> ClientsGroupsMock { get; private set; }
-        public Mock<TIHubResponses> ClientsOthersMock { get; private set; }
-        public Mock<TIHubResponses> ClientsOthersInGroupMock { get; private set; }
-        public Mock<TIHubResponses> ClientsUserMock { get; private set; }
-        public Mock<TIHubResponses> ClientsUsersMock { get; private set; }
+        public Mock<TIHubResponses> ClientsAllMock => _commonSupport.ClientsAllMock;
+        public Mock<TIHubResponses> ClientsAllExceptMock => _commonSupport.ClientsAllExceptMock;
+        public Mock<TIHubResponses> ClientsCallerMock => _commonSupport.ClientsCallerMock;
+        public Mock<TIHubResponses> ClientsClientMock => _commonSupport.ClientsCallerMock;
+        public Mock<TIHubResponses> ClientsClientsMock => _commonSupport.ClientsClientsMock;
+        public Mock<TIHubResponses> ClientsGroupMock => _commonSupport.ClientsGroupMock;
+        public Mock<TIHubResponses> ClientsGroupExceptMock => _commonSupport.ClientsGroupExceptMock;
+        public Mock<TIHubResponses> ClientsGroupsMock => _commonSupport.ClientsGroupsMock;
+        public Mock<TIHubResponses> ClientsOthersMock => _commonSupport.ClientsOthersMock;
+        public Mock<TIHubResponses> ClientsOthersInGroupMock => _commonSupport.ClientsOthersInGroupMock;
+        public Mock<TIHubResponses> ClientsUserMock => _commonSupport.ClientsUserMock;
+        public Mock<TIHubResponses> ClientsUsersMock => _commonSupport.ClientsUsersMock;
 
         [SetUp]
         public void BaseSetUp()
         {
-            _setUpContext();
-            _setUpGroups();
-            _setUpClients();            
-        }
-
-        internal override void SetUpClients()
-        {
-            ClientsMock = new Mock<IHubCallerClients<TIHubResponses>>();
-        }
-
-        internal override void SetUpClientsUsers()
-        {
-            ClientsUsersMock = new Mock<TIHubResponses>();
-            ClientsMock
-                .Setup(x => x.Users(It.IsAny<IReadOnlyList<string>>()))
-                .Returns(ClientsUsersMock.Object);
-        }
-
-        internal override void SetUpClientsUser()
-        {
-            ClientsUserMock = new Mock<TIHubResponses>();
-            ClientsMock
-                .Setup(x => x.User(It.IsAny<string>()))
-                .Returns(ClientsUserMock.Object);
-        }
-
-        internal override void SetUpClientsOthersInGroup()
-        {
-            ClientsOthersInGroupMock = new Mock<TIHubResponses>();
-            ClientsMock
-                .Setup(x => x.OthersInGroup(It.IsAny<string>()))
-                .Returns(ClientsOthersInGroupMock.Object);
-        }
-
-        internal override void SetUpClientsOthersMock()
-        {
-            ClientsOthersMock = new Mock<TIHubResponses>();
-            ClientsMock
-                .Setup(x => x.Others)
-                .Returns(ClientsOthersMock.Object);
-        }
-
-        internal override void SetUpClientsGroups()
-        {
-            ClientsGroupsMock = new Mock<TIHubResponses>();
-            ClientsMock
-                .Setup(x => x.Groups(It.IsAny<IReadOnlyList<string>>()))
-                .Returns(ClientsGroupsMock.Object);
-        }
-
-        internal override void SetUpClientsGroupExcept()
-        {
-            ClientsGroupExceptMock = new Mock<TIHubResponses>();
-            ClientsMock
-                .Setup(x => x.GroupExcept(It.IsAny<string>(), It.IsAny<IReadOnlyList<string>>()))
-                .Returns(ClientsGroupExceptMock.Object);
-        }
-
-        internal override void SetUpClientsGroup()
-        {
-            ClientsGroupMock = new Mock<TIHubResponses>();
-            ClientsMock
-                .Setup(x => x.Group(It.IsAny<string>()))
-                .Returns(ClientsGroupMock.Object);
-        }
-
-        internal override void SetUpClientsClients()
-        {
-            ClientsClientsMock = new Mock<TIHubResponses>();
-            ClientsMock
-                .Setup(x => x.Clients(It.IsAny<IReadOnlyList<string>>()))
-                .Returns(ClientsClientsMock.Object);
-        }
-
-        internal override void SetUpClientsClient()
-        {
-            ClientsClientMock = new Mock<TIHubResponses>();
-            ClientsMock
-                .Setup(x => x.Client(It.IsAny<string>()))
-                .Returns(ClientsClientMock.Object);
-        }
-
-        internal override void SetUpClientsCaller()
-        {
-            ClientsCallerMock = new Mock<TIHubResponses>();
-            ClientsMock
-                .Setup(x => x.Caller)
-                .Returns(ClientsCallerMock.Object);
-        }
-
-        internal override void SetUpClientsAllExcept()
-        {
-            ClientsAllExceptMock = new Mock<TIHubResponses>();
-            ClientsMock
-                .Setup(x => x.AllExcept(It.IsAny<IReadOnlyList<string>>()))
-                .Returns(ClientsAllExceptMock.Object);
-        }
-
-        internal override void SetUpClientsAll()
-        {
-            ClientsAllMock = new Mock<TIHubResponses>();
-            ClientsMock
-                .Setup(x => x.All)
-                .Returns(ClientsAllMock.Object);
+            _commonSupport.SetUp();        
         }
 
         /// <summary>

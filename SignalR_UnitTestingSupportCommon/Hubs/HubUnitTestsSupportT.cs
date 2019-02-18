@@ -7,7 +7,7 @@ using System.Text;
 
 namespace SignalR_UnitTestingSupportCommon.Hubs
 {
-    public class HubUnitTestsSupport<TIHubResponses> : HubUnitTestsSupportCommon
+    public class HubUnitTestsSupport<TIHubResponses> : HubUnitTestsBaseCommon
         where TIHubResponses : class
     {
         public Mock<IHubCallerClients<TIHubResponses>> ClientsMock { get; private set; }
@@ -25,19 +25,29 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
         public Mock<TIHubResponses> ClientsUserMock { get; private set; }
         public Mock<TIHubResponses> ClientsUsersMock { get; private set; }
 
-        public virtual void SetUp()
+        internal override void _setUpClients()
         {
-            _setUpContext();
-            _setUpGroups();
-            _setUpClients();
+            SetUpClients();
+            SetUpClientsAll();
+            SetUpClientsAllExcept();
+            SetUpClientsCaller();
+            SetUpClientsClient();
+            SetUpClientsClients();
+            SetUpClientsGroup();
+            SetUpClientsGroupExcept();
+            SetUpClientsGroups();
+            SetUpClientsOthersMock();
+            SetUpClientsOthersInGroup();
+            SetUpClientsUser();
+            SetUpClientsUsers();
         }
 
-        internal override void SetUpClients()
+        internal void SetUpClients()
         {
             ClientsMock = new Mock<IHubCallerClients<TIHubResponses>>();
         }
 
-        internal override void SetUpClientsUsers()
+        internal  void SetUpClientsUsers()
         {
             ClientsUsersMock = new Mock<TIHubResponses>();
             ClientsMock
@@ -45,7 +55,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
                 .Returns(ClientsUsersMock.Object);
         }
 
-        internal override void SetUpClientsUser()
+        internal  void SetUpClientsUser()
         {
             ClientsUserMock = new Mock<TIHubResponses>();
             ClientsMock
@@ -53,7 +63,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
                 .Returns(ClientsUserMock.Object);
         }
 
-        internal override void SetUpClientsOthersInGroup()
+        internal  void SetUpClientsOthersInGroup()
         {
             ClientsOthersInGroupMock = new Mock<TIHubResponses>();
             ClientsMock
@@ -61,7 +71,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
                 .Returns(ClientsOthersInGroupMock.Object);
         }
 
-        internal override void SetUpClientsOthersMock()
+        internal  void SetUpClientsOthersMock()
         {
             ClientsOthersMock = new Mock<TIHubResponses>();
             ClientsMock
@@ -69,7 +79,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
                 .Returns(ClientsOthersMock.Object);
         }
 
-        internal override void SetUpClientsGroups()
+        internal  void SetUpClientsGroups()
         {
             ClientsGroupsMock = new Mock<TIHubResponses>();
             ClientsMock
@@ -77,7 +87,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
                 .Returns(ClientsGroupsMock.Object);
         }
 
-        internal override void SetUpClientsGroupExcept()
+        internal  void SetUpClientsGroupExcept()
         {
             ClientsGroupExceptMock = new Mock<TIHubResponses>();
             ClientsMock
@@ -85,7 +95,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
                 .Returns(ClientsGroupExceptMock.Object);
         }
 
-        internal override void SetUpClientsGroup()
+        internal  void SetUpClientsGroup()
         {
             ClientsGroupMock = new Mock<TIHubResponses>();
             ClientsMock
@@ -93,7 +103,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
                 .Returns(ClientsGroupMock.Object);
         }
 
-        internal override void SetUpClientsClients()
+        internal  void SetUpClientsClients()
         {
             ClientsClientsMock = new Mock<TIHubResponses>();
             ClientsMock
@@ -101,7 +111,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
                 .Returns(ClientsClientsMock.Object);
         }
 
-        internal override void SetUpClientsClient()
+        internal  void SetUpClientsClient()
         {
             ClientsClientMock = new Mock<TIHubResponses>();
             ClientsMock
@@ -109,7 +119,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
                 .Returns(ClientsClientMock.Object);
         }
 
-        internal override void SetUpClientsCaller()
+        internal  void SetUpClientsCaller()
         {
             ClientsCallerMock = new Mock<TIHubResponses>();
             ClientsMock
@@ -117,7 +127,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
                 .Returns(ClientsCallerMock.Object);
         }
 
-        internal override void SetUpClientsAllExcept()
+        internal  void SetUpClientsAllExcept()
         {
             ClientsAllExceptMock = new Mock<TIHubResponses>();
             ClientsMock
@@ -125,7 +135,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
                 .Returns(ClientsAllExceptMock.Object);
         }
 
-        internal override void SetUpClientsAll()
+        internal  void SetUpClientsAll()
         {
             ClientsAllMock = new Mock<TIHubResponses>();
             ClientsMock

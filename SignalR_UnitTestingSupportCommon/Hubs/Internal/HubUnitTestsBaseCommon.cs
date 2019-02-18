@@ -9,13 +9,20 @@ namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
     /// <summary>
     /// Internal class which provide common part for all unit testing support classes.
     /// </summary>
-    public abstract class HubUnitTestsSupportCommon
+    public abstract class HubUnitTestsBaseCommon
     {
         public Dictionary<object, object> ItemsFake { get; internal set; }
         public Mock<HubCallerContext> ContextMock { get; internal set; }
         public Mock<IGroupManager> GroupsMock { get; internal set; }
 
-        internal void _setUpContext()
+        public virtual void SetUp()
+        {
+            _setUpContext();
+            _setUpGroups();
+            _setUpClients();
+        }
+
+        private void _setUpContext()
         {
             ContextMock = new Mock<HubCallerContext>();
             ItemsFake = new Dictionary<object, object>();
@@ -25,41 +32,12 @@ namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
             ContextMock.Setup(x => x.ConnectionId).Returns(connId);
         }
 
-        internal void _setUpGroups()
+        private void _setUpGroups()
         {
             GroupsMock = new Mock<IGroupManager>();
         }
 
-        internal void _setUpClients()
-        {
-            SetUpClients();
-            SetUpClientsAll();
-            SetUpClientsAllExcept();
-            SetUpClientsCaller();
-            SetUpClientsClient();
-            SetUpClientsClients();
-            SetUpClientsGroup();
-            SetUpClientsGroupExcept();
-            SetUpClientsGroups();
-            SetUpClientsOthersMock();
-            SetUpClientsOthersInGroup();
-            SetUpClientsUser();
-            SetUpClientsUsers();
-        }
-
-        internal abstract void SetUpClients();
-        internal abstract void SetUpClientsAll();
-        internal abstract void SetUpClientsAllExcept();
-        internal abstract void SetUpClientsCaller();
-        internal abstract void SetUpClientsClient();
-        internal abstract void SetUpClientsClients();
-        internal abstract void SetUpClientsGroup();
-        internal abstract void SetUpClientsGroupExcept();
-        internal abstract void SetUpClientsGroups();
-        internal abstract void SetUpClientsOthersMock();
-        internal abstract void SetUpClientsOthersInGroup();
-        internal abstract void SetUpClientsUser();
-        internal abstract void SetUpClientsUsers();
+        internal abstract void _setUpClients();
 
         public void VerifySomebodyAddedToGroup(Times times)
         {
