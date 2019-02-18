@@ -2,6 +2,20 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <PackageReleaseNotes>Common code for all SignalR.UnitTestingSupport.* . Use it directly only if you want implement unit testing support for custom testing engine.</PackageReleaseNotes>
+    <Authors>Mateusz Soboń (NightAngell)</Authors>
+    <Company />
+    <Description>Common code for all SignalR.UnitTestingSupport.* . Use it directly only if you want implement unit testing support for custom testing engine.</Description>
+    <Copyright>MIT License</Copyright>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</RepositoryUrl>
+    <PackageTags>UnitTestingSupport UnitTestSupport UnitTestsSupport Unit Test, UnitTesting UnitTest UnitTests SignalR.UnitTestingSupport AspNetCore</PackageTags>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\Mateusz Sobo\Desktop\UnitTestingSupport\SignalR_UnitTestingSupport\SignalR_UnitTestingSupportCommon\SignalR_UnitTestingSupportCommon.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

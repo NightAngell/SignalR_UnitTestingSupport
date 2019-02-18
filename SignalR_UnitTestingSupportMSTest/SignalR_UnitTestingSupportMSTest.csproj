@@ -17,7 +17,8 @@
 
     <PackageTags>SignalR SignalRCore SignalRUnitTest SignalRCoreUnitTest SignalRUnitTesting SignalRCoreUnitTesting SignalRUnitTests SignalRCoreUnitTests Unit Test Tests Testing MSTest SignalRUnitTestingSupport SignalRCoreUnitTestingSupport AspNetCore AspNetCore.SignalR aspnetcore "AspNetCore SignalR Unit Test"  "AspNetCore SignalR Unit Tests"  "AspNetCore SignalR Unit Testing"</PackageTags>
 
-    <PackageReleaseNotes>Easy to use, small, SignalR Core unit testing support with MSTest and Moq. For Nunit or xUnit version see my github.</PackageReleaseNotes>
+    <PackageReleaseNotes>Easy to use, small, SignalR Core unit testing support with MSTest and Moq. For Nunit or xUnit version see my github.
+*Separate common code</PackageReleaseNotes>
 
     <PackageId>SignalR.UnitTestingSupport.MSTest</PackageId>
 
@@ -42,6 +43,10 @@
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
 
     <FileVersion>1.0.0.0</FileVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\Users\Mateusz Sobo\Desktop\UnitTestingSupport\SignalR_UnitTestingSupport\SignalR_UnitTestingSupportMSTest\SignalR_UnitTestingSupportMSTest.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
