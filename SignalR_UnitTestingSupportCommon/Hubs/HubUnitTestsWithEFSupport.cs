@@ -9,7 +9,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
     /// Base class which provide support for testing hub with EntityFramework Core (But without auto SetUp by any test engine)
     /// </summary>
     /// <typeparam name="TDbContext">DbContext child or DbContext itself</typeparam>
-    public abstract class HubUnitTestsWithEFSupport<TDbContext> : HubUnitTestsSupport, IHubUnitTestsWithEF<TDbContext>
+    public class HubUnitTestsWithEFSupport<TDbContext> : HubUnitTestsSupport, IHubUnitTestsWithEF<TDbContext>
         where TDbContext : DbContext
     {
         DbMockAndInMemoryProvider<TDbContext> _dbProvider = new DbMockAndInMemoryProvider<TDbContext>();
