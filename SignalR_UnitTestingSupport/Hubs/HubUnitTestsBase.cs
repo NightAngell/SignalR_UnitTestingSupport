@@ -3,6 +3,9 @@ using SignalR_UnitTestingSupportCommon.Hubs;
 
 namespace SignalR_UnitTestingSupport.Hubs
 {
+    /// <summary>
+    /// Base class which provide support for Hub testing.
+    /// </summary>
     public abstract class HubUnitTestsBase : HubUnitTestsSupport
     {
         /// <summary>

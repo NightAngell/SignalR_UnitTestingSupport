@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SignalR_UnitTestingSupportXUnit</name>
+    </assembly>
+    <members>
+        <member name="T:SignalR_UnitTestingSupportXUnit.Hubs.HubUnitTestsWithEF`1">
+            <summary>
+            Hub unit tests base with Entity Framework Core
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportXUnit.Hubs.HubUnitTestsWithEF`1.DbContextMock">
+            <summary>
+            By default, pure TDbContext mock, without any setup.
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportXUnit.Hubs.HubUnitTestsWithEF`1.DbInMemorySqlite">
+            <summary>
+            Relational database in memory
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportXUnit.Hubs.HubUnitTestsWithEF`1.DbInMemory">
+            <summary>
+            Database in memory (not really relational)
+            <para>For more info: https://docs.microsoft.com/pl-pl/ef/core/miscellaneous/testing/in-memory </para>
+            </summary>
+        </member>
+        <member name="T:SignalR_UnitTestingSupportXUnit.Hubs.HubUnitTestsWithEF`2">
+            <summary>
+            Hub unit tests base with Entity Framework Core
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportXUnit.Hubs.HubUnitTestsWithEF`2.DbContextMock">
+            <summary>
+            By default, pure TDbContext mock, without any setup.
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportXUnit.Hubs.HubUnitTestsWithEF`2.DbInMemorySqlite">
+            <summary>
+            Relational database in memory
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportXUnit.Hubs.HubUnitTestsWithEF`2.DbInMemory">
+            <summary>
+            Database in memory (not really relational)
+            <para>For more info: https://docs.microsoft.com/pl-pl/ef/core/miscellaneous/testing/in-memory </para>
+            </summary>
+        </member>
+    </members>
+</doc>

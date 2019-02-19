@@ -4,25 +4,78 @@ using SignalR_UnitTestingSupportCommon.Hubs.Internal;
 using SignalR_UnitTestingSupportCommon.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SignalR_UnitTestingSupportCommon.Hubs
 {
-    public abstract class HubUnitTestsSupport : HubUnitTestsBaseCommon, IHubUnitTestsBase
+    /// <summary>
+    /// Base class which provide support for testing hub (But without auto SetUp by any test engine).
+    /// <para>If you cannot use it as base class use it as normal object (but remember to call SetUp after you create new instance)</para>
+    /// </summary>
+    public class HubUnitTestsSupport : HubUnitTestsBaseCommon, IHubUnitTestsBase
     {
+        /// <summary>
+        /// Mock for Hub.Clients
+        /// </summary>
         public Mock<IHubCallerClients> ClientsMock { get; private set; }
 
+        /// <summary>
+        /// Mock for Hub.Clients.All
+        /// </summary>
         public Mock<IClientProxy> ClientsAllMock { get; private set; }
+
+        /// <summary>
+        /// Mock which is returned when Hub.Clients.AllExcept() is called
+        /// </summary>
         public Mock<IClientProxy> ClientsAllExceptMock { get; private set; }
+
+        /// <summary>
+        /// Mock for Hub.Clients.Caller
+        /// </summary>
         public Mock<IClientProxy> ClientsCallerMock { get; private set; }
+
+        /// <summary>
+        /// Mock which is returned when Hub.Clients.Client() is called
+        /// </summary>
         public Mock<IClientProxy> ClientsClientMock { get; private set; }
+
+        /// <summary>
+        /// Mock which is returned when Hub.Clients.Clients() is called
+        /// </summary>
         public Mock<IClientProxy> ClientsClientsMock { get; private set; }
+
+        /// <summary>
+        /// Mock which is returned when Hub.Clients.Group() is called
+        /// </summary>
         public Mock<IClientProxy> ClientsGroupMock { get; private set; }
+
+        /// <summary>
+        /// Mock which is returned when Hub.Clients.GroupExcept() is called
+        /// </summary>
         public Mock<IClientProxy> ClientsGroupExceptMock { get; private set; }
+
+        /// <summary>
+        /// Mock which is returned when Hub.Clients.Groups() is called
+        /// </summary>
         public Mock<IClientProxy> ClientsGroupsMock { get; private set; }
+
+        /// <summary>
+        /// Mock for Hub.Clients.Others
+        /// </summary>
         public Mock<IClientProxy> ClientsOthersMock { get; private set; }
+
+        /// <summary>
+        /// Mock which is returned when Hub.Clients.OthersInGroup() is called
+        /// </summary>
         public Mock<IClientProxy> ClientsOthersInGroupMock { get; private set; }
+
+        /// <summary>
+        /// Mock which is returned when Hub.Clients.User() is called
+        /// </summary>
         public Mock<IClientProxy> ClientsUserMock { get; private set; }
+
+        /// <summary>
+        /// Mock which is returned when Hub.Clients.Users() is called
+        /// </summary>
         public Mock<IClientProxy> ClientsUsersMock { get; private set; }
 
         /// <summary>

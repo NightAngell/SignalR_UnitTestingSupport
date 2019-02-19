@@ -7,22 +7,75 @@ using System.Collections.Generic;
 
 namespace SignalR_UnitTestingSupportCommon.Hubs
 {
+    /// <summary>
+    /// Base class which provide support for testing hub&lt;TIHubResponses&gt; (But without auto SetUp by any test engine)
+    /// </summary>
     public abstract class HubUnitTestsSupport<TIHubResponses> : HubUnitTestsBaseCommon, IHubUnitTestsBase<TIHubResponses>
         where TIHubResponses : class
     {
+        /// <summary>
+        /// Mock for Hub.Clients
+        /// </summary>
         public Mock<IHubCallerClients<TIHubResponses>> ClientsMock { get; private set; }
 
+        /// <summary>
+        /// Mock for Hub.Clients.All
+        /// </summary>
         public Mock<TIHubResponses> ClientsAllMock { get; private set; }
+
+        /// <summary>
+        /// Mock which is returned when Hub.Clients.AllExcept() is called
+        /// </summary>
         public Mock<TIHubResponses> ClientsAllExceptMock { get; private set; }
+
+        /// <summary>
+        /// Mock for Hub.Clients.Caller
+        /// </summary>
         public Mock<TIHubResponses> ClientsCallerMock { get; private set; }
+
+        /// <summary>
+        /// Mock which is returned when Hub.Clients.Client() is called
+        /// </summary>
         public Mock<TIHubResponses> ClientsClientMock { get; private set; }
+
+        /// <summary>
+        /// Mock which is returned when Hub.Clients.Clients() is called
+        /// </summary>
         public Mock<TIHubResponses> ClientsClientsMock { get; private set; }
+
+        /// <summary>
+        /// Mock which is returned when Hub.Clients.Group() is called
+        /// </summary>
         public Mock<TIHubResponses> ClientsGroupMock { get; private set; }
+
+        /// <summary>
+        /// Mock which is returned when Hub.Clients.GroupExcept() is called
+        /// </summary>
         public Mock<TIHubResponses> ClientsGroupExceptMock { get; private set; }
+
+        /// <summary>
+        /// Mock which is returned when Hub.Clients.Groups() is called
+        /// </summary>
         public Mock<TIHubResponses> ClientsGroupsMock { get; private set; }
+
+        /// <summary>
+        /// Mock for Hub.Clients.Others
+        /// </summary>
         public Mock<TIHubResponses> ClientsOthersMock { get; private set; }
+
+        /// <summary>
+        /// Mock which is returned when Hub.Clients.OthersInGroup() is called
+        /// </summary>
         public Mock<TIHubResponses> ClientsOthersInGroupMock { get; private set; }
+
+        /// <summary>
+        /// Mock which is returned when Hub.Clients.User() is called
+        /// </summary>
         public Mock<TIHubResponses> ClientsUserMock { get; private set; }
+
+        /// <summary>
+        /// Mock which is returned when Hub.Clients.Users() is called
+        /// </summary>
         public Mock<TIHubResponses> ClientsUsersMock { get; private set; }
 
         internal override void SetUpClients()

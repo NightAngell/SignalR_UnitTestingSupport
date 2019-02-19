@@ -15,6 +15,7 @@ namespace ExampleSignalRCoreProject.Hubs
 
         public async Task NotifyAllExceptAboutSomething()
         {
+            //Clients.use
             await Clients.AllExcept("").SendAsync("NotifyUserAboutSomething");
         }
 

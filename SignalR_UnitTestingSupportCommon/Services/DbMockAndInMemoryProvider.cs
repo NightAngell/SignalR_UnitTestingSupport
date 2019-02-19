@@ -2,17 +2,23 @@
 using Microsoft.EntityFrameworkCore;
 using Moq;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SignalR_UnitTestingSupportCommon.Services
 {
+    /// <summary>
+    /// Provide TDbContext mock, TDbContext InMemory and TDbContext Sqlite in memory.
+    /// <para>https://docs.microsoft.com/pl-pl/ef/core/miscellaneous/testing/in-memory</para>
+    /// <para>https://docs.microsoft.com/pl-pl/ef/core/miscellaneous/testing/sqlite</para>
+    /// </summary>
     public class DbMockAndInMemoryProvider<TDbContext> where TDbContext : DbContext
     {
         private Lazy<Mock<TDbContext>> _dbContextMockLazy;
         private Lazy<TDbContext> _dbInMemorySqliteLazy;
         private Lazy<TDbContext> _dbInMemoryInMemoryLazy;
 
+        /// <summary>
+        /// Lazy loaded mock which has not any setup by default.
+        /// </summary>
         public Mock<TDbContext> DbContextMock
         {
             get
@@ -21,6 +27,9 @@ namespace SignalR_UnitTestingSupportCommon.Services
             }
         }
 
+        /// <summary>
+        /// Lazy loaded TDbContext which enable tests with Sqlite in memory
+        /// </summary>
         public TDbContext DbInMemorySqlite
         {
             get
@@ -29,6 +38,9 @@ namespace SignalR_UnitTestingSupportCommon.Services
             }
         }
 
+        /// <summary>
+        /// Lazy loaded TDbContext which enable tests with InMemory provider
+        /// </summary>
         public TDbContext DbInMemory
         {
             get
@@ -37,6 +49,9 @@ namespace SignalR_UnitTestingSupportCommon.Services
             }
         }
 
+        /// <summary>
+        /// Use it before any test which you want use features provided by provider.
+        /// </summary>
         public void SetUp()
         {
             if (_dbContextMockLazy == null || _dbContextMockLazy.IsValueCreated)
@@ -55,6 +70,9 @@ namespace SignalR_UnitTestingSupportCommon.Services
             }
         }
 
+        /// <summary>
+        /// Use it before any test which you want use features provided by provider.
+        /// </summary>
         public void TearDown()
         {
             try

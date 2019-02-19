@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SignalR_UnitTestingSupport</name>
+    </assembly>
+    <members>
+        <member name="T:SignalR_UnitTestingSupport.Hubs.HubUnitTestsBase">
+            <summary>
+            Base class which provide support for Hub testing.
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupport.Hubs.HubUnitTestsBase.HubUnitTestSupportSetUp">
+            <summary>
+            Only NUnit Should Call it. Do not call it directly.
+            </summary>
+        </member>
+        <member name="T:SignalR_UnitTestingSupport.Hubs.HubUnitTestsBase`1">
+            <summary>
+            Base class which provide support for Hub&lt;T&gt; testing
+            </summary>
+            <typeparam name="TIHubResponses">Interface which is used in Hub&lt;T&gt; as T</typeparam>
+        </member>
+        <member name="M:SignalR_UnitTestingSupport.Hubs.HubUnitTestsBase`1.BaseSetUp">
+            <summary>
+            Only NUnit Should Call it. Do not call it directly.
+            </summary>
+        </member>
+        <member name="T:SignalR_UnitTestingSupport.Hubs.HubUnitTestsWithEF`1">
+            <summary>
+            Base class which provide support for Hub testing with Entity Framework Core.
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupport.Hubs.HubUnitTestsWithEF`1.EfSetUp">
+            <summary>
+            Only NUnit Should Call it. Do not call it directly.
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupport.Hubs.HubUnitTestsWithEF`1.TearDownEFContexts">
+            <summary>
+            Only NUnit Should Call it. Do not call it directly.
+            </summary>
+        </member>
+        <member name="T:SignalR_UnitTestingSupport.Hubs.HubUnitTestsWithEF`2">
+            <summary>
+            Hub unit tests base with Entity Framework Core
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupport.Hubs.HubUnitTestsWithEF`2.EfSetUp">
+            <summary>
+            Only NUnit Should Call it. Do not call it directly.
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupport.Hubs.HubUnitTestsWithEF`2.TearDownEFContexts">
+            <summary>
+            Only NUnit Should Call it. Do not call it directly.
+            </summary>
+        </member>
+    </members>
+</doc>

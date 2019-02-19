@@ -49,6 +49,10 @@
     <DocumentationFile>C:\Users\Mateusz Sobo\Desktop\UnitTestingSupport\SignalR_UnitTestingSupport\SignalR_UnitTestingSupport\SignalR_UnitTestingSupport.xml</DocumentationFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile></DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.2.1" />
