@@ -3,6 +3,10 @@ using SignalR_UnitTestingSupportCommon.Hubs;
 
 namespace SignalR_UnitTestingSupport.Hubs
 {
+    /// <summary>
+    /// Base class which provide support for Hub&lt;T&gt; testing
+    /// </summary>
+    /// <typeparam name="TIHubResponses">Interface which is used in Hub&lt;T&gt; as T</typeparam>
     public abstract class HubUnitTestsBase<TIHubResponses> : HubUnitTestsSupport<TIHubResponses>
         where TIHubResponses : class
     {

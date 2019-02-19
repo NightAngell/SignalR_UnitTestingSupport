@@ -8,12 +8,23 @@ using System.Threading;
 namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
 {
     /// <summary>
-    /// Internal class which provide common part for all unit testing support classes.
+    /// Internal class which provide common code for all unit testing support classes.
     /// </summary>
     public abstract class HubUnitTestsBaseCommon : IHubUnitTestsBaseCommon
     {
+        /// <summary>
+        /// Fake for Hub.Contex.Items
+        /// </summary>
         public Dictionary<object, object> ItemsFake { get; internal set; }
+
+        /// <summary>
+        /// Mock for Hub.Context
+        /// </summary>
         public Mock<HubCallerContext> ContextMock { get; internal set; }
+
+        /// <summary>
+        /// Mock for Hub.Groups 
+        /// </summary>
         public Mock<IGroupManager> GroupsMock { get; internal set; }
 
         /// <summary>
@@ -73,6 +84,10 @@ namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
         internal abstract void SetUpClientsAll();
         internal abstract void SetUpClients();
 
+        /// <summary>
+        /// Verify somebody added to group (Hub.Groups.AddToGroupAsync)
+        /// </summary>
+        /// <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
         public void VerifySomebodyAddedToGroup(Times times)
         {
             GroupsMock
@@ -84,6 +99,11 @@ namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
                 );
         }
 
+        /// <summary>
+        /// Verify somebody added to group (Hub.Groups.AddToGroupAsync)
+        /// </summary>
+        /// <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+        /// <param name="groupName">Name of the group</param>
         public void VerifySomebodyAddedToGroup(Times times, string groupName)
         {
             GroupsMock
@@ -95,6 +115,12 @@ namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
                 );
         }
 
+        /// <summary>
+        /// Verify somebody added to group (Hub.Groups.AddToGroupAsync)
+        /// </summary>
+        /// <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+        /// <param name="groupName">Name of the group</param>
+        /// <param name="connectionId">Hub.Context.ConnectionId</param>
         public void VerifySomebodyAddedToGroup(Times times, string groupName, string connectionId)
         {
             GroupsMock
@@ -106,6 +132,11 @@ namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
                 );
         }
 
+        /// <summary>
+        /// Verify somebody added to group (Hub.Groups.AddToGroupAsync)
+        /// </summary>
+        /// <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+        /// <param name="connectionId">Hub.Context.ConnectionId</param>
         public void VerifyUserAddedToGroupByConnId(Times times, string connectionId)
         {
             GroupsMock
@@ -117,6 +148,10 @@ namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
                 );
         }
 
+        /// <summary>
+        /// Verify somebody removed from group (Hub.Groups.RemoveFromGroupAsync)
+        /// </summary>
+        /// <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
         public void VerifySomebodyRemovedFromGroup(Times times)
         {
             GroupsMock
@@ -128,6 +163,11 @@ namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
                 );
         }
 
+        /// <summary>
+        /// Verify somebody removed from group (Hub.Groups.RemoveFromGroupAsync)
+        /// </summary>
+        /// <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+        /// <param name="groupName">Name of the group</param>
         public void VerifySomebodyRemovedFromGroup(Times times, string groupName)
         {
             GroupsMock
@@ -139,6 +179,12 @@ namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
                 );
         }
 
+        /// <summary>
+        /// Verify somebody removed from group (Hub.Groups.RemoveFromGroupAsync)
+        /// </summary>
+        /// <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+        /// <param name="groupName">Name of the group</param>
+        /// <param name="connectionId">Hub.Context.ConnectionId</param>
         public void VerifySomebodyRemovedFromGroup(Times times, string groupName, string connectionId)
         {
             GroupsMock
@@ -150,6 +196,11 @@ namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
                 );
         }
 
+        /// <summary>
+        /// Verify somebody removed from group (Hub.Groups.RemoveFromGroupAsync)
+        /// </summary>
+        /// <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+        /// <param name="connectionId">Hub.Context.ConnectionId</param>
         public void VerifyUserRemovedFromGroupByConnId(Times times, string connectionId)
         {
             GroupsMock
@@ -161,6 +212,11 @@ namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
                 );
         }
 
+        /// <summary>
+        /// Verify if Hub.Context.Items containt key-value pair
+        /// </summary>
+        /// <param name="key">Dictionary key</param>
+        /// <param name="value">Dictionary value</param>
         public void VerifyContextItemsContainKeyValuePair(object key, object value)
         {
             bool shouldThrowException = false;

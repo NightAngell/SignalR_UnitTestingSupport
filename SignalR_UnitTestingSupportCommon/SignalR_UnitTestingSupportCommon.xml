@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SignalR_UnitTestingSupportCommon</name>
+    </assembly>
+    <members>
+        <member name="T:SignalR_UnitTestingSupportCommon.Exceptions.NegativeTestResultException">
+            <summary>
+            Exception which should be used only as test fail notification
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport.AssignToHubRequiredProperties(Microsoft.AspNetCore.SignalR.Hub)">
+            <summary>
+            Assign to hub Clients, Context and Groups mocks objects.
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport`1.AssignToHubRequiredProperties(Microsoft.AspNetCore.SignalR.Hub{`0})">
+            <summary>
+            Assign to hub Clients, Context and Groups mocks objects.
+            </summary>
+        </member>
+        <member name="T:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsWithEFSupport`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="TDbContext"></typeparam>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsWithEFSupport`1.DbContextMock">
+            <summary>
+            By default, pure TDbContext mock, without any setup.
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsWithEFSupport`1.DbInMemorySqlite">
+            <summary>
+            Relational database in memory
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsWithEFSupport`1.DbInMemory">
+            <summary>
+            Database in memory (not really relational)
+            <para>For more info: https://docs.microsoft.com/pl-pl/ef/core/miscellaneous/testing/in-memory </para>
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsWithEFSupport`1.SetUp">
+            <summary>
+            Set up all mocks and in memory db`s (Which are lazy loaded)
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsWithEFSupport`1.TearDown">
+            <summary>
+            Clear after test 
+            </summary>
+        </member>
+        <member name="T:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsWithEFSupport`2">
+            <summary>
+            
+            </summary>
+            <typeparam name="TIHubResponses"></typeparam>
+            <typeparam name="TDbContext"></typeparam>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsWithEFSupport`2.DbContextMock">
+            <summary>
+            By default, pure TDbContext mock, without any setup.
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsWithEFSupport`2.DbInMemorySqlite">
+            <summary>
+            Relational database in memory
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsWithEFSupport`2.DbInMemory">
+            <summary>
+            Database in memory (not really relational)
+            <para>For more info: https://docs.microsoft.com/pl-pl/ef/core/miscellaneous/testing/in-memory </para>
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsWithEFSupport`2.SetUp">
+            <summary>
+            Set up all mocks and in memory db`s (Which are lazy loaded)
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsWithEFSupport`2.TearDown">
+            <summary>
+            Clear after test 
+            </summary>
+        </member>
+        <member name="T:SignalR_UnitTestingSupportCommon.Hubs.Internal.HubUnitTestsBaseCommon">
+            <summary>
+            Internal class which provide common code for all unit testing support classes.
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Hubs.Internal.HubUnitTestsBaseCommon.SetUp">
+            <summary>
+            Only for internal base classes implementation. Do not use it in tests directly.
+            </summary>
+        </member>
+        <member name="T:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase">
+            <summary>
+            To be sure we implement all features for testing pure Hub
+            </summary>
+        </member>
+        <member name="T:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBaseCommon">
+            <summary>
+            To be sure we implement all common features for SignalR Unit Testing Support classes
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase`1" -->
+        <!-- Badly formed XML comment ignored for member "T:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsWithEF`1" -->
+    </members>
+</doc>

@@ -1,61 +1,31 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Moq;
+using SignalR_UnitTestingSupportCommon.Hubs;
 using SignalR_UnitTestingSupportCommon.Services;
 
 namespace SignalR_UnitTestingSupportXUnit.Hubs
 {
     /// <summary>
-    /// Hub unit tests base with Entity Framework Core
+    /// Base class which provide support for Hub&lt;T&gt; testing with Entity Framework Core.
     /// </summary>
     public abstract class HubUnitTestsWithEF<TIHubResponses, TDbContext>
-        : HubUnitTestsBase<TIHubResponses>
+        : HubUnitTestsWithEFSupport<TIHubResponses, TDbContext>
         where TIHubResponses : class
         where TDbContext : DbContext
     {
-        DbMockAndInMemoryProvider<TDbContext> _dbProvider = new DbMockAndInMemoryProvider<TDbContext>();
-
-        /// <summary>
-        /// By default, pure TDbContext mock, without any setup.
-        /// </summary>
-        public Mock<TDbContext> DbContextMock
-        {
-            get
-            {
-                return _dbProvider.DbContextMock;
-            }
-        }
-
-        /// <summary>
-        /// Relational database in memory
-        /// </summary>
-        public TDbContext DbInMemorySqlite
-        {
-            get
-            {
-                return _dbProvider.DbInMemorySqlite;
-            }
-        }
-
-        /// <summary>
-        /// Database in memory (not really relational)
-        /// <para>For more info: https://docs.microsoft.com/pl-pl/ef/core/miscellaneous/testing/in-memory </para>
-        /// </summary>
-        public TDbContext DbInMemory
-        {
-            get
-            {
-                return _dbProvider.DbInMemory;
-            }
-        }
-
+        #pragma warning disable CS1591
         public HubUnitTestsWithEF()
         {
-            _dbProvider.SetUp();
+            SetUp();
         }
+        #pragma warning restore CS1591
 
-        public override void Dispose()
+        /// <summary>
+        /// Only xUnit should call this. Do not it directly.
+        /// </summary>
+        public void Dispose()
         {
-            _dbProvider.TearDown();
+            TearDown();
         }
     }
 }
