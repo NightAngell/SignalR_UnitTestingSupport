@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Moq;
 using System;
 
-namespace SignalR_UnitTestingSupportCommon.Services
+namespace SignalR_UnitTestingSupportCommon.EFSupport
 {
     /// <summary>
     /// Provide TDbContext mock, TDbContext InMemory and TDbContext Sqlite in memory.
@@ -39,7 +39,7 @@ namespace SignalR_UnitTestingSupportCommon.Services
         }
 
         /// <summary>
-        /// Lazy loaded TDbContext which enable tests with InMemory provider
+        /// Lazy loaded TDbContext which enable tests with InMemory provider.
         /// </summary>
         public TDbContext DbInMemory
         {
@@ -50,7 +50,7 @@ namespace SignalR_UnitTestingSupportCommon.Services
         }
 
         /// <summary>
-        /// Use it before any test which you want use features provided by provider.
+        /// Use it before any test when you want use features provided by provider.
         /// </summary>
         public void SetUp()
         {
@@ -71,7 +71,7 @@ namespace SignalR_UnitTestingSupportCommon.Services
         }
 
         /// <summary>
-        /// Use it before any test which you want use features provided by provider.
+        /// Use it after any test when you want use features provided by provider.
         /// </summary>
         public void TearDown()
         {

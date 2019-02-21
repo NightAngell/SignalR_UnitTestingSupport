@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Moq;
 using SignalR_UnitTestingSupportCommon.Hubs;
-using SignalR_UnitTestingSupportCommon.Services;
+using SignalR_UnitTestingSupportCommon.EFSupport;
 
 namespace SignalR_UnitTestingSupportXUnit.Hubs
 {
