@@ -42,7 +42,7 @@
         </member>
         <member name="T:SignalR_UnitTestingSupport.Hubs.HubUnitTestsWithEF`2">
             <summary>
-            Hub unit tests base with Entity Framework Core
+            Base class which provide support for Hub&lt;T&gt; testing with Entity Framework Core.
             </summary>
         </member>
         <member name="M:SignalR_UnitTestingSupport.Hubs.HubUnitTestsWithEF`2.EfSetUp">

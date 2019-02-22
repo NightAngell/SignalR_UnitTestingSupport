@@ -4,14 +4,187 @@
         <name>SignalR_UnitTestingSupportCommon</name>
     </assembly>
     <members>
+        <member name="T:SignalR_UnitTestingSupportCommon.EFSupport.DbMockAndInMemoryProvider`1">
+            <summary>
+            Provide TDbContext mock, TDbContext InMemory and TDbContext Sqlite in memory.
+            <para>https://docs.microsoft.com/pl-pl/ef/core/miscellaneous/testing/in-memory</para>
+            <para>https://docs.microsoft.com/pl-pl/ef/core/miscellaneous/testing/sqlite</para>
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.EFSupport.DbMockAndInMemoryProvider`1.DbContextMock">
+            <summary>
+            Lazy loaded mock which has not any setup by default.
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.EFSupport.DbMockAndInMemoryProvider`1.DbInMemorySqlite">
+            <summary>
+            Lazy loaded TDbContext which enable tests with Sqlite in memory
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.EFSupport.DbMockAndInMemoryProvider`1.DbInMemory">
+            <summary>
+            Lazy loaded TDbContext which enable tests with InMemory provider.
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.EFSupport.DbMockAndInMemoryProvider`1.SetUp">
+            <summary>
+            Use it before any test when you want use features provided by provider.
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.EFSupport.DbMockAndInMemoryProvider`1.TearDown">
+            <summary>
+            Use it after any test when you want use features provided by provider.
+            </summary>
+        </member>
         <member name="T:SignalR_UnitTestingSupportCommon.Exceptions.NegativeTestResultException">
             <summary>
             Exception which should be used only as test fail notification
             </summary>
         </member>
+        <member name="T:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport">
+            <summary>
+            Base class which provide support for testing hub (But without auto SetUp by any test engine).
+            <para>If you cannot use it as base class use it as normal object (but remember to call SetUp after you create new instance)</para>
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport.ClientsMock">
+            <summary>
+            Mock for Hub.Clients
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport.ClientsAllMock">
+            <summary>
+            Mock for Hub.Clients.All
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport.ClientsAllExceptMock">
+            <summary>
+            Mock which is returned when Hub.Clients.AllExcept() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport.ClientsCallerMock">
+            <summary>
+            Mock for Hub.Clients.Caller
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport.ClientsClientMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Client() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport.ClientsClientsMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Clients() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport.ClientsGroupMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Group() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport.ClientsGroupExceptMock">
+            <summary>
+            Mock which is returned when Hub.Clients.GroupExcept() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport.ClientsGroupsMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Groups() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport.ClientsOthersMock">
+            <summary>
+            Mock for Hub.Clients.Others
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport.ClientsOthersInGroupMock">
+            <summary>
+            Mock which is returned when Hub.Clients.OthersInGroup() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport.ClientsUserMock">
+            <summary>
+            Mock which is returned when Hub.Clients.User() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport.ClientsUsersMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Users() is called
+            </summary>
+        </member>
         <member name="M:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport.AssignToHubRequiredProperties(Microsoft.AspNetCore.SignalR.Hub)">
             <summary>
             Assign to hub Clients, Context and Groups mocks objects.
+            </summary>
+        </member>
+        <member name="T:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport`1">
+            <summary>
+            Base class which provide support for testing hub&lt;TIHubResponses&gt; (But without auto SetUp by any test engine)
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport`1.ClientsMock">
+            <summary>
+            Mock for Hub.Clients
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport`1.ClientsAllMock">
+            <summary>
+            Mock for Hub.Clients.All
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport`1.ClientsAllExceptMock">
+            <summary>
+            Mock which is returned when Hub.Clients.AllExcept() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport`1.ClientsCallerMock">
+            <summary>
+            Mock for Hub.Clients.Caller
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport`1.ClientsClientMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Client() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport`1.ClientsClientsMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Clients() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport`1.ClientsGroupMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Group() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport`1.ClientsGroupExceptMock">
+            <summary>
+            Mock which is returned when Hub.Clients.GroupExcept() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport`1.ClientsGroupsMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Groups() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport`1.ClientsOthersMock">
+            <summary>
+            Mock for Hub.Clients.Others
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport`1.ClientsOthersInGroupMock">
+            <summary>
+            Mock which is returned when Hub.Clients.OthersInGroup() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport`1.ClientsUserMock">
+            <summary>
+            Mock which is returned when Hub.Clients.User() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport`1.ClientsUsersMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Users() is called
             </summary>
         </member>
         <member name="M:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsSupport`1.AssignToHubRequiredProperties(Microsoft.AspNetCore.SignalR.Hub{`0})">
@@ -21,9 +194,9 @@
         </member>
         <member name="T:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsWithEFSupport`1">
             <summary>
-            
+            Base class which provide support for testing hub with EntityFramework Core (But without auto SetUp by any test engine)
             </summary>
-            <typeparam name="TDbContext"></typeparam>
+            <typeparam name="TDbContext">DbContext child or DbContext itself</typeparam>
         </member>
         <member name="P:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsWithEFSupport`1.DbContextMock">
             <summary>
@@ -53,7 +226,7 @@
         </member>
         <member name="T:SignalR_UnitTestingSupportCommon.Hubs.HubUnitTestsWithEFSupport`2">
             <summary>
-            
+            Base class which provide support for testing hub&lt;TIHubResponses&gt; with Entity Framework Core (But without auto SetUp by any test engine)
             </summary>
             <typeparam name="TIHubResponses"></typeparam>
             <typeparam name="TDbContext"></typeparam>
@@ -89,9 +262,166 @@
             Internal class which provide common code for all unit testing support classes.
             </summary>
         </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.Internal.HubUnitTestsBaseCommon.ItemsFake">
+            <summary>
+            Fake for Hub.Contex.Items
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Hubs.Internal.HubUnitTestsBaseCommon.ContextMock">
+            <summary>
+            Mock for Hub.Context
+            </summary>
+        </member>
         <member name="M:SignalR_UnitTestingSupportCommon.Hubs.Internal.HubUnitTestsBaseCommon.SetUp">
             <summary>
-            Only for internal base classes implementation. Do not use it in tests directly.
+            Only for internal classes implementation. Do not use it in tests directly.
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Hubs.Internal.HubUnitTestsBaseCommon.VerifyContextItemsContainKeyValuePair(System.Object,System.Object)">
+            <summary>
+            Verify if Hub.Context.Items containt key-value pair
+            </summary>
+            <param name="key">Dictionary key</param>
+            <param name="value">Dictionary value</param>
+        </member>
+        <member name="T:SignalR_UnitTestingSupportCommon.IHubContextSupport.Internal.UnitTestingSupportForIHubContextCommon">
+            <summary>
+            Internal class which provide common features for IHubContext support.
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.IHubContextSupport.Internal.UnitTestingSupportForIHubContextCommon.SetUp">
+            <summary>
+            Only for internal classes implementation. Do not use it in tests directly.
+            </summary>
+        </member>
+        <member name="T:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`1">
+            <summary>
+            It provide preconfigured IHubContext mock and other mocks required to testing.
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`1.IHubContextMock">
+            <summary>
+            Mock for Microsoft.AspNetCore.SignalR.IHubContext&lt;THub&gt;
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`1.ClientsMock">
+            <summary>
+            Mock for IHubContext.Clients
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`1.ClientsAllMock">
+            <summary>
+            Mock for IHubContext.Clients.All
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`1.ClientsAllExceptMock">
+            <summary>
+            Mock for IHubContext.Clients.AllExcpet()
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`1.ClientsClientMock">
+            <summary>
+            Mock for IHubContext.Clients.Client()
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`1.ClientsClientsMock">
+            <summary>
+            Mock for IHubContext.Clients.Clients()
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`1.ClientsGroupMock">
+            <summary>
+            Mock for IHubContext.Clients.Group()
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`1.ClientsGroupExceptMock">
+            <summary>
+            Mock for IHubContext.Clients.GroupExcept()
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`1.ClientsGroupsMock">
+            <summary>
+            Mock for IHubContext.Clients.Groups()
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`1.ClientsUserMock">
+            <summary>
+            Mock for IHubContext.Clients.User()
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`1.ClientsUsersMock">
+            <summary>
+            Mock for IHubContext.Clients.Users()
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`1.#ctor">
+            <summary>
+            During object creation, it setup all required mocks
+            </summary>
+        </member>
+        <member name="T:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`2">
+            <summary>
+            It provide preconfigured IHubContext mock and other mocks required to testing.
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`2.IHubContextMock">
+            <summary>
+            Mock for Microsoft.AspNetCore.SignalR.IHubContext&lt;THub, THubResponses&gt;
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`2.ClientsMock">
+            <summary>
+            Mock for IHubContext.Clients
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`2.ClientsAllMock">
+            <summary>
+            Mock for IHubContext.Clients.All
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`2.ClientsAllExceptMock">
+            <summary>
+            Mock for IHubContext.Clients.AllExcpet()
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`2.ClientsClientMock">
+            <summary>
+            Mock for IHubContext.Clients.Client()
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`2.ClientsClientsMock">
+            <summary>
+            Mock for IHubContext.Clients.Clients()
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`2.ClientsGroupMock">
+            <summary>
+            Mock for IHubContext.Clients.Group()
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`2.ClientsGroupExceptMock">
+            <summary>
+            Mock for IHubContext.Clients.GroupExcept()
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`2.ClientsGroupsMock">
+            <summary>
+            Mock for IHubContext.Clients.Groups()
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`2.ClientsUserMock">
+            <summary>
+            Mock for IHubContext.Clients.User()
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`2.ClientsUsersMock">
+            <summary>
+            Mock for IHubContext.Clients.Users()
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.IHubContextSupport.UnitTestingSupportForIHubContext`2.#ctor">
+            <summary>
+            During object creation, set up on mocks is done
             </summary>
         </member>
         <member name="T:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase">
@@ -99,12 +429,344 @@
             To be sure we implement all features for testing pure Hub
             </summary>
         </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase.ClientsMock">
+            <summary>
+            Mock for Hub.Clients
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase.ClientsAllExceptMock">
+            <summary>
+            Mock which is returned when Hub.Clients.AllExcept() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase.ClientsAllMock">
+            <summary>
+            Mock for Hub.Clients.All
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase.ClientsCallerMock">
+            <summary>
+            Mock for Hub.Clients.Caller
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase.ClientsClientMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Client() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase.ClientsClientsMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Clients() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase.ClientsGroupExceptMock">
+            <summary>
+            Mock which is returned when Hub.Clients.GroupExcept() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase.ClientsGroupMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Group() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase.ClientsGroupsMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Groups() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase.ClientsOthersInGroupMock">
+            <summary>
+            Mock which is returned when Hub.Clients.OthersInGroup() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase.ClientsOthersMock">
+            <summary>
+            Mock for Hub.Clients.Others
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase.ClientsUserMock">
+            <summary>
+            Mock which is returned when Hub.Clients.User() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase.ClientsUsersMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Users() is called
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase.AssignToHubRequiredProperties(Microsoft.AspNetCore.SignalR.Hub)">
+            <summary>
+            Assign to hub Clients, Context and Groups mocks objects.
+            </summary>
+        </member>
         <member name="T:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBaseCommon">
             <summary>
             To be sure we implement all common features for SignalR Unit Testing Support classes
             </summary>
         </member>
-        <!-- Badly formed XML comment ignored for member "T:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase`1" -->
-        <!-- Badly formed XML comment ignored for member "T:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsWithEF`1" -->
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBaseCommon.ContextMock">
+            <summary>
+            Mock for Hub.Context
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBaseCommon.GroupsMock">
+            <summary>
+            Mock for Hub.Groups 
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBaseCommon.ItemsFake">
+            <summary>
+            Fake for Hub.Contex.Items
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBaseCommon.VerifyContextItemsContainKeyValuePair(System.Object,System.Object)">
+            <summary>
+            Verify if Hub.Context.Items containt key-value pair
+            </summary>
+            <param name="key">Dictionary key</param>
+            <param name="value">Dictionary value</param>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBaseCommon.VerifySomebodyAddedToGroup(Moq.Times)">
+            <summary>
+            Verify somebody added to group (Hub.Groups.AddToGroupAsync)
+            </summary>
+            <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBaseCommon.VerifySomebodyAddedToGroup(Moq.Times,System.String)">
+            <summary>
+            Verify somebody added to group (Hub.Groups.AddToGroupAsync)
+            </summary>
+            <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+            <param name="groupName">Name of the group</param>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBaseCommon.VerifySomebodyAddedToGroup(Moq.Times,System.String,System.String)">
+            <summary>
+            Verify somebody added to group (Hub.Groups.AddToGroupAsync)
+            </summary>
+            <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+            <param name="groupName">Name of the group</param>
+            <param name="connectionId">Hub.Context.ConnectionId</param>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBaseCommon.VerifySomebodyRemovedFromGroup(Moq.Times)">
+            <summary>
+            Verify somebody removed from group (Hub.Groups.RemoveFromGroupAsync)
+            </summary>
+            <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBaseCommon.VerifySomebodyRemovedFromGroup(Moq.Times,System.String)">
+            <summary>
+            Verify somebody removed from group (Hub.Groups.RemoveFromGroupAsync)
+            </summary>
+            <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+            <param name="groupName">Name of the group</param>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBaseCommon.VerifySomebodyRemovedFromGroup(Moq.Times,System.String,System.String)">
+            <summary>
+            Verify somebody removed from group (Hub.Groups.RemoveFromGroupAsync)
+            </summary>
+            <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+            <param name="groupName">Name of the group</param>
+            <param name="connectionId">Hub.Context.ConnectionId</param>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBaseCommon.VerifyUserAddedToGroupByConnId(Moq.Times,System.String)">
+            <summary>
+            Verify somebody added to group (Hub.Groups.AddToGroupAsync)
+            </summary>
+            <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+            <param name="connectionId">Hub.Context.ConnectionId</param>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBaseCommon.VerifyUserRemovedFromGroupByConnId(Moq.Times,System.String)">
+            <summary>
+            Verify somebody removed from group (Hub.Groups.RemoveFromGroupAsync)
+            </summary>
+            <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+            <param name="connectionId">Hub.Context.ConnectionId</param>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBaseCommon.SetUp">
+            <summary>
+            Set Up mocks. Prepared for testing engine.
+            </summary>
+        </member>
+        <member name="T:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase`1">
+            <summary>
+            To be sure we implement all features for testing pure Hub&lt;T&gt;
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase`1.ClientsMock">
+            <summary>
+            Mock for Hub.Clients
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase`1.ClientsAllExceptMock">
+            <summary>
+            Mock which is returned when Hub.Clients.AllExcept() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase`1.ClientsAllMock">
+            <summary>
+            Mock for Hub.Clients.All
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase`1.ClientsCallerMock">
+            <summary>
+            Mock for Hub.Clients.Caller
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase`1.ClientsClientMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Client() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase`1.ClientsClientsMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Clients() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase`1.ClientsGroupExceptMock">
+            <summary>
+            Mock which is returned when Hub.Clients.GroupExcept() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase`1.ClientsGroupMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Group() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase`1.ClientsGroupsMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Groups() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase`1.ClientsOthersInGroupMock">
+            <summary>
+            Mock which is returned when Hub.Clients.OthersInGroup() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase`1.ClientsOthersMock">
+            <summary>
+            Mock for Hub.Clients.Others
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase`1.ClientsUserMock">
+            <summary>
+            Mock which is returned when Hub.Clients.User() is called
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase`1.ClientsUsersMock">
+            <summary>
+            Mock which is returned when Hub.Clients.Users() is called
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsBase`1.AssignToHubRequiredProperties(Microsoft.AspNetCore.SignalR.Hub{`0})">
+            <summary>
+            Assign to hub Clients, Context and Groups mocks objects.
+            </summary>
+        </member>
+        <member name="T:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsWithEF`1">
+            <summary>
+            To be sure we implement all features for testing pure Hub (or Hub&lt;T&gt;) plus entity framework core
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsWithEF`1.DbContextMock">
+            <summary>
+            Mock for TDbContext which is DbContext child or DbContext itself
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsWithEF`1.DbInMemory">
+            <summary>
+            DbContext child or DbContext itself which use InMemoryProvider (not really relatonal).
+            <para>https://docs.microsoft.com/pl-pl/ef/core/miscellaneous/testing/in-memory</para>
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsWithEF`1.DbInMemorySqlite">
+            <summary>
+            DbContext child or DbContext itself which use Sqlite provider configured to run in db in memory (relatonal).
+            <para>https://docs.microsoft.com/pl-pl/ef/core/miscellaneous/testing/sqlite</para>
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Interfaces.IHubUnitTestsWithEF`1.TearDown">
+            <summary>
+            Tear Down object. Prepared for testing engine 
+            or user which decided use class which implement that interfeca as object.
+            (instead use one of provided base classes [NUnit, xUnit, MsTest])
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Interfaces.ISetUpForUserAndEngine.SetUp">
+            <summary>
+            Set Up object. Prepared for testing engine 
+            or user which decided use class which implement that interfeca as object.
+            </summary>
+        </member>
+        <member name="T:SignalR_UnitTestingSupportCommon.Internal.SignalRUnitTestingSupportCommon">
+            <summary>
+            Internal class which provide common features for SignalR Unit testing support
+            </summary>
+        </member>
+        <member name="P:SignalR_UnitTestingSupportCommon.Internal.SignalRUnitTestingSupportCommon.GroupsMock">
+            <summary>
+            Mock for Hub.Groups 
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Internal.SignalRUnitTestingSupportCommon.SetUp">
+            <summary>
+            Only for internal classes implementation. Do not use it in tests directly.
+            </summary>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Internal.SignalRUnitTestingSupportCommon.VerifySomebodyAddedToGroup(Moq.Times)">
+            <summary>
+            Verify somebody added to group (Hub.Groups.AddToGroupAsync)
+            </summary>
+            <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Internal.SignalRUnitTestingSupportCommon.VerifySomebodyAddedToGroup(Moq.Times,System.String)">
+            <summary>
+            Verify somebody added to group (Hub.Groups.AddToGroupAsync)
+            </summary>
+            <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+            <param name="groupName">Name of the group</param>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Internal.SignalRUnitTestingSupportCommon.VerifySomebodyAddedToGroup(Moq.Times,System.String,System.String)">
+            <summary>
+            Verify somebody added to group (Hub.Groups.AddToGroupAsync)
+            </summary>
+            <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+            <param name="groupName">Name of the group</param>
+            <param name="connectionId">Hub.Context.ConnectionId</param>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Internal.SignalRUnitTestingSupportCommon.VerifyUserAddedToGroupByConnId(Moq.Times,System.String)">
+            <summary>
+            Verify somebody added to group (Hub.Groups.AddToGroupAsync)
+            </summary>
+            <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+            <param name="connectionId">Hub.Context.ConnectionId</param>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Internal.SignalRUnitTestingSupportCommon.VerifySomebodyRemovedFromGroup(Moq.Times)">
+            <summary>
+            Verify somebody removed from group (Hub.Groups.RemoveFromGroupAsync)
+            </summary>
+            <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Internal.SignalRUnitTestingSupportCommon.VerifySomebodyRemovedFromGroup(Moq.Times,System.String)">
+            <summary>
+            Verify somebody removed from group (Hub.Groups.RemoveFromGroupAsync)
+            </summary>
+            <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+            <param name="groupName">Name of the group</param>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Internal.SignalRUnitTestingSupportCommon.VerifySomebodyRemovedFromGroup(Moq.Times,System.String,System.String)">
+            <summary>
+            Verify somebody removed from group (Hub.Groups.RemoveFromGroupAsync)
+            </summary>
+            <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+            <param name="groupName">Name of the group</param>
+            <param name="connectionId">Hub.Context.ConnectionId</param>
+        </member>
+        <member name="M:SignalR_UnitTestingSupportCommon.Internal.SignalRUnitTestingSupportCommon.VerifyUserRemovedFromGroupByConnId(Moq.Times,System.String)">
+            <summary>
+            Verify somebody removed from group (Hub.Groups.RemoveFromGroupAsync)
+            </summary>
+            <param name="times">For example: Times.Once(). Remember to call it, cause Times.Once throw error</param>
+            <param name="connectionId">Hub.Context.ConnectionId</param>
+        </member>
     </members>
 </doc>

@@ -4,10 +4,21 @@
         <name>SignalR_UnitTestingSupportMSTest</name>
     </assembly>
     <members>
+        <member name="T:SignalR_UnitTestingSupportMSTest.Hubs.HubUnitTestsBase">
+            <summary>
+            Base class which provide support for Hub testing.
+            </summary>
+        </member>
         <member name="M:SignalR_UnitTestingSupportMSTest.Hubs.HubUnitTestsBase.HubUnitTestSupportSetUp">
             <summary>
             Only MSTest Should Call it. Do not call it directly.
             </summary>
+        </member>
+        <member name="T:SignalR_UnitTestingSupportMSTest.Hubs.HubUnitTestsBase`1">
+            <summary>
+            Base class which provide support for Hub&lt;T&gt; testing
+            </summary>
+            <typeparam name="TIHubResponses">Interface which is used in Hub&lt;T&gt; as T</typeparam>
         </member>
         <member name="M:SignalR_UnitTestingSupportMSTest.Hubs.HubUnitTestsBase`1.BaseSetUp">
             <summary>
@@ -17,22 +28,6 @@
         <member name="T:SignalR_UnitTestingSupportMSTest.Hubs.HubUnitTestsWithEF`1">
             <summary>
             Hub unit tests base with Entity Framework Core
-            </summary>
-        </member>
-        <member name="P:SignalR_UnitTestingSupportMSTest.Hubs.HubUnitTestsWithEF`1.DbContextMock">
-            <summary>
-            By default, pure TDbContext mock, without any setup.
-            </summary>
-        </member>
-        <member name="P:SignalR_UnitTestingSupportMSTest.Hubs.HubUnitTestsWithEF`1.DbInMemorySqlite">
-            <summary>
-            Relational database in memory
-            </summary>
-        </member>
-        <member name="P:SignalR_UnitTestingSupportMSTest.Hubs.HubUnitTestsWithEF`1.DbInMemory">
-            <summary>
-            Database in memory (not really relational)
-            <para>For more info: https://docs.microsoft.com/pl-pl/ef/core/miscellaneous/testing/in-memory </para>
             </summary>
         </member>
         <member name="M:SignalR_UnitTestingSupportMSTest.Hubs.HubUnitTestsWithEF`1.EfSetUp">
@@ -48,22 +43,6 @@
         <member name="T:SignalR_UnitTestingSupportMSTest.Hubs.HubUnitTestsWithEF`2">
             <summary>
             Hub unit tests base with Entity Framework Core
-            </summary>
-        </member>
-        <member name="P:SignalR_UnitTestingSupportMSTest.Hubs.HubUnitTestsWithEF`2.DbContextMock">
-            <summary>
-            By default, pure TDbContext mock, without any setup.
-            </summary>
-        </member>
-        <member name="P:SignalR_UnitTestingSupportMSTest.Hubs.HubUnitTestsWithEF`2.DbInMemorySqlite">
-            <summary>
-            Relational database in memory
-            </summary>
-        </member>
-        <member name="P:SignalR_UnitTestingSupportMSTest.Hubs.HubUnitTestsWithEF`2.DbInMemory">
-            <summary>
-            Database in memory (not really relational)
-            <para>For more info: https://docs.microsoft.com/pl-pl/ef/core/miscellaneous/testing/in-memory </para>
             </summary>
         </member>
         <member name="M:SignalR_UnitTestingSupportMSTest.Hubs.HubUnitTestsWithEF`2.EfSetUp">
