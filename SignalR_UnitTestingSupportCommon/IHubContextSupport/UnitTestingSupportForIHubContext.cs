@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Moq;
-using SignalR_UnitTestingSupportCommon.Internal;
+using SignalR_UnitTestingSupportCommon.IHubContextSupport.Internal;
 using System.Collections.Generic;
 
 namespace SignalR_UnitTestingSupportCommon.IHubContextSupport
@@ -8,13 +8,13 @@ namespace SignalR_UnitTestingSupportCommon.IHubContextSupport
     /// <summary>
     /// It provide preconfigured IHubContext mock and other mocks required to testing.
     /// </summary>
-    public class UnitTestingSupportForIHubContext<THub> : SignalRUnitTestingSupportCommon
+    public class UnitTestingSupportForIHubContext<THub> : UnitTestingSupportForIHubContextCommon
         where THub: Hub
     {
         /// <summary>
         /// Mock for Microsoft.AspNetCore.SignalR.IHubContext&lt;THub&gt;
         /// </summary>
-        public Mock<IHubContext<THub>> HubContextMock { get; protected set; }
+        public Mock<IHubContext<THub>> IHubContextMock { get; protected set; }
 
         /// <summary>
         /// Mock for IHubContext.Clients
@@ -67,40 +67,26 @@ namespace SignalR_UnitTestingSupportCommon.IHubContextSupport
         public Mock<IClientProxy> ClientsUsersMock { get; protected set; }
 
         /// <summary>
-        /// During object creation, set up on mocks is done
+        /// During object creation, it setup all required mocks
         /// </summary>
         public UnitTestingSupportForIHubContext()
         {
             base.SetUp();
-            _setUpClientsMock();
             _setUpHubContextMock();
         }
 
         private void _setUpHubContextMock()
         {
-            HubContextMock = new Mock<IHubContext<THub>>();
-            HubContextMock
+            IHubContextMock = new Mock<IHubContext<THub>>();
+            IHubContextMock
                 .Setup(x => x.Groups)
                 .Returns(GroupsMock.Object);
-            HubContextMock
+            IHubContextMock
                 .Setup(x => x.Clients)
                 .Returns(ClientsMock.Object);
         }
 
-        private void _setUpClientsMock()
-        {
-            ClientsMock = new Mock<IHubClients>();
-            _setUpClientsAll();
-            _setUpClientsAllExcept();
-            _setUpClientsClient();
-            _setUpClientsClients();
-            _setUpClientsGroup();
-            _setUpClientsGroupExcept();
-            _setUpClientsGroups();
-            _setUpClientsUser();
-        }
-
-        private void _setUpClientsAll()
+        internal override void SetUpClientsAll()
         {
             ClientsAllMock = _getClientProxyMock();
             ClientsMock
@@ -108,7 +94,12 @@ namespace SignalR_UnitTestingSupportCommon.IHubContextSupport
                 .Returns(ClientsAllMock.Object);
         }
 
-        private void _setUpClientsAllExcept()
+        internal override void SetUpClients()
+        {
+            ClientsMock = new Mock<IHubClients>();
+        }
+
+        internal override void SetUpClientsAllExcept()
         {
             ClientsAllExceptMock = _getClientProxyMock();
             ClientsMock
@@ -116,7 +107,7 @@ namespace SignalR_UnitTestingSupportCommon.IHubContextSupport
                 .Returns(ClientsAllExceptMock.Object);
         }
 
-        private void _setUpClientsClient()
+        internal override void SetUpClientsClient()
         {
             ClientsClientMock = _getClientProxyMock();
             ClientsMock
@@ -124,7 +115,7 @@ namespace SignalR_UnitTestingSupportCommon.IHubContextSupport
                 .Returns(ClientsClientMock.Object);
         }
 
-        private void _setUpClientsClients()
+        internal override void SetUpClientsClients()
         {
             ClientsClientsMock = _getClientProxyMock();
             ClientsMock
@@ -132,7 +123,7 @@ namespace SignalR_UnitTestingSupportCommon.IHubContextSupport
                 .Returns(ClientsClientsMock.Object);
         }
 
-        private void _setUpClientsGroup()
+        internal override void SetUpClientsGroup()
         {
             ClientsGroupMock = _getClientProxyMock();
             ClientsMock
@@ -140,7 +131,7 @@ namespace SignalR_UnitTestingSupportCommon.IHubContextSupport
                 .Returns(ClientsGroupMock.Object);
         }
 
-        private void _setUpClientsGroupExcept()
+        internal override void SetUpClientsGroupExcept()
         {
             ClientsGroupExceptMock = _getClientProxyMock();
             ClientsMock
@@ -148,7 +139,7 @@ namespace SignalR_UnitTestingSupportCommon.IHubContextSupport
                 .Returns(ClientsGroupExceptMock.Object);
         }
 
-        private void _setUpClientsGroups()
+        internal override void SetUpClientsGroups()
         {
             ClientsGroupsMock = _getClientProxyMock();
             ClientsMock
@@ -156,7 +147,7 @@ namespace SignalR_UnitTestingSupportCommon.IHubContextSupport
                 .Returns(ClientsGroupsMock.Object);
         }
 
-        private void _setUpClientsUser()
+        internal override void SetUpClientsUser()
         {
             ClientsUserMock = _getClientProxyMock();
             ClientsMock
@@ -164,7 +155,7 @@ namespace SignalR_UnitTestingSupportCommon.IHubContextSupport
                 .Returns(ClientsUserMock.Object);
         }
 
-        private void _setUpClientsUsers()
+        internal override void SetUpClientsUsers()
         {
             ClientsUsersMock = _getClientProxyMock();
             ClientsMock

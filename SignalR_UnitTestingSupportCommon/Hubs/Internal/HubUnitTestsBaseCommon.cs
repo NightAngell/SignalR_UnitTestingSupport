@@ -60,19 +60,9 @@ namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
             SetUpClientsUsers();
         }
 
-        internal abstract void SetUpClientsUsers();
-        internal abstract void SetUpClientsUser();
         internal abstract void SetUpClientsOthersInGroup();
         internal abstract void SetUpClientsOthersMock();
-        internal abstract void SetUpClientsGroups();
-        internal abstract void SetUpClientsGroupExcept();
-        internal abstract void SetUpClientsGroup();
-        internal abstract void SetUpClientsClients();
-        internal abstract void SetUpClientsClient();
         internal abstract void SetUpClientsCaller();
-        internal abstract void SetUpClientsAllExcept();
-        internal abstract void SetUpClientsAll();
-        internal abstract void SetUpClients();
 
         /// <summary>
         /// Verify if Hub.Context.Items containt key-value pair

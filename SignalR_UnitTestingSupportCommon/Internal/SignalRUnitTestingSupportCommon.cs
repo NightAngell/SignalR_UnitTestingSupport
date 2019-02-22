@@ -151,5 +151,16 @@ namespace SignalR_UnitTestingSupportCommon.Internal
                     times
                 );
         }
+
+        internal abstract void SetUpClientsUsers();
+        internal abstract void SetUpClientsUser();
+        internal abstract void SetUpClientsGroups();
+        internal abstract void SetUpClientsGroupExcept();
+        internal abstract void SetUpClientsGroup();
+        internal abstract void SetUpClientsClients();
+        internal abstract void SetUpClientsClient();
+        internal abstract void SetUpClientsAllExcept();
+        internal abstract void SetUpClientsAll();
+        internal abstract void SetUpClients();
     }
 }
