@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 using Moq;
 using System;
 
@@ -110,9 +111,9 @@ namespace SignalR_UnitTestingSupportCommon.EFSupport
             //connection is closed automatically in TearDown when we dispose dbContext
             var connection = new SqliteConnection("DataSource=:memory:");
             connection.Open();
-
             var dbContextSqliteOptions = new DbContextOptionsBuilder<TDbContext>()
                 .UseSqlite(connection)
+                .ConfigureWarnings(x => x.Ignore(RelationalEventId.QueryClientEvaluationWarning))
                 .Options;
 
             var dbContext = (TDbContext)Activator.CreateInstance(typeof(TDbContext), dbContextSqliteOptions);
@@ -125,6 +126,7 @@ namespace SignalR_UnitTestingSupportCommon.EFSupport
         {
             var dbContextInMemoryOptions = new DbContextOptionsBuilder<TDbContext>()
                 .UseInMemoryDatabase(Guid.NewGuid().ToString())
+                .ConfigureWarnings(x => x.Ignore(RelationalEventId.QueryClientEvaluationWarning))
                 .Options;
 
             var dbContext = (TDbContext)Activator.CreateInstance(typeof(TDbContext), dbContextInMemoryOptions);
