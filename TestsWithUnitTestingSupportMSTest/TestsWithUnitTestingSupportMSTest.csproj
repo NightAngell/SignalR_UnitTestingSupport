@@ -10,11 +10,11 @@
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
     <PackageReference Include="MSTest.TestAdapter" Version="1.4.0" />
     <PackageReference Include="MSTest.TestFramework" Version="1.4.0" />
+    <PackageReference Include="SignalR.UnitTestingSupport.MSTest" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\ExampleSignalRCoreProject\ExampleSignalRCoreProject.csproj" />
-    <ProjectReference Include="..\SignalR_UnitTestingSupportMSTest\SignalR_UnitTestingSupportMSTest.csproj" />
   </ItemGroup>
 
 </Project>

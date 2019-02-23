@@ -28,7 +28,7 @@
 
     <Product>SignalRCore_UnitTestingSupport</Product>
 
-    <Description>Easy to use, small, SignalR Core unit testing support with NUnit and Moq.</Description>
+    <Description>Easy to use, small, SignalR Core (2.1+) unit testing support with NUnit and Moq.</Description>
 
     <ApplicationIcon />
 
@@ -38,11 +38,11 @@
 
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 
-    <Version>1.0.1</Version>
+    <Version>1.1.1</Version>
 
-    <AssemblyVersion>1.0.0.1</AssemblyVersion>
+    <AssemblyVersion>1.1.1.0</AssemblyVersion>
 
-    <FileVersion>1.0.0.1</FileVersion>
+    <FileVersion>1.1.1.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -54,16 +54,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.2.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.1" />
-    <PackageReference Include="Moq" Version="4.10.1" />
+    <PackageReference Include="AspNetCore.SignalR.UnitTestingSupport.Common" Version="1.1.0" />
     <PackageReference Include="nunit" Version="3.10.1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\SignalR_UnitTestingSupportCommon\SignalR_UnitTestingSupportCommon.csproj" />
   </ItemGroup>
 
 </Project>

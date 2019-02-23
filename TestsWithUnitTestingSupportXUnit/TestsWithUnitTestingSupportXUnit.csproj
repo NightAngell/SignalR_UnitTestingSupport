@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+    <PackageReference Include="SignalR.UnitTestingSupport.xUnit" Version="1.1.1" />
     <PackageReference Include="xunit" Version="2.4.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.4.1">
       <PrivateAssets>all</PrivateAssets>
@@ -17,7 +18,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ExampleSignalRCoreProject\ExampleSignalRCoreProject.csproj" />
-    <ProjectReference Include="..\SignalR_UnitTestingSupportXUnit\SignalR_UnitTestingSupportXUnit.csproj" />
   </ItemGroup>
 
 </Project>
