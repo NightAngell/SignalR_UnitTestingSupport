@@ -2,16 +2,33 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
-    <PackageReleaseNotes>Common code for all SignalR.UnitTestingSupport.* . Use it directly only if you want implement unit testing support for custom testing engine.</PackageReleaseNotes>
+    <PackageReleaseNotes>*Added support for IHubContext and moved all common code to AspNetCore.SignalR.UnitTestingSupport.Common
+
+*Added possibility to implement my lib for custom (different than NUnit, xUnit, MsTest) testing framework (See: https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki/How-implement-testing-support-for-different-than-NUnit,-xUnit-or-MsTest-Framework).</PackageReleaseNotes>
     <Authors>Mateusz Soboń (NightAngell)</Authors>
     <Company />
-    <Description>Common code for all SignalR.UnitTestingSupport.* . Use it directly only if you want implement unit testing support for custom testing engine.</Description>
-    <Copyright>MIT License</Copyright>
+    <Description>Common code for all SignalR.UnitTestingSupport.* nugets . If you want support for unit testing signalR core (Hub and IHubContext) use one of this packages (NUnit, xUnit, MsTest version): 
+
+https://www.nuget.org/packages/SignalR.UnitTestingSupport.NUnit,
+
+https://www.nuget.org/packages/SignalR.UnitTestingSupport.xUnit, 
+
+https://www.nuget.org/packages/SignalR.UnitTestingSupport.MSTest
+
+Or use it directly only if you use different testing framework. See:
+
+https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki/How-use-testing-support-if-you-don't-want-(or-you-can`t)-use-provided-by-me-base-classes-or-your-testing-framework-don't-support-before-and-after-each-test-code-execution-features
+
+https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki/How-implement-testing-support-for-different-than-NUnit,-xUnit-or-MsTest-Framework
+</Description>
+    <Copyright>MIT License (Mateusz Soboń)</Copyright>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
     <PackageLicenseUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</PackageProjectUrl>
     <RepositoryUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</RepositoryUrl>
-    <PackageTags>UnitTestingSupport UnitTestSupport UnitTestsSupport Unit Test, UnitTesting UnitTest UnitTests SignalR.UnitTestingSupport AspNetCore</PackageTags>
+    <PackageTags>UnitTestingSupport UnitTestSupport UnitTestsSupport Unit test tests testing UnitTesting UnitTest UnitTests SignalR.UnitTestingSupport AspNetCore NUnit xUnit MsTest SignalR Core</PackageTags>
+    <PackageId>AspNetCore.SignalR.UnitTestingSupport.Common</PackageId>
+    <Version>1.1.0</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">

@@ -10,7 +10,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
     /// <summary>
     /// Base class which provide support for testing hub&lt;TIHubResponses&gt; (But without auto SetUp by any test engine)
     /// </summary>
-    public abstract class HubUnitTestsSupport<TIHubResponses> : HubUnitTestsBaseCommon, IHubUnitTestsBase<TIHubResponses>
+    public class HubUnitTestsSupport<TIHubResponses> : HubUnitTestsBaseCommon, IHubUnitTestsBase<TIHubResponses>
         where TIHubResponses : class
     {
         /// <summary>

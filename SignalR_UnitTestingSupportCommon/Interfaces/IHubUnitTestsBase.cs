@@ -6,7 +6,7 @@ namespace SignalR_UnitTestingSupportCommon.Interfaces
     /// <summary>
     /// To be sure we implement all features for testing pure Hub
     /// </summary>
-    public interface IHubUnitTestsBase
+    public interface IHubUnitTestsBase : ISetUpForUserAndEngine
     {
         /// <summary>
         /// Mock for Hub.Clients
@@ -77,12 +77,5 @@ namespace SignalR_UnitTestingSupportCommon.Interfaces
         /// Assign to hub Clients, Context and Groups mocks objects.
         /// </summary>
         void AssignToHubRequiredProperties(Hub hub);
-
-        /// <summary>
-        /// Set Up object. Prepared for testing engine 
-        /// or user which decided use class which implement that interfeca as object.
-        /// (instead use one of provided base classes [NUnit, xUnit, MsTest])
-        /// </summary>
-        void SetUp();
     }
 }

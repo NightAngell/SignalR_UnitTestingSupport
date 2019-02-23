@@ -7,7 +7,7 @@
 
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
 
-    <Copyright>Mateusz Soboń (NightAngell)</Copyright>
+    <Copyright>MIT License (Mateusz Soboń)</Copyright>
 
     <PackageLicenseUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport/blob/master/LICENSE</PackageLicenseUrl>
 
@@ -15,10 +15,9 @@
 
     <RepositoryUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</RepositoryUrl>
 
-    <PackageTags>SignalR SignalRCore SignalRUnitTest SignalRCoreUnitTest SignalRUnitTesting SignalRCoreUnitTesting SignalRUnitTests SignalRCoreUnitTests Unit Test Tests Testing xUnit SignalRUnitTestingSupport SignalRCoreUnitTestingSupport AspNetCore AspNetCore.SignalR aspnetcore "AspNetCore SignalR Unit Test"  "AspNetCore SignalR Unit Tests"  "AspNetCore SignalR Unit Testing"</PackageTags>
+    <PackageTags>SignalR Core SignalRCore SignalRUnitTest SignalRCoreUnitTest SignalRUnitTesting SignalRCoreUnitTesting SignalRUnitTests SignalRCoreUnitTests Unit Test Tests Testing xUnit SignalRUnitTestingSupport SignalRCoreUnitTestingSupport AspNetCore AspNetCore.SignalR aspnetcore</PackageTags>
 
-    <PackageReleaseNotes>Easy to use, small, SignalR Core unit testing support with xUnit and Moq. Check my github for NUnit or MSTest version.
-*Separate common code</PackageReleaseNotes>
+    <PackageReleaseNotes>Removed some dependencies</PackageReleaseNotes>
 
     <PackageId>SignalR.UnitTestingSupport.xUnit</PackageId>
 
@@ -38,11 +37,11 @@
 
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 
-    <Version>1.0.0</Version>
+    <Version>1.1.1</Version>
 
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.1.1.0</AssemblyVersion>
 
-    <FileVersion>1.0.0.0</FileVersion>
+    <FileVersion>1.1.1.0</FileVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -50,16 +49,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.2.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.1" />
-    <PackageReference Include="Moq" Version="4.10.1" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+    <PackageReference Include="AspNetCore.SignalR.UnitTestingSupport.Common" Version="1.1.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\SignalR_UnitTestingSupportCommon\SignalR_UnitTestingSupportCommon.csproj" />
   </ItemGroup>
 
 </Project>

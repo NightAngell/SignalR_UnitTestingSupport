@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR_UnitTestingSupportM
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestsWithUnitTestingSupportMSTest", "TestsWithUnitTestingSupportMSTest\TestsWithUnitTestingSupportMSTest.csproj", "{6D0D8B58-A282-4FA3-B5C7-ED2413448098}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalR_UnitTestingSupportCommon", "SignalR_UnitTestingSupportCommon\SignalR_UnitTestingSupportCommon.csproj", "{5CDB5840-172B-4888-A491-D565A8F6C293}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR_UnitTestingSupportCommon", "SignalR_UnitTestingSupportCommon\SignalR_UnitTestingSupportCommon.csproj", "{5CDB5840-172B-4888-A491-D565A8F6C293}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsWithIHubContextSupport", "TestsWithIHubContextSupport\TestsWithIHubContextSupport.csproj", "{A2E568BE-56BB-4E64-B852-EFDA5764AE94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -57,6 +59,10 @@ Global
 		{5CDB5840-172B-4888-A491-D565A8F6C293}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5CDB5840-172B-4888-A491-D565A8F6C293}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5CDB5840-172B-4888-A491-D565A8F6C293}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2E568BE-56BB-4E64-B852-EFDA5764AE94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2E568BE-56BB-4E64-B852-EFDA5764AE94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2E568BE-56BB-4E64-B852-EFDA5764AE94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2E568BE-56BB-4E64-B852-EFDA5764AE94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

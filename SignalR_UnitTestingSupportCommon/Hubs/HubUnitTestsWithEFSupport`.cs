@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Moq;
 using SignalR_UnitTestingSupportCommon.Interfaces;
-using SignalR_UnitTestingSupportCommon.Services;
+using SignalR_UnitTestingSupportCommon.EFSupport;
 
 namespace SignalR_UnitTestingSupportCommon.Hubs
 {
@@ -10,7 +10,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
     /// </summary>
     /// <typeparam name="TIHubResponses"></typeparam>
     /// <typeparam name="TDbContext"></typeparam>
-    public abstract class HubUnitTestsWithEFSupport<TIHubResponses, TDbContext> : HubUnitTestsSupport<TIHubResponses>, IHubUnitTestsWithEF<TDbContext>
+    public class HubUnitTestsWithEFSupport<TIHubResponses, TDbContext> : HubUnitTestsSupport<TIHubResponses>, IHubUnitTestsWithEF<TDbContext>
         where TDbContext : DbContext
         where TIHubResponses : class
     {
