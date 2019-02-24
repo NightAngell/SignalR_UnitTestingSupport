@@ -38,6 +38,16 @@ https://www.nuget.org/packages/Microsoft.NET.Test.Sdk/
 
 # How to use
 After you add nuget to your test project, SignalR_UnitTestingSupport is ready to use.
+> All IHubContext support classes are in ```SignalR_UnitTestingSupportCommon.IHubContextSupport``` namespace
+
+> For NUnit: All testing base classes are in ```SignalR_UnitTestingSupport.Hubs``` namespace
+
+> For xUnit: All testing base classes are in ```SignalR_UnitTestingSupportXUnit.Hubs``` namespace
+
+> For MSTest: All testing base classes are in ```SignalR_UnitTestingSupportMSTest.Hubs``` namespace
+
+## 1) Base classes approach (Recommended)
+
 Create test class for hub for example:
 ```csharp
 class ExampleHubTests {}
@@ -61,8 +71,9 @@ class ExampleHubTests : HubUnitTestsWithEF<TDbContext> {}
 class ExampleHubTests : HubUnitTestsWithEF<T, TDbContext> {}
 ```
 > TDbContext is any class which inherit from ```Microsoft.EntityFrameworkCore.DbContext``` or DbContext itself.
+#### 5. For testing with ```IHubContext<THub>``` see [this](https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki/Associated-with-IHubContext-for-Hub).
+#### 5. For testing with ```IHubContext<THub, TIHubResponses>``` see [this](https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki/Associated-with-IHubContext-for-HubT).
 
-### Important
-```HubUnitTestsBaseCommon``` is internal class (it must be marked by code as public). Do not use it.
-
+## 2) Testing objects approach (Alternative, if you can't use base classes). 
+How use second approach. See [this](https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki/How-use-testing-support-if-you-don't-want-(or-you-can%60t)-use-provided-by-me-base-classes-or-your-testing-framework-don't-support-before-and-after-each-test-code-execution-features).
 ## For full docs see: [Docs](https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki)
