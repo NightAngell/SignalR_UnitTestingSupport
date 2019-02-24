@@ -15,23 +15,26 @@ SignalR.UnitTestingSupport.MSTest
 ```
 #### 2. Using Packet Manager Console
 ```
-Install-Package SignalR.UnitTestingSupport.NUnit -Version 1.0.1
-Install-Package SignalR.UnitTestingSupport.xUnit -Version 1.0.0
-Install-Package SignalR.UnitTestingSupport.MSTest -Version 1.0.0
+Install-Package SignalR.UnitTestingSupport.NUnit -Version 1.1.0
+Install-Package SignalR.UnitTestingSupport.xUnit -Version 1.1.1
+Install-Package SignalR.UnitTestingSupport.MSTest -Version 1.1.0
 ```
 #### 3. Using .Net CLI
 ```
-dotnet add package SignalR.UnitTestingSupport.NUnit --version 1.0.1
-dotnet add package SignalR.UnitTestingSupport.xUnit --version 1.0.0
-dotnet add package SignalR.UnitTestingSupport.MSTest --version 1.0.0
+dotnet add package SignalR.UnitTestingSupport.NUnit --version 1.1.0
+dotnet add package SignalR.UnitTestingSupport.xUnit --version 1.1.1
+dotnet add package SignalR.UnitTestingSupport.MSTest --version 1.1.0
 ```
-## Important!
-Install ```NUnit3TestAdapter``` nuget for visual studio testing with NUnit in visual studio. https://www.nuget.org/packages/NUnit3TestAdapter/
+## Troubleshooting!
+Install ```NUnit3TestAdapter``` nuget for visual studio testing with NUnit in visual studio.                     https://www.nuget.org/packages/NUnit3TestAdapter/
 
-Install ```xunit.runner.visualstudio``` nuget for visual studio testing with xUnit. https://www.nuget.org/packages/xunit.runner.visualstudio/
+Install ```xunit.runner.visualstudio``` nuget for visual studio testing with xUnit.                                https://www.nuget.org/packages/xunit.runner.visualstudio/
 
-Install ```MSTest.TestAdapter``` nuget for visual studio testing with MSTest.              
+Install ```MSTest.TestAdapter``` nuget for visual studio testing with MSTest.          
 https://www.nuget.org/packages/MSTest.TestAdapter/
+
+If your tests are not even detected, install ```Microsoft.Net.Test.Sdk``` nuget :)                       
+https://www.nuget.org/packages/Microsoft.NET.Test.Sdk/
 
 # How to use
 After you add nuget to your test project, SignalR_UnitTestingSupport is ready to use.
