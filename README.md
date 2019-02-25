@@ -5,6 +5,10 @@
 > For the latest versions of MSTest version see: https://www.nuget.org/packages/SignalR.UnitTestingSupport.MSTest/
 
 > For full docs see: https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki
+
+# What it is?
+This lib provide support objects and base classes for testing ```Hub, Hub<T>, IHubContext<T>, IHubContext<T, P>```. For example preconfigured mocks and helpfull verify methods. There is also support for testing Hubs and IHubContexts with ```Entity Framework Core```.
+
 # How to install
 #### 1. Using Visual Studio Nuget Package Manager
 > If you dont know how install nuget via Visual Studio see this: https://www.youtube.com/watch?v=jX5HlrerIos
