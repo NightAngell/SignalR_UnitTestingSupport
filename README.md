@@ -40,6 +40,8 @@ https://www.nuget.org/packages/MSTest.TestAdapter/
 If your tests are not even detected, install ```Microsoft.Net.Test.Sdk``` nuget :)                       
 https://www.nuget.org/packages/Microsoft.NET.Test.Sdk/
 
+If you get NullReferenceException when you try testing with my lib see [this](https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki/Common-for-all-test-classes#contextmock).
+
 # How to use
 After you add nuget to your test project, SignalR_UnitTestingSupport is ready to use.
 > All IHubContext support classes are in ```SignalR_UnitTestingSupportCommon.IHubContextSupport``` namespace
