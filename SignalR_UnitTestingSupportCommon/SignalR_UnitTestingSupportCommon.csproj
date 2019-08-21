@@ -21,7 +21,6 @@ https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki/How-implement-tes
 </Description>
     <Copyright>MIT License (Mateusz Soboń)</Copyright>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageLicenseUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</PackageProjectUrl>
     <RepositoryUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</RepositoryUrl>
     <PackageTags>UnitTestingSupport UnitTestSupport UnitTestsSupport Unit test tests testing UnitTesting UnitTest UnitTests SignalR.UnitTestingSupport AspNetCore NUnit xUnit MsTest SignalR Core</PackageTags>
@@ -33,7 +32,7 @@ https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki/How-implement-tes
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>C:\Users\Mateusz Sobo\Desktop\UnitTestingSupport\SignalR_UnitTestingSupport\SignalR_UnitTestingSupportCommon\SignalR_UnitTestingSupportCommon.xml</DocumentationFile>
+    <DocumentationFile>C:\Users\sobta\Desktop\update\SignalR_UnitTestingSupport\SignalR_UnitTestingSupportCommon\SignalR_UnitTestingSupportCommon.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
