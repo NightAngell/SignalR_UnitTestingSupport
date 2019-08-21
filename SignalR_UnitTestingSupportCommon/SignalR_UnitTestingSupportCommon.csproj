@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageReleaseNotes>Updated dependencies.</PackageReleaseNotes>
+    <PackageReleaseNotes>Ported to .Net standard.</PackageReleaseNotes>
     <Authors>Mateusz Soboń (NightAngell)</Authors>
     <Company />
     <Description>Common code for all SignalR.UnitTestingSupport.* nugets . If you want support for unit testing signalR core (Hub and IHubContext) use one of this packages (NUnit, xUnit, MsTest version): 
@@ -25,9 +25,9 @@ https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki/How-implement-tes
     <RepositoryUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</RepositoryUrl>
     <PackageTags>UnitTestingSupport UnitTestSupport UnitTestsSupport Unit test tests testing UnitTesting UnitTest UnitTests SignalR.UnitTestingSupport AspNetCore NUnit xUnit MsTest SignalR Core</PackageTags>
     <PackageId>AspNetCore.SignalR.UnitTestingSupport.Common</PackageId>
-    <Version>1.2.0</Version>
+    <Version>2.0.0</Version>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
