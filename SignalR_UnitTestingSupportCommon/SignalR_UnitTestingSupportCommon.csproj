@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
     <PackageReleaseNotes>*Added support for IHubContext and moved all common code to AspNetCore.SignalR.UnitTestingSupport.Common
 
 *Added possibility to implement my lib for custom (different than NUnit, xUnit, MsTest) testing framework (See: https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki/How-implement-testing-support-for-different-than-NUnit,-xUnit-or-MsTest-Framework).</PackageReleaseNotes>
@@ -37,9 +37,9 @@ https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki/How-implement-tes
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.2.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.1" />
-    <PackageReference Include="Moq" Version="4.10.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.6" />
+    <PackageReference Include="Moq" Version="4.12.0" />
   </ItemGroup>
 
 </Project>
