@@ -116,10 +116,7 @@ namespace SignalR_UnitTestingSupportCommon.EFSupport
                 .ConfigureWarnings(x => x.Ignore(RelationalEventId.QueryClientEvaluationWarning))
                 .Options;
 
-            var dbContext = (TDbContext)Activator.CreateInstance(typeof(TDbContext), dbContextSqliteOptions);
-            dbContext.Database.EnsureCreated();
-
-            return dbContext;
+            return _createDb(dbContextSqliteOptions);
         }
 
         private TDbContext _initInMemoryInMemory()
@@ -129,7 +126,12 @@ namespace SignalR_UnitTestingSupportCommon.EFSupport
                 .ConfigureWarnings(x => x.Ignore(RelationalEventId.QueryClientEvaluationWarning))
                 .Options;
 
-            var dbContext = (TDbContext)Activator.CreateInstance(typeof(TDbContext), dbContextInMemoryOptions);
+            return _createDb(dbContextInMemoryOptions);
+        }
+
+        private TDbContext _createDb(DbContextOptions<TDbContext> dbContextOptions)
+        {
+            var dbContext = (TDbContext)Activator.CreateInstance(typeof(TDbContext), dbContextOptions);
             dbContext.Database.EnsureCreated();
 
             return dbContext;

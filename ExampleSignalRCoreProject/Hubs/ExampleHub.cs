@@ -4,14 +4,13 @@ using ExampleSignalRCoreProject.Models;
 using Microsoft.AspNetCore.SignalR;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ExampleSignalRCoreProject.Hubs
 {
     public class ExampleHub : Hub<ExampleHubResponses>
     {
-        Db _db;
+        readonly Db _db;
 
         public ExampleHub(Db db)
         {

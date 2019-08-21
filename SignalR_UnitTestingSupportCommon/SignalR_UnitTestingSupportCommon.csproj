@@ -1,10 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
-    <PackageReleaseNotes>*Added support for IHubContext and moved all common code to AspNetCore.SignalR.UnitTestingSupport.Common
-
-*Added possibility to implement my lib for custom (different than NUnit, xUnit, MsTest) testing framework (See: https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki/How-implement-testing-support-for-different-than-NUnit,-xUnit-or-MsTest-Framework).</PackageReleaseNotes>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageReleaseNotes>Ported to .Net standard.</PackageReleaseNotes>
     <Authors>Mateusz Soboń (NightAngell)</Authors>
     <Company />
     <Description>Common code for all SignalR.UnitTestingSupport.* nugets . If you want support for unit testing signalR core (Hub and IHubContext) use one of this packages (NUnit, xUnit, MsTest version): 
@@ -23,23 +21,24 @@ https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki/How-implement-tes
 </Description>
     <Copyright>MIT License (Mateusz Soboń)</Copyright>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-    <PackageLicenseUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport/blob/master/LICENSE</PackageLicenseUrl>
     <PackageProjectUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</PackageProjectUrl>
     <RepositoryUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</RepositoryUrl>
     <PackageTags>UnitTestingSupport UnitTestSupport UnitTestsSupport Unit test tests testing UnitTesting UnitTest UnitTests SignalR.UnitTestingSupport AspNetCore NUnit xUnit MsTest SignalR Core</PackageTags>
     <PackageId>AspNetCore.SignalR.UnitTestingSupport.Common</PackageId>
-    <Version>1.1.0</Version>
+    <Version>2.0.0</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>C:\Users\Mateusz Sobo\Desktop\UnitTestingSupport\SignalR_UnitTestingSupport\SignalR_UnitTestingSupportCommon\SignalR_UnitTestingSupportCommon.xml</DocumentationFile>
+    <DocumentationFile>C:\Users\sobta\Desktop\update\SignalR_UnitTestingSupport\SignalR_UnitTestingSupportCommon\SignalR_UnitTestingSupportCommon.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SignalR.Core" Version="1.1.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.2.1" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.1" />
-    <PackageReference Include="Moq" Version="4.10.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.6" />
+    <PackageReference Include="Moq" Version="4.12.0" />
   </ItemGroup>
-
 </Project>
