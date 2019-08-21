@@ -9,7 +9,7 @@
 
     <Copyright>Mateusz Soboń (NightAngell)</Copyright>
 
-    <PackageLicenseUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
 
     <PackageProjectUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</PackageProjectUrl>
 
@@ -17,8 +17,7 @@
 
     <PackageTags>SignalR SignalRCore SignalRUnitTest SignalRCoreUnitTest SignalRUnitTesting SignalRCoreUnitTesting SignalRUnitTests SignalRCoreUnitTests Unit Test Tests Testing NUnit SignalRUnitTestingSupport SignalRCoreUnitTestingSupport AspNetCore AspNetCore.SignalR aspnetcore "AspNetCore SignalR Unit Test"  "AspNetCore SignalR Unit Tests"  "AspNetCore SignalR Unit Testing"</PackageTags>
 
-    <PackageReleaseNotes>Easy to use, small, SignalR Core unit testing support with NUnit and Moq.
-*Separate common code</PackageReleaseNotes>
+    <PackageReleaseNotes>Updated dependencies</PackageReleaseNotes>
 
     <PackageId>SignalR.UnitTestingSupport.NUnit</PackageId>
 
@@ -38,11 +37,13 @@
 
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 
-    <Version>1.1.1</Version>
+    <Version>1.2.0</Version>
 
-    <AssemblyVersion>1.1.1.0</AssemblyVersion>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
 
-    <FileVersion>1.1.1.0</FileVersion>
+    <FileVersion>1.2.0.0</FileVersion>
+
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
@@ -54,6 +55,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="AspNetCore.SignalR.UnitTestingSupport.Common" Version="1.2.0" />
     <PackageReference Include="nunit" Version="3.12.0" />
   </ItemGroup>
 
