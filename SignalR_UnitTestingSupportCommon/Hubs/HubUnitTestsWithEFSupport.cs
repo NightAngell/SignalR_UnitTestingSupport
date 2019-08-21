@@ -15,6 +15,17 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
         DbMockAndInMemoryProvider<TDbContext> _dbProvider = new DbMockAndInMemoryProvider<TDbContext>();
 
         /// <summary>
+        /// Is false by default (<see cref="DbContext.Database.EnsureCreated()"/>).
+        /// <para>Set it to true if you want use <see cref="DbContext.Database.Migrate()"/> instead.</para>
+        /// <para>Warning! It NOT CREATE migrations. It only use existing ones.</para>
+        /// </summary>
+        public bool UseMigrations
+        {
+            get => _dbProvider.UseMigrations;
+            set => _dbProvider.UseMigrations = value;
+        }
+
+        /// <summary>
         /// By default, pure TDbContext mock, without any setup.
         /// </summary>
         public Mock<TDbContext> DbContextMock

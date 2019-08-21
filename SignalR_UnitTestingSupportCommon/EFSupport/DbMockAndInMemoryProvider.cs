@@ -18,6 +18,13 @@ namespace SignalR_UnitTestingSupportCommon.EFSupport
         private Lazy<TDbContext> _dbInMemoryInMemoryLazy;
 
         /// <summary>
+        /// Is false by default (<see cref="DbContext.Database.EnsureCreated()"/>).
+        /// <para>Set it to true if you want use <see cref="DbContext.Database.Migrate()"/> instead.</para>
+        /// <para>Warning! It NOT CREATE migrations. It only use existing ones.</para>
+        /// </summary>
+        public bool UseMigrations { get; set; } = false;
+
+        /// <summary>
         /// Lazy loaded mock which has not any setup by default.
         /// </summary>
         public Mock<TDbContext> DbContextMock
@@ -116,10 +123,7 @@ namespace SignalR_UnitTestingSupportCommon.EFSupport
                 .ConfigureWarnings(x => x.Ignore(RelationalEventId.QueryClientEvaluationWarning))
                 .Options;
 
-            var dbContext = (TDbContext)Activator.CreateInstance(typeof(TDbContext), dbContextSqliteOptions);
-            dbContext.Database.EnsureCreated();
-
-            return dbContext;
+            return _createDb(dbContextSqliteOptions);
         }
 
         private TDbContext _initInMemoryInMemory()
@@ -129,8 +133,20 @@ namespace SignalR_UnitTestingSupportCommon.EFSupport
                 .ConfigureWarnings(x => x.Ignore(RelationalEventId.QueryClientEvaluationWarning))
                 .Options;
 
-            var dbContext = (TDbContext)Activator.CreateInstance(typeof(TDbContext), dbContextInMemoryOptions);
-            dbContext.Database.EnsureCreated();
+            return _createDb(dbContextInMemoryOptions);
+        }
+
+        private TDbContext _createDb(DbContextOptions<TDbContext> dbContextOptions)
+        {
+            var dbContext = (TDbContext)Activator.CreateInstance(typeof(TDbContext), dbContextOptions);
+            if (UseMigrations)
+            {
+                dbContext.Database.Migrate();
+            }
+            else
+            {
+                dbContext.Database.EnsureCreated();
+            }
 
             return dbContext;
         }
