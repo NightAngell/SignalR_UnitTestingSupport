@@ -1,10 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
-    <PackageReleaseNotes>*Added support for IHubContext and moved all common code to AspNetCore.SignalR.UnitTestingSupport.Common
-
-*Added possibility to implement my lib for custom (different than NUnit, xUnit, MsTest) testing framework (See: https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki/How-implement-testing-support-for-different-than-NUnit,-xUnit-or-MsTest-Framework).</PackageReleaseNotes>
+    <PackageReleaseNotes>Updated dependencies.</PackageReleaseNotes>
     <Authors>Mateusz Soboń (NightAngell)</Authors>
     <Company />
     <Description>Common code for all SignalR.UnitTestingSupport.* nugets . If you want support for unit testing signalR core (Hub and IHubContext) use one of this packages (NUnit, xUnit, MsTest version): 
@@ -28,7 +26,10 @@ https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki/How-implement-tes
     <RepositoryUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</RepositoryUrl>
     <PackageTags>UnitTestingSupport UnitTestSupport UnitTestsSupport Unit test tests testing UnitTesting UnitTest UnitTests SignalR.UnitTestingSupport AspNetCore NUnit xUnit MsTest SignalR Core</PackageTags>
     <PackageId>AspNetCore.SignalR.UnitTestingSupport.Common</PackageId>
-    <Version>1.1.0</Version>
+    <Version>1.2.0</Version>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <AssemblyVersion>1.2.0.0</AssemblyVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
