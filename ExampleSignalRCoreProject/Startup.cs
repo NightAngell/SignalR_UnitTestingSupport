@@ -48,6 +48,7 @@ namespace ExampleSignalRCoreProject
             app.UseSignalR(options =>
             {
                 options.MapHub<ExampleHub>("/exampleHub");
+                options.MapHub<ExampleNonGenericHub>("/exampleNonGenericHub");
             });
             app.UseMvc();
         }
