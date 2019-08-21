@@ -57,8 +57,4 @@
     <PackageReference Include="nunit" Version="3.12.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\SignalR_UnitTestingSupportCommon\SignalR_UnitTestingSupportCommon.csproj" />
-  </ItemGroup>
-
 </Project>
