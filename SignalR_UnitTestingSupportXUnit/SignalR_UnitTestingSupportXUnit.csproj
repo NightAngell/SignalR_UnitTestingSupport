@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
 
     <IsPackable>true</IsPackable>
 
@@ -9,7 +9,7 @@
 
     <Copyright>MIT License (Mateusz Soboń)</Copyright>
 
-    <PackageLicenseUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport/blob/master/LICENSE</PackageLicenseUrl>
+    <PackageLicenseUrl></PackageLicenseUrl>
 
     <PackageProjectUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</PackageProjectUrl>
 
@@ -17,7 +17,7 @@
 
     <PackageTags>SignalR Core SignalRCore SignalRUnitTest SignalRCoreUnitTest SignalRUnitTesting SignalRCoreUnitTesting SignalRUnitTests SignalRCoreUnitTests Unit Test Tests Testing xUnit SignalRUnitTestingSupport SignalRCoreUnitTestingSupport AspNetCore AspNetCore.SignalR aspnetcore</PackageTags>
 
-    <PackageReleaseNotes>Removed some dependencies</PackageReleaseNotes>
+    <PackageReleaseNotes>Ported to .net core</PackageReleaseNotes>
 
     <PackageId>SignalR.UnitTestingSupport.xUnit</PackageId>
 
@@ -37,19 +37,21 @@
 
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
 
-    <Version>1.1.1</Version>
+    <Version>2.0.0</Version>
 
-    <AssemblyVersion>1.1.1.0</AssemblyVersion>
+    <AssemblyVersion>2.0.0.0</AssemblyVersion>
 
-    <FileVersion>1.1.1.0</FileVersion>
+    <FileVersion>2.0.0.0</FileVersion>
+
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>C:\Users\Mateusz Sobo\Desktop\UnitTestingSupport\SignalR_UnitTestingSupport\SignalR_UnitTestingSupportXUnit\SignalR_UnitTestingSupportXUnit.xml</DocumentationFile>
+    <DocumentationFile>C:\Users\sobta\Desktop\update\SignalR_UnitTestingSupport\SignalR_UnitTestingSupportXUnit\SignalR_UnitTestingSupportXUnit.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNetCore.SignalR.UnitTestingSupport.Common" Version="1.1.0" />
+    <PackageReference Include="AspNetCore.SignalR.UnitTestingSupport.Common" Version="2.0.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
   </ItemGroup>
 
