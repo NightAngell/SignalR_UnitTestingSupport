@@ -19,15 +19,15 @@ SignalR.UnitTestingSupport.MSTest
 ```
 #### 2. Using Packet Manager Console
 ```
-Install-Package SignalR.UnitTestingSupport.NUnit -Version 1.1.0
-Install-Package SignalR.UnitTestingSupport.xUnit -Version 1.1.1
-Install-Package SignalR.UnitTestingSupport.MSTest -Version 1.1.0
+Install-Package SignalR.UnitTestingSupport.NUnit -Version 2.0.0
+Install-Package SignalR.UnitTestingSupport.xUnit -Version 2.0.0
+Install-Package SignalR.UnitTestingSupport.MSTest -Version 2.0.0
 ```
 #### 3. Using .Net CLI
 ```
-dotnet add package SignalR.UnitTestingSupport.NUnit --version 1.1.0
-dotnet add package SignalR.UnitTestingSupport.xUnit --version 1.1.1
-dotnet add package SignalR.UnitTestingSupport.MSTest --version 1.1.0
+dotnet add package SignalR.UnitTestingSupport.NUnit --version 2.0.0
+dotnet add package SignalR.UnitTestingSupport.xUnit --version 2.0.0
+dotnet add package SignalR.UnitTestingSupport.MSTest --version 2.0.0
 ```
 ## Troubleshooting!
 Install ```NUnit3TestAdapter``` nuget for visual studio testing with NUnit in visual studio.                     https://www.nuget.org/packages/NUnit3TestAdapter/
