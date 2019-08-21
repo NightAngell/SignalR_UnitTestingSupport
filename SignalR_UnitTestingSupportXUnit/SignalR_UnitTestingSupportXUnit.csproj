@@ -17,7 +17,7 @@
 
     <PackageTags>SignalR Core SignalRCore SignalRUnitTest SignalRCoreUnitTest SignalRUnitTesting SignalRCoreUnitTesting SignalRUnitTests SignalRCoreUnitTests Unit Test Tests Testing xUnit SignalRUnitTestingSupport SignalRCoreUnitTestingSupport AspNetCore AspNetCore.SignalR aspnetcore</PackageTags>
 
-    <PackageReleaseNotes>Ported to .net core</PackageReleaseNotes>
+    <PackageReleaseNotes>Ported to .net standard</PackageReleaseNotes>
 
     <PackageId>SignalR.UnitTestingSupport.xUnit</PackageId>
 
