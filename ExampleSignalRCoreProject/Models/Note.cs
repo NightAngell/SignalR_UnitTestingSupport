@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace ExampleSignalRCoreProject.Models
+﻿namespace ExampleSignalRCoreProject.Models
 {
     public class Note
     {
