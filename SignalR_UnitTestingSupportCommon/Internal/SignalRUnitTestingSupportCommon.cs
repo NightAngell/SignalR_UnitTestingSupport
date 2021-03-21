@@ -1,7 +1,8 @@
-﻿using Microsoft.AspNetCore.SignalR;
-using Moq;
-using SignalR_UnitTestingSupportCommon.Interfaces;
+﻿#pragma warning disable SA1009 // Closing parenthesis should be spaced correctly
+#pragma warning disable SA1111 // Closing parenthesis should be on line of last parameter
 using System.Threading;
+using Microsoft.AspNetCore.SignalR;
+using Moq;
 
 namespace SignalR_UnitTestingSupportCommon.Internal
 {
@@ -11,7 +12,7 @@ namespace SignalR_UnitTestingSupportCommon.Internal
     public abstract class SignalRUnitTestingSupportCommon
     {
         /// <summary>
-        /// Mock for Hub.Groups 
+        /// Gets mock for Hub.Groups 
         /// </summary>
         public Mock<IGroupManager> GroupsMock { get; internal set; }
 
@@ -36,6 +37,7 @@ namespace SignalR_UnitTestingSupportCommon.Internal
                     It.IsAny<string>(),
                     It.IsAny<CancellationToken>()),
                     times
+
                 );
         }
 
@@ -164,3 +166,5 @@ namespace SignalR_UnitTestingSupportCommon.Internal
         internal abstract void SetUpClients();
     }
 }
+#pragma warning restore SA1111 // Closing parenthesis should be on line of last parameter
+#pragma warning restore SA1009 // Closing parenthesis should be spaced correctly

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SignalR_UnitTestingSupportCommon.Exceptions
 {
@@ -9,16 +7,16 @@ namespace SignalR_UnitTestingSupportCommon.Exceptions
     /// </summary>
     public class NegativeTestResultException : Exception
     {
-        #pragma warning disable CS1591
+        public NegativeTestResultException() : base()
+        {
+        }
 
-        public NegativeTestResultException() : base() { }
+        public NegativeTestResultException(string message) : base(message)
+        {
+        }
 
-        public NegativeTestResultException(string message) : base(message) { }
-
-        public NegativeTestResultException(string message, Exception innerException)
-       
-        : base (message, innerException) { }
-
-        #pragma warning restore CS1591
+        public NegativeTestResultException(string message, Exception innerException) : base(message, innerException)
+        {
+        }
     }
 }

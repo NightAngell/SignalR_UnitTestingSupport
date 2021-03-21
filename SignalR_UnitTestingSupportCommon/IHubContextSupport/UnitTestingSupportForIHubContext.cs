@@ -1,7 +1,7 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.SignalR;
 using Moq;
 using SignalR_UnitTestingSupportCommon.IHubContextSupport.Internal;
-using System.Collections.Generic;
 
 namespace SignalR_UnitTestingSupportCommon.IHubContextSupport
 {
@@ -9,69 +9,72 @@ namespace SignalR_UnitTestingSupportCommon.IHubContextSupport
     /// It provide preconfigured IHubContext mock and other mocks required to testing.
     /// </summary>
     public class UnitTestingSupportForIHubContext<THub> : UnitTestingSupportForIHubContextCommon
-        where THub: Hub
+        where THub : Hub
     {
         /// <summary>
-        /// Mock for Microsoft.AspNetCore.SignalR.IHubContext&lt;THub&gt;
+        /// Gets or sets mock for Microsoft.AspNetCore.SignalR.IHubContext&lt;THub&gt;
         /// </summary>
         public Mock<IHubContext<THub>> IHubContextMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients
+        /// Gets or sets mock for IHubContext.Clients
         /// </summary>
         public Mock<IHubClients> ClientsMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients.All
+        /// Gets or sets mock for IHubContext.Clients.All
         /// </summary>
         public Mock<IClientProxy> ClientsAllMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients.AllExcpet()
+        /// Gets or sets mock for IHubContext.Clients.AllExcpet()
         /// </summary>
         public Mock<IClientProxy> ClientsAllExceptMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients.Client()
+        /// Gets or sets mock for IHubContext.Clients.Client()
         /// </summary>
         public Mock<IClientProxy> ClientsClientMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients.Clients()
+        /// Gets or sets mock for IHubContext.Clients.Clients()
         /// </summary>
         public Mock<IClientProxy> ClientsClientsMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients.Group()
+        /// Gets or sets mock for IHubContext.Clients.Group()
         /// </summary>
         public Mock<IClientProxy> ClientsGroupMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients.GroupExcept()
+        /// Gets or sets mock for IHubContext.Clients.GroupExcept()
         /// </summary>
         public Mock<IClientProxy> ClientsGroupExceptMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients.Groups()
+        /// Gets or sets mock for IHubContext.Clients.Groups()
         /// </summary>
         public Mock<IClientProxy> ClientsGroupsMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients.User()
+        /// Gets or sets mock for IHubContext.Clients.User()
         /// </summary>
         public Mock<IClientProxy> ClientsUserMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients.Users()
+        /// Gets or sets mock for IHubContext.Clients.Users()
         /// </summary>
         public Mock<IClientProxy> ClientsUsersMock { get; protected set; }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="UnitTestingSupportForIHubContext{THub}"/> class.
         /// During object creation, it setup all required mocks
         /// </summary>
         public UnitTestingSupportForIHubContext()
         {
+#pragma warning disable SA1100 // Do not prefix calls with base unless local implementation exists
             base.SetUp();
+#pragma warning restore SA1100 // Do not prefix calls with base unless local implementation exists
             _setUpHubContextMock();
         }
 

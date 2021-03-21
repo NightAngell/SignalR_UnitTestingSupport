@@ -1,23 +1,22 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Moq;
-using SignalR_UnitTestingSupportCommon.Interfaces;
 using SignalR_UnitTestingSupportCommon.EFSupport;
+using SignalR_UnitTestingSupportCommon.Interfaces;
 
 namespace SignalR_UnitTestingSupportCommon.Hubs
 {
     /// <summary>
     /// Base class which provide support for testing hub&lt;TIHubResponses&gt; with Entity Framework Core (But without auto SetUp by any test engine)
     /// </summary>
-    /// <typeparam name="TIHubResponses"></typeparam>
-    /// <typeparam name="TDbContext"></typeparam>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1649:File name should match first type name", Justification = "I want to avoid breaking change by accident")]
     public class HubUnitTestsWithEFSupport<TIHubResponses, TDbContext> : HubUnitTestsSupport<TIHubResponses>, IHubUnitTestsWithEF<TDbContext>
         where TDbContext : DbContext
         where TIHubResponses : class
     {
-        DbMockAndInMemoryProvider<TDbContext> _dbProvider = new DbMockAndInMemoryProvider<TDbContext>();
+        private readonly DbMockAndInMemoryProvider<TDbContext> _dbProvider = new DbMockAndInMemoryProvider<TDbContext>();
 
         /// <summary>
-        /// By default, pure TDbContext mock, without any setup.
+        /// Gets by default, pure TDbContext mock, without any setup.
         /// </summary>
         public Mock<TDbContext> DbContextMock
         {
@@ -28,7 +27,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
         }
 
         /// <summary>
-        /// Relational database in memory
+        /// Gets relational database in memory
         /// </summary>
         public TDbContext DbInMemorySqlite
         {
@@ -39,7 +38,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
         }
 
         /// <summary>
-        /// Database in memory (not really relational)
+        /// Gets database in memory (not really relational)
         /// <para>For more info: https://docs.microsoft.com/pl-pl/ef/core/miscellaneous/testing/in-memory </para>
         /// </summary>
         public TDbContext DbInMemory

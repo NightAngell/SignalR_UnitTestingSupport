@@ -10,18 +10,18 @@ namespace SignalR_UnitTestingSupportCommon.Interfaces
         where TDbContext : DbContext
     {
         /// <summary>
-        /// Mock for TDbContext which is DbContext child or DbContext itself
+        /// Gets mock for TDbContext which is DbContext child or DbContext itself
         /// </summary>
         Mock<TDbContext> DbContextMock { get; }
 
         /// <summary>
-        /// DbContext child or DbContext itself which use InMemoryProvider (not really relatonal).
+        /// Gets dbContext child or DbContext itself which use InMemoryProvider (not really relatonal).
         /// <para>https://docs.microsoft.com/pl-pl/ef/core/miscellaneous/testing/in-memory</para>
         /// </summary>
         TDbContext DbInMemory { get; }
 
         /// <summary>
-        /// DbContext child or DbContext itself which use Sqlite provider configured to run in db in memory (relatonal).
+        /// Gets dbContext child or DbContext itself which use Sqlite provider configured to run in db in memory (relatonal).
         /// <para>https://docs.microsoft.com/pl-pl/ef/core/miscellaneous/testing/sqlite</para>
         /// </summary>
         TDbContext DbInMemorySqlite { get; }

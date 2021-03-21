@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.SignalR;
 using Moq;
 using SignalR_UnitTestingSupportCommon.Exceptions;
 using SignalR_UnitTestingSupportCommon.Interfaces;
 using SignalR_UnitTestingSupportCommon.Internal;
-using System.Collections.Generic;
 
 namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
 {
@@ -13,12 +13,12 @@ namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
     public abstract class HubUnitTestsBaseCommon : SignalRUnitTestingSupportCommon, IHubUnitTestsBaseCommon
     {
         /// <summary>
-        /// Fake for Hub.Contex.Items
+        /// Gets fake for Hub.Contex.Items
         /// </summary>
         public Dictionary<object, object> ItemsFake { get; internal set; }
 
         /// <summary>
-        /// Mock for Hub.Context
+        /// Gets mock for Hub.Context
         /// </summary>
         public Mock<HubCallerContext> ContextMock { get; internal set; }
 
@@ -72,7 +72,9 @@ namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
         public void VerifyContextItemsContainKeyValuePair(object key, object value)
         {
             bool shouldThrowException = false;
+#pragma warning disable IDE0059 // Unnecessary assignment of a value
             string exceptionMessage = $"Context items don`t contain that key-value pair: {key}-{value}. ";
+#pragma warning restore IDE0059 // Unnecessary assignment of a value
 
             try
             {
@@ -102,7 +104,10 @@ namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
                 throw new NegativeTestResultException($"{exceptionMessage}");
             }
 
-            if (shouldThrowException) throw new NegativeTestResultException($"{exceptionMessage}");
+            if (shouldThrowException)
+            {
+                throw new NegativeTestResultException($"{exceptionMessage}");
+            }
         }
     }
 }

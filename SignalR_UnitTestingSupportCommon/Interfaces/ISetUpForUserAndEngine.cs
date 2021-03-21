@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace SignalR_UnitTestingSupportCommon.Interfaces
+﻿namespace SignalR_UnitTestingSupportCommon.Interfaces
 {
     public interface ISetUpForUserAndEngine
     {
