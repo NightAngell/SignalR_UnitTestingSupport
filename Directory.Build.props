@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <PropertyGroup>
-    <CodeAnalysisRuleSet>..\StyleCop.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet>..\Global.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <!--END: StyleCop-->
   
