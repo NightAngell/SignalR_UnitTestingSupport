@@ -114,7 +114,6 @@ namespace SignalR_UnitTestingSupportCommon.EFSupport
             connection.Open();
             var databaseContextSqliteOptions = new DbContextOptionsBuilder<TDbContext>()
                 .UseSqlite(connection)
-                .ConfigureWarnings(x => x.Ignore(RelationalEventId.QueryClientEvaluationWarning))
                 .Options;
 
             return _createDb(databaseContextSqliteOptions);
@@ -124,7 +123,6 @@ namespace SignalR_UnitTestingSupportCommon.EFSupport
         {
             var databaseContextInMemoryOptions = new DbContextOptionsBuilder<TDbContext>()
                 .UseInMemoryDatabase(Guid.NewGuid().ToString())
-                .ConfigureWarnings(x => x.Ignore(RelationalEventId.QueryClientEvaluationWarning))
                 .Options;
 
             return _createDb(databaseContextInMemoryOptions);

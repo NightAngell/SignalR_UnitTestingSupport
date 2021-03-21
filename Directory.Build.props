@@ -4,7 +4,7 @@
   <!--Target framework-->
   <PropertyGroup>
     <TargetFrameworkForExampleAndTests>net5.0</TargetFrameworkForExampleAndTests>
-    <TargetFrameworkForLib>netstandard2.0</TargetFrameworkForLib>
+    <TargetFrameworkForLib>netstandard2.1</TargetFrameworkForLib>
   </PropertyGroup>
 
   <!--Unit testins support nugets related config-->

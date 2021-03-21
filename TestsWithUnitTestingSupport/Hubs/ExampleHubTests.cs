@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using ExampleSignalRCoreProject.Databases;
 using ExampleSignalRCoreProject.Hubs;
@@ -8,16 +6,21 @@ using ExampleSignalRCoreProject.Hubs.Interfaces;
 using ExampleSignalRCoreProject.Models;
 using Moq;
 using NUnit.Framework;
-using Microsoft.EntityFrameworkCore;
 using SignalR_UnitTestingSupport.Hubs;
-using System.Linq;
 
 namespace TestsWithUnitTestingSupport.Hubs
 {
     [TestFixture]
-    class ExampleHubTests : HubUnitTestsWithEF<ExampleHubResponses, Db>
+    public class ExampleHubTests : HubUnitTestsWithEF<IExampleHubResponses, Db>
     {
-        ExampleHub _exampleHub;
+        private ExampleHub _exampleHub;
+        
+        [SetUp]
+        public void SetUpExampleHubTests()
+        {
+            // Update 21.03.2021 - to be sure that tests are independent
+            _exampleHub = null;
+        }
 
         [Test]
         public void TryGetDbContexMock_DbContextMockSuccesfullyTaken()
@@ -65,7 +68,7 @@ namespace TestsWithUnitTestingSupport.Hubs
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            await  _exampleHub.OnConnectedAsync();
+            await _exampleHub.OnConnectedAsync();
 
             ClientsAllMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }

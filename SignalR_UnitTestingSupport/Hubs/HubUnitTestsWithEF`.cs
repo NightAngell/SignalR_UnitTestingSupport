@@ -7,9 +7,11 @@ namespace SignalR_UnitTestingSupport.Hubs
     /// <summary>
     /// Base class which provide support for Hub&lt;T&gt; testing with Entity Framework Core.
     /// </summary>
-    public abstract class HubUnitTestsWithEF<TIHubResponses, TDbContext> 
+#pragma warning disable SA1649 // File name should match first type name
+    public abstract class HubUnitTestsWithEF<TIHubResponses, TDbContext>
+#pragma warning restore SA1649 // File name should match first type name
         : HubUnitTestsWithEFSupport<TIHubResponses, TDbContext>
-        where TIHubResponses: class
+        where TIHubResponses : class
         where TDbContext : DbContext
     {
         /// <summary>
