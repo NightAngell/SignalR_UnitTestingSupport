@@ -1,16 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <TargetFramework>$(TargetFrameworkForExampleAndTests)</TargetFramework>
 
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
+  <ItemGroup Condition="'$(UseUnitTestingSupportNugetsInsteadOfProjects)' == 'false'">
+    <ProjectReference Include="..\SignalR_UnitTestingSupportCommon\SignalR_UnitTestingSupportCommon.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(UseUnitTestingSupportNugetsInsteadOfProjects)' == 'true'">
+    <PackageReference Include="AspNetCore.SignalR.UnitTestingSupport.Common" Version="$(UnitTestingSupportNugetsVersion)" />
+  </ItemGroup>
+
   <ItemGroup>
-    <PackageReference Include="AspNetCore.SignalR.UnitTestingSupport.Common" Version="2.0.0" />
-    <PackageReference Include="nunit" Version="3.10.1" />
-    <PackageReference Include="NUnit3TestAdapter" Version="3.10.0" />
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+    <PackageReference Include="nunit" Version="3.13.1" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.17.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
   </ItemGroup>
 
   <ItemGroup>

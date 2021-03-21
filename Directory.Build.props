@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
   
+  <!--Target framework-->
   <PropertyGroup>
     <TargetFrameworkForExampleAndTests>net5.0</TargetFrameworkForExampleAndTests>
     <TargetFrameworkForLib>netstandard2.0</TargetFrameworkForLib>
+  </PropertyGroup>
+
+  <!--Unit testins support nugets related config-->
+  <PropertyGroup>
+    
+    <!--Allowed values: true, false-->
+    <UseUnitTestingSupportNugetsInsteadOfProjects>false</UseUnitTestingSupportNugetsInsteadOfProjects>
+    
+    <!--Used only if UseUnitTestingSupportNugetsInsteadOfProjects is set to true -->
+    <UnitTestingSupportNugetsVersion>2.0.0</UnitTestingSupportNugetsVersion>
+    
   </PropertyGroup>
 
   <!--StyleCop-->
