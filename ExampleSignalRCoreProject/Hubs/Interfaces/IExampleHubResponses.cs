@@ -2,7 +2,7 @@
 
 namespace ExampleSignalRCoreProject.Hubs.Interfaces
 {
-    public interface ExampleHubResponses
+    public interface IExampleHubResponses
     {
         Task NotifyAboutSomething(string topic, string content);
         Task NotifyAboutSomethingElse();

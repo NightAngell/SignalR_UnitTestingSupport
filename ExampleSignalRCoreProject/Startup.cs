@@ -16,8 +16,7 @@ namespace ExampleSignalRCoreProject
                 @"Server=(localdb)\mssqllocaldb;
                  Database=SignalRSupportTests;
                  Trusted_Connection=True;
-                 ConnectRetryCount=0"
-            ));
+                 ConnectRetryCount=0"));
 
             services.AddSignalR();
         }

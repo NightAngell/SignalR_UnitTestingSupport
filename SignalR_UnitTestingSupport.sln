@@ -19,7 +19,14 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SignalR_UnitTestingSupportC
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestsWithIHubContextSupport", "TestsWithIHubContextSupport\TestsWithIHubContextSupport.csproj", "{A2E568BE-56BB-4E64-B852-EFDA5764AE94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleSignalRCoreProject", "ExampleSignalRCoreProject\ExampleSignalRCoreProject.csproj", "{5A015A45-3E94-4B15-A301-03DDAAD7811F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleSignalRCoreProject", "ExampleSignalRCoreProject\ExampleSignalRCoreProject.csproj", "{5A015A45-3E94-4B15-A301-03DDAAD7811F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{46013C35-7CE5-4B71-9BA3-EB87B751D792}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.props = Directory.Build.props
+		Global.ruleset = Global.ruleset
+		stylecop.json = stylecop.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

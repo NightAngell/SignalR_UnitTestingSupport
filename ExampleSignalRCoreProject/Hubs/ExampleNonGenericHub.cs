@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.SignalR;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.SignalR;
 
 namespace ExampleSignalRCoreProject.Hubs
 {
@@ -15,7 +15,7 @@ namespace ExampleSignalRCoreProject.Hubs
 
         public async Task NotifyAllExceptAboutSomething()
         {
-            await Clients.AllExcept("").SendAsync(NotifyUserAboutSomethingResponse);
+            await Clients.AllExcept(string.Empty).SendAsync(NotifyUserAboutSomethingResponse);
         }
 
         public async Task NotifyCallerAboutSomething()
@@ -30,17 +30,17 @@ namespace ExampleSignalRCoreProject.Hubs
 
         public async Task NotifyClientAboutSomething()
         {
-            await Clients.Client("").SendAsync(NotifyUserAboutSomethingResponse);
+            await Clients.Client(string.Empty).SendAsync(NotifyUserAboutSomethingResponse);
         }
 
         public async Task NotifyGrgoupAboutSomething()
         {
-            await Clients.Group("").SendAsync(NotifyUserAboutSomethingResponse);
+            await Clients.Group(string.Empty).SendAsync(NotifyUserAboutSomethingResponse);
         }
 
         public async Task NotifyGrgoupExceptAboutSomething()
         {
-            await Clients.GroupExcept("", new List<string>().AsReadOnly()).SendAsync(NotifyUserAboutSomethingResponse);
+            await Clients.GroupExcept(string.Empty, new List<string>().AsReadOnly()).SendAsync(NotifyUserAboutSomethingResponse);
         }
 
         public async Task NotifyGroupsAboutSomething()
@@ -55,12 +55,12 @@ namespace ExampleSignalRCoreProject.Hubs
 
         public async Task NotifyOthersInGroupAboutSomething()
         {
-            await Clients.OthersInGroup("").SendAsync(NotifyUserAboutSomethingResponse);
+            await Clients.OthersInGroup(string.Empty).SendAsync(NotifyUserAboutSomethingResponse);
         }
 
         public async Task NotifyUserAboutSomething()
         {
-            await Clients.User("").SendAsync(NotifyUserAboutSomethingResponse);
+            await Clients.User(string.Empty).SendAsync(NotifyUserAboutSomethingResponse);
         }
 
         public async Task NotifyUsersAboutSomething()

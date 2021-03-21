@@ -4,6 +4,7 @@ namespace ExampleSignalRCoreProject.Migrations
 {
     public partial class Init : Migration
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.ReadabilityRules", "SA1413:Use trailing comma in multi-line initializers", Justification = "Auto generated code")]
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
