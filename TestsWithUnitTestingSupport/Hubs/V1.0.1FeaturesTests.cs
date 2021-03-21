@@ -2,14 +2,12 @@
 using Moq;
 using NUnit.Framework;
 using SignalR_UnitTestingSupport.Hubs;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TestsWithUnitTestingSupport.Hubs
 {
     [TestFixture]
-    class V101FeaturesTests : HubUnitTestsBase
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1649:File name should match first type name", Justification = "Legacy code")]
+    public class V101FeaturesTests : HubUnitTestsBase
     {
         [Test]
         public void HubUnitTestsBaseAlwaysSameInScopeOfTest()

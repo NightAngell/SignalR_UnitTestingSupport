@@ -10,17 +10,17 @@ namespace SignalR_UnitTestingSupportCommon.Interfaces
     public interface IHubUnitTestsBaseCommon
     {
         /// <summary>
-        /// Mock for Hub.Context
+        /// Gets mock for Hub.Context
         /// </summary>
         Mock<HubCallerContext> ContextMock { get; }
 
         /// <summary>
-        /// Mock for Hub.Groups 
+        /// Gets mock for Hub.Groups 
         /// </summary>
         Mock<IGroupManager> GroupsMock { get; }
 
         /// <summary>
-        /// Fake for Hub.Contex.Items
+        /// Gets fake for Hub.Contex.Items
         /// </summary>
         Dictionary<object, object> ItemsFake { get; }
 

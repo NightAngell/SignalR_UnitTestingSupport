@@ -12,12 +12,12 @@ namespace ExampleSignalRCoreProject.Hubs
 
         public void AddUserToGroup()
         {
-            Groups.AddToGroupAsync(Context.ConnectionId, "");
+            Groups.AddToGroupAsync(Context.ConnectionId, string.Empty);
         }
 
         public void RemoveUserFromGroupByConnIdGroup()
         {
-            Groups.RemoveFromGroupAsync(Context.ConnectionId, "");
+            Groups.RemoveFromGroupAsync(Context.ConnectionId, string.Empty);
         }
     }
 }

@@ -1,22 +1,26 @@
-﻿using ExampleSignalRCoreProject.Databases;
+﻿using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
+using ExampleSignalRCoreProject.Databases;
 using ExampleSignalRCoreProject.Hubs;
-using Microsoft.AspNetCore.SignalR;
+using ExampleSignalRCoreProject.Models;
 using Moq;
 using NUnit.Framework;
 using SignalR_UnitTestingSupport.Hubs;
-using System;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
-using ExampleSignalRCoreProject.Models;
 
 namespace TestsWithUnitTestingSupport.Hubs
 {
     [TestFixture]
-    class ExampleNonGenericHubTests : HubUnitTestsWithEF<Db>
+    public class ExampleNonGenericHubTests : HubUnitTestsWithEF<Db>
     {
-        ExampleNonGenericHub _exampleHub;
+        private ExampleNonGenericHub _exampleHub;
+
+        [SetUp]
+        public void SetUpExampleNonGenericHubTests()
+        {
+            // Update 21.03.2021 - to be sure that tests are independent
+            _exampleHub = null;
+        }
 
         [Test]
         public void TryGetDbContexMock_DbContextMockSuccesfullyTaken()

@@ -1,79 +1,80 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.SignalR;
 using Moq;
 using SignalR_UnitTestingSupportCommon.IHubContextSupport.Internal;
-using SignalR_UnitTestingSupportCommon.Internal;
-using System.Collections.Generic;
 
 namespace SignalR_UnitTestingSupportCommon.IHubContextSupport
 {
     /// <summary>
     /// It provide preconfigured IHubContext mock and other mocks required to testing.
     /// </summary>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1649:File name should match first type name", Justification = "I want to avoid breaking change by accident")]
     public class UnitTestingSupportForIHubContext<THub, THubResponses> : UnitTestingSupportForIHubContextCommon
         where THubResponses : class
         where THub : Hub<THubResponses>
     {
         /// <summary>
-        /// Mock for Microsoft.AspNetCore.SignalR.IHubContext&lt;THub, THubResponses&gt;
+        /// Gets or sets mock for Microsoft.AspNetCore.SignalR.IHubContext&lt;THub, THubResponses&gt;
         /// </summary>
         public Mock<IHubContext<THub, THubResponses>> IHubContextMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients
+        /// Gets or sets mock for IHubContext.Clients
         /// </summary>
         public Mock<IHubClients<THubResponses>> ClientsMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients.All
+        /// Gets or sets mock for IHubContext.Clients.All
         /// </summary>
         public Mock<THubResponses> ClientsAllMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients.AllExcpet()
+        /// Gets or sets mock for IHubContext.Clients.AllExcpet()
         /// </summary>
         public Mock<THubResponses> ClientsAllExceptMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients.Client()
+        /// Gets or sets mock for IHubContext.Clients.Client()
         /// </summary>
         public Mock<THubResponses> ClientsClientMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients.Clients()
+        /// Gets or sets mock for IHubContext.Clients.Clients()
         /// </summary>
         public Mock<THubResponses> ClientsClientsMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients.Group()
+        /// Gets or sets mock for IHubContext.Clients.Group()
         /// </summary>
         public Mock<THubResponses> ClientsGroupMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients.GroupExcept()
+        /// Gets or sets mock for IHubContext.Clients.GroupExcept()
         /// </summary>
         public Mock<THubResponses> ClientsGroupExceptMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients.Groups()
+        /// Gets or sets mock for IHubContext.Clients.Groups()
         /// </summary>
         public Mock<THubResponses> ClientsGroupsMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients.User()
+        /// Gets or sets mock for IHubContext.Clients.User()
         /// </summary>
         public Mock<THubResponses> ClientsUserMock { get; protected set; }
 
         /// <summary>
-        /// Mock for IHubContext.Clients.Users()
+        /// Gets or sets mock for IHubContext.Clients.Users()
         /// </summary>
         public Mock<THubResponses> ClientsUsersMock { get; protected set; }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="UnitTestingSupportForIHubContext{THub, THubResponses}"/> class.
         /// During object creation, set up on mocks is done
         /// </summary>
         public UnitTestingSupportForIHubContext()
         {
-            base.SetUp();
+            SetUp();
             _setUpHubContextMock();
         }
 

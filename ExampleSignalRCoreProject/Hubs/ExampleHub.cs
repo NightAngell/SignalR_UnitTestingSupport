@@ -1,16 +1,16 @@
-﻿using ExampleSignalRCoreProject.Databases;
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using ExampleSignalRCoreProject.Databases;
 using ExampleSignalRCoreProject.Hubs.Interfaces;
 using ExampleSignalRCoreProject.Models;
 using Microsoft.AspNetCore.SignalR;
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace ExampleSignalRCoreProject.Hubs
 {
-    public class ExampleHub : Hub<ExampleHubResponses>
+    public class ExampleHub : Hub<IExampleHubResponses>
     {
-        readonly Db _db;
+        private readonly Db _db;
 
         public ExampleHub(Db db)
         {
@@ -29,8 +29,9 @@ namespace ExampleSignalRCoreProject.Hubs
 
         public async Task AddNoteWithLoremIpsumAsContentToDb()
         {
-            _db.Note.Add(new Note() {
-               Content = "Lorem Ipsum"
+            _db.Note.Add(new Note()
+            {
+               Content = "Lorem Ipsum",
             });
 
             await _db.SaveChangesAsync();
@@ -38,7 +39,7 @@ namespace ExampleSignalRCoreProject.Hubs
 
         public void NotifyAboutSomethingElseAllExcept()
         {
-            var excludedConnectionIds = new List<string> {};
+            var excludedConnectionIds = new List<string> { };
             Clients.AllExcept(excludedConnectionIds.AsReadOnly()).NotifyAboutSomethingElse();
         }
 
@@ -49,7 +50,7 @@ namespace ExampleSignalRCoreProject.Hubs
 
         public void NotifyClientAboutSomethingElse()
         {
-            Clients.Client("").NotifyAboutSomethingElse();
+            Clients.Client(string.Empty).NotifyAboutSomethingElse();
         }
 
         public void NotifyClientsAboutSomethingElse()
@@ -60,12 +61,12 @@ namespace ExampleSignalRCoreProject.Hubs
 
         public void NotifyGroupAboutSomethingElse()
         {
-            Clients.Group("").NotifyAboutSomethingElse();
+            Clients.Group(string.Empty).NotifyAboutSomethingElse();
         }
 
         public void NotifyGroupExceptAboutSomethingElse()
         {
-            Clients.GroupExcept("", new List<string>().AsReadOnly()).NotifyAboutSomethingElse();
+            Clients.GroupExcept(string.Empty, new List<string>().AsReadOnly()).NotifyAboutSomethingElse();
         }
 
         public void NotifyGroupsAboutSomethingElse()
@@ -80,12 +81,12 @@ namespace ExampleSignalRCoreProject.Hubs
 
         public void NotifyOthersInGroupAboutSomethingElse()
         {
-            Clients.OthersInGroup("").NotifyAboutSomethingElse();
+            Clients.OthersInGroup(string.Empty).NotifyAboutSomethingElse();
         }
 
         public void NotifyUserAboutSomethingElse()
         {
-            Clients.User("").NotifyAboutSomethingElse();
+            Clients.User(string.Empty).NotifyAboutSomethingElse();
         }
 
         public void NotifyUsersAboutSomethingElse()
@@ -100,13 +101,12 @@ namespace ExampleSignalRCoreProject.Hubs
 
         public void AddSomebodyToGroup()
         {
-            Groups.AddToGroupAsync("", "");
+            Groups.AddToGroupAsync(string.Empty, string.Empty);
         }
 
         public void RemoveSomebodyFromGroup()
         {
-            Groups.RemoveFromGroupAsync("", "");
+            Groups.RemoveFromGroupAsync(string.Empty, string.Empty);
         }
-
     }
 }

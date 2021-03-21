@@ -4,29 +4,27 @@ using ExampleSignalRCoreProject.Services;
 using Moq;
 using NUnit.Framework;
 using SignalR_UnitTestingSupportCommon.IHubContextSupport;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace TestsWithIHubContextSupport
 {
     [TestFixture]
     public class TestsForIHubContextForGenericHub
     {
-        ServiceWhichUserGenericIHubContext service;
-        UnitTestingSupportForIHubContext<ExampleHub, ExampleHubResponses> unitTestingSupport;
+        private ServiceWhichUserGenericIHubContext _service;
+        private UnitTestingSupportForIHubContext<ExampleHub, IExampleHubResponses> _unitTestingSupport;
 
         [SetUp]
         public void SetUp()
         {
-            unitTestingSupport = new UnitTestingSupportForIHubContext<ExampleHub, ExampleHubResponses>();
-            service = new ServiceWhichUserGenericIHubContext(unitTestingSupport.IHubContextMock.Object);
+            _unitTestingSupport = new UnitTestingSupportForIHubContext<ExampleHub, IExampleHubResponses>();
+            _service = new ServiceWhichUserGenericIHubContext(_unitTestingSupport.IHubContextMock.Object);
         }
 
         [Test]
         public void NotifyAllAboutSomethingElse_AllNotifiedAboutSomethingElse()
         {
-            service.NotifyAllAboutSomethingElse();
-            unitTestingSupport
+            _service.NotifyAllAboutSomethingElse();
+            _unitTestingSupport
                 .ClientsAllMock
                 .Verify(x => x.NotifyAboutSomethingElse(), 
                     Times.Once());
@@ -35,8 +33,8 @@ namespace TestsWithIHubContextSupport
         [Test]
         public void NotifyAllExceptAboutSomethingElse_AllExceptNotifiedAboutSomethingElse()
         {
-            service.NotifyAboutSomethingElseAllExcept();
-            unitTestingSupport
+            _service.NotifyAboutSomethingElseAllExcept();
+            _unitTestingSupport
                 .ClientsAllExceptMock
                 .Verify(x => x.NotifyAboutSomethingElse(), 
                 Times.Once());
@@ -45,8 +43,8 @@ namespace TestsWithIHubContextSupport
         [Test]
         public void NotifyClientsAboutSomethingElse_ClientsNotifiedAboutSomethingElse()
         {
-            service.NotifyClientsAboutSomethingElse();
-            unitTestingSupport
+            _service.NotifyClientsAboutSomethingElse();
+            _unitTestingSupport
                 .ClientsClientsMock
                 .Verify(x => x.NotifyAboutSomethingElse(), Times.Once());
         }
@@ -54,8 +52,8 @@ namespace TestsWithIHubContextSupport
         [Test]
         public void NotifyClientAboutSomethingElse_ClientNotifiedAboutSomethingElse()
         {
-            service.NotifyClientAboutSomethingElse();
-            unitTestingSupport
+            _service.NotifyClientAboutSomethingElse();
+            _unitTestingSupport
                 .ClientsClientMock
                 .Verify(x => x.NotifyAboutSomethingElse(), Times.Once());
         }
@@ -63,8 +61,8 @@ namespace TestsWithIHubContextSupport
         [Test]
         public void NotifyGroupAboutSomethingElse_GroupNotifiedAboutSomethingElse()
         {
-            service.NotifyGroupAboutSomethingElse();
-            unitTestingSupport
+            _service.NotifyGroupAboutSomethingElse();
+            _unitTestingSupport
                 .ClientsGroupMock
                 .Verify(x => x.NotifyAboutSomethingElse(), Times.Once());
         }
@@ -72,8 +70,8 @@ namespace TestsWithIHubContextSupport
         [Test]
         public void NotifyGroupsAboutSomethingElse_GroupsNotifiedAboutSomethingElse()
         {
-            service.NotifyGroupsAboutSomethingElse();
-            unitTestingSupport
+            _service.NotifyGroupsAboutSomethingElse();
+            _unitTestingSupport
                 .ClientsGroupsMock
                 .Verify(x => x.NotifyAboutSomethingElse(), Times.Once());
         }
@@ -81,8 +79,8 @@ namespace TestsWithIHubContextSupport
         [Test]
         public void NotifyGroupExceptAboutSomethingElse_GroupExceptNotifiedAboutSomethingElse()
         {
-            service.NotifyGroupExceptAboutSomethingElse();
-            unitTestingSupport
+            _service.NotifyGroupExceptAboutSomethingElse();
+            _unitTestingSupport
                 .ClientsGroupExceptMock
                 .Verify(x => x.NotifyAboutSomethingElse(), Times.Once());
         }
@@ -90,8 +88,8 @@ namespace TestsWithIHubContextSupport
         [Test]
         public void NotifyUserAboutSomethingElse_UserNotifiedAboutSomethingElse()
         {
-            service.NotifyUserAboutSomethingElse();
-            unitTestingSupport
+            _service.NotifyUserAboutSomethingElse();
+            _unitTestingSupport
                 .ClientsUserMock
                 .Verify(x => x.NotifyAboutSomethingElse(), Times.Once());
         }
@@ -99,8 +97,8 @@ namespace TestsWithIHubContextSupport
         [Test]
         public void NotifyUsersAboutSomething_UsersNotifiedAboutSomething()
         {
-            service.NotifyUsersAboutSomethingElse();
-            unitTestingSupport
+            _service.NotifyUsersAboutSomethingElse();
+            _unitTestingSupport
                 .ClientsUsersMock
                 .Verify(x => x.NotifyAboutSomethingElse(), Times.Once());
         }

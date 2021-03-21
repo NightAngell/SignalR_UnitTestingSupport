@@ -1,7 +1,7 @@
-﻿using SignalR_UnitTestingSupportCommon.Internal;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SignalR_UnitTestingSupportCommon.Internal;
 
 namespace SignalR_UnitTestingSupportCommon.IHubContextSupport.Internal
 {

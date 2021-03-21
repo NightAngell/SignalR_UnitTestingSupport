@@ -1,80 +1,81 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.SignalR;
 using Moq;
 using SignalR_UnitTestingSupportCommon.Hubs.Internal;
 using SignalR_UnitTestingSupportCommon.Interfaces;
-using System;
-using System.Collections.Generic;
 
 namespace SignalR_UnitTestingSupportCommon.Hubs
 {
     /// <summary>
     /// Base class which provide support for testing hub&lt;TIHubResponses&gt; (But without auto SetUp by any test engine)
     /// </summary>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1649:File name should match first type name", Justification = "I want to avoid breaking change by accident")]
     public class HubUnitTestsSupport<TIHubResponses> : HubUnitTestsBaseCommon, IHubUnitTestsBase<TIHubResponses>
         where TIHubResponses : class
     {
         /// <summary>
-        /// Mock for Hub.Clients
+        /// Gets mock for Hub.Clients
         /// </summary>
         public Mock<IHubCallerClients<TIHubResponses>> ClientsMock { get; private set; }
 
         /// <summary>
-        /// Mock for Hub.Clients.All
+        /// Gets mock for Hub.Clients.All
         /// </summary>
         public Mock<TIHubResponses> ClientsAllMock { get; private set; }
 
         /// <summary>
-        /// Mock which is returned when Hub.Clients.AllExcept() is called
+        /// Gets mock which is returned when Hub.Clients.AllExcept() is called
         /// </summary>
         public Mock<TIHubResponses> ClientsAllExceptMock { get; private set; }
 
         /// <summary>
-        /// Mock for Hub.Clients.Caller
+        /// Gets mock for Hub.Clients.Caller
         /// </summary>
         public Mock<TIHubResponses> ClientsCallerMock { get; private set; }
 
         /// <summary>
-        /// Mock which is returned when Hub.Clients.Client() is called
+        /// Gets mock which is returned when Hub.Clients.Client() is called
         /// </summary>
         public Mock<TIHubResponses> ClientsClientMock { get; private set; }
 
         /// <summary>
-        /// Mock which is returned when Hub.Clients.Clients() is called
+        /// Gets mock which is returned when Hub.Clients.Clients() is called
         /// </summary>
         public Mock<TIHubResponses> ClientsClientsMock { get; private set; }
 
         /// <summary>
-        /// Mock which is returned when Hub.Clients.Group() is called
+        /// Gets mock which is returned when Hub.Clients.Group() is called
         /// </summary>
         public Mock<TIHubResponses> ClientsGroupMock { get; private set; }
 
         /// <summary>
-        /// Mock which is returned when Hub.Clients.GroupExcept() is called
+        /// Gets mock which is returned when Hub.Clients.GroupExcept() is called
         /// </summary>
         public Mock<TIHubResponses> ClientsGroupExceptMock { get; private set; }
 
         /// <summary>
-        /// Mock which is returned when Hub.Clients.Groups() is called
+        /// Gets mock which is returned when Hub.Clients.Groups() is called
         /// </summary>
         public Mock<TIHubResponses> ClientsGroupsMock { get; private set; }
 
         /// <summary>
-        /// Mock for Hub.Clients.Others
+        /// Gets mock for Hub.Clients.Others
         /// </summary>
         public Mock<TIHubResponses> ClientsOthersMock { get; private set; }
 
         /// <summary>
-        /// Mock which is returned when Hub.Clients.OthersInGroup() is called
+        /// Gets mock which is returned when Hub.Clients.OthersInGroup() is called
         /// </summary>
         public Mock<TIHubResponses> ClientsOthersInGroupMock { get; private set; }
 
         /// <summary>
-        /// Mock which is returned when Hub.Clients.User() is called
+        /// Gets mock which is returned when Hub.Clients.User() is called
         /// </summary>
         public Mock<TIHubResponses> ClientsUserMock { get; private set; }
 
         /// <summary>
-        /// Mock which is returned when Hub.Clients.Users() is called
+        /// Gets mock which is returned when Hub.Clients.Users() is called
         /// </summary>
         public Mock<TIHubResponses> ClientsUsersMock { get; private set; }
 
@@ -185,7 +186,9 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
         public void AssignToHubRequiredProperties(Hub<TIHubResponses> hub)
         {
             if (hub == null)
+            {
                 throw new ArgumentNullException("Hub not initialized");
+            }
 
             hub.Clients = ClientsMock.Object;
             hub.Context = ContextMock.Object;

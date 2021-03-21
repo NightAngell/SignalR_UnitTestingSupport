@@ -1,0 +1,60 @@
+{
+  // WARNING! THIS IS ONE FILE LINKED (linked, not added) TO MULTIPLE PROJECTS.
+  // Original file can be found inside 'Solution Items'
+
+  "$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
+  "settings": {
+    "documentationRules": {
+      "companyName": "Mateusz Soboñ",
+      "xmlHeader": false,
+
+      "documentExposedElements": false,
+      "documentInterfaces": false,
+      "documentInternalElements": false,
+      "documentPrivateElements": false,
+      "documentPrivateFields": false,
+      "fileNamingConvention": "stylecop",
+      "excludeFromPunctuationCheck": [
+        "summary",
+        "example",
+        "para",
+        "c",
+        "exception",
+        "see",
+        "seealso",
+        "param",
+        "typeparam",
+        "paramref",
+        "typeparamref",
+        "list",
+        "inheritdoc",
+        "include"
+      ]
+    },
+
+    "orderingRules": {
+      "blankLinesBetweenUsingGroups": "omit",
+      "usingDirectivesPlacement": "outsideNamespace",
+      "elementOrder": [ "constant", "static", "readonly" ]
+    },
+
+    "namingRules": {
+      //Min version: 1.2.0: 
+      //https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/Configuration.md#namespace-components
+      "allowedNamespaceComponents": [
+        "Entities",
+        "Services",
+        "Etc"
+      ]
+    },
+
+    "maintainabilityRules": {
+      "topLevelTypes": [ "class", "interface", "struct", "enum", "delegate" ]
+    },
+
+    "layoutRules": {
+      "newlineAtEndOfFile": "allow",
+      "allowConsecutiveUsings": true
+    }
+  }
+}

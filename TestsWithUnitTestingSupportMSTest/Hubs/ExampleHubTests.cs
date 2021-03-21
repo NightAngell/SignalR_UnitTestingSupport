@@ -1,23 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using ExampleSignalRCoreProject.Databases;
 using ExampleSignalRCoreProject.Hubs;
 using ExampleSignalRCoreProject.Hubs.Interfaces;
 using ExampleSignalRCoreProject.Models;
-using Moq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Microsoft.EntityFrameworkCore;
+using Moq;
 using SignalR_UnitTestingSupportMSTest.Hubs;
-using System.Linq;
 
 namespace TestsWithUnitTestingSupport.Hubs
 {
     [TestClass]
-    public class ExampleHubTests : HubUnitTestsWithEF<ExampleHubResponses, Db>
+    public class ExampleHubTests : HubUnitTestsWithEF<IExampleHubResponses, Db>
     {
-        ExampleHub _exampleHub;
+        private ExampleHub _exampleHub;
+
+        [TestInitialize]
+        public void SetUpExampleHubTests()
+        {
+            // Update 21.03.2021 - to be sure that tests are independent
+            _exampleHub = null;
+        }
 
         [TestMethod]
         public void TryGetDbContexMock_DbContextMockSuccesfullyTaken()
@@ -40,9 +43,10 @@ namespace TestsWithUnitTestingSupport.Hubs
         [TestMethod]
         [DataRow("")]
         [DataRow("")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Legacy")]
         public async Task TryGetDbInMemorySqlite_WeGetClearInstanceOfDbInEveryTest(string callThisTestTwoTimes)
         {
-            Assert.IsTrue(DbInMemorySqlite.Note.Count() == 0);
+            Assert.IsTrue(!DbInMemorySqlite.Note.Any());
 
             DbInMemorySqlite.Note.Add(new Note { Content = "test content" });
             await DbInMemorySqlite.SaveChangesAsync();
@@ -51,9 +55,10 @@ namespace TestsWithUnitTestingSupport.Hubs
         [TestMethod]
         [DataRow("")]
         [DataRow("")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "Legacy")]
         public async Task TryGetDbInMemory_WeGetClearInstanceOfDbInEveryTest(string callThisTestTwoTimes)
         {
-            Assert.IsTrue(DbInMemory.Note.Count() == 0);
+            Assert.IsTrue(!DbInMemory.Note.Any());
 
             DbInMemory.Note.Add(new Note { Content = "test content" });
             await DbInMemory.SaveChangesAsync();
@@ -65,7 +70,7 @@ namespace TestsWithUnitTestingSupport.Hubs
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            await  _exampleHub.OnConnectedAsync();
+            await _exampleHub.OnConnectedAsync();
 
             ClientsAllMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }

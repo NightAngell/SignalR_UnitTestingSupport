@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Moq;
-using SignalR_UnitTestingSupportCommon.Interfaces;
 using SignalR_UnitTestingSupportCommon.EFSupport;
+using SignalR_UnitTestingSupportCommon.Interfaces;
 
 namespace SignalR_UnitTestingSupportCommon.Hubs
 {
@@ -12,10 +12,10 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
     public class HubUnitTestsWithEFSupport<TDbContext> : HubUnitTestsSupport, IHubUnitTestsWithEF<TDbContext>
         where TDbContext : DbContext
     {
-        DbMockAndInMemoryProvider<TDbContext> _dbProvider = new DbMockAndInMemoryProvider<TDbContext>();
+        private readonly DbMockAndInMemoryProvider<TDbContext> _dbProvider = new DbMockAndInMemoryProvider<TDbContext>();
 
         /// <summary>
-        /// By default, pure TDbContext mock, without any setup.
+        /// Gets by default, pure TDbContext mock, without any setup.
         /// </summary>
         public Mock<TDbContext> DbContextMock
         {
@@ -26,7 +26,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
         }
 
         /// <summary>
-        /// Relational database in memory
+        /// Gets relational database in memory
         /// </summary>
         public TDbContext DbInMemorySqlite
         {
@@ -37,7 +37,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
         }
 
         /// <summary>
-        /// Database in memory (not really relational)
+        /// Gets database in memory (not really relational)
         /// <para>For more info: https://docs.microsoft.com/pl-pl/ef/core/miscellaneous/testing/in-memory </para>
         /// </summary>
         public TDbContext DbInMemory

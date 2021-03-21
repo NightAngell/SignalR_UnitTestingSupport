@@ -1,7 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Moq;
-using System;
-using SignalR_UnitTestingSupportCommon.EFSupport;
+﻿using System;
+using Microsoft.EntityFrameworkCore;
 using SignalR_UnitTestingSupportCommon.Hubs;
 
 namespace SignalR_UnitTestingSupportXUnit.Hubs
@@ -12,12 +10,10 @@ namespace SignalR_UnitTestingSupportXUnit.Hubs
     public abstract class HubUnitTestsWithEF<TDbContext> : HubUnitTestsWithEFSupport<TDbContext>, IDisposable
         where TDbContext : DbContext
     {
-        #pragma warning disable CS1591
         public HubUnitTestsWithEF()
         {
             SetUp();
         }
-        #pragma warning restore CS1591
 
         /// <summary>
         /// Only xUnit should call this. Do not it directly.
