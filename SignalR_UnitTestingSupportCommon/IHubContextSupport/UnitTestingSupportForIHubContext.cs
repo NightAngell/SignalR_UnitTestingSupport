@@ -72,9 +72,7 @@ namespace SignalR_UnitTestingSupportCommon.IHubContextSupport
         /// </summary>
         public UnitTestingSupportForIHubContext()
         {
-#pragma warning disable SA1100 // Do not prefix calls with base unless local implementation exists
-            base.SetUp();
-#pragma warning restore SA1100 // Do not prefix calls with base unless local implementation exists
+            SetUp();
             _setUpHubContextMock();
         }
 

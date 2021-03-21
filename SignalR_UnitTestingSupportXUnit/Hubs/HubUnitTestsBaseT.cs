@@ -1,5 +1,5 @@
-﻿using SignalR_UnitTestingSupportCommon.Hubs;
-using System;
+﻿using System;
+using SignalR_UnitTestingSupportCommon.Hubs;
 
 namespace SignalR_UnitTestingSupportXUnit.Hubs
 {
@@ -7,22 +7,21 @@ namespace SignalR_UnitTestingSupportXUnit.Hubs
     /// Base class which provide support for Hub&lt;T&gt; testing
     /// </summary>
     /// <typeparam name="TIHubResponses">Interface which is used in Hub&lt;T&gt; as T</typeparam>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1649:File name should match first type name", Justification = "Legacy name")]
     public abstract class HubUnitTestsBase<TIHubResponses> : HubUnitTestsSupport<TIHubResponses>, IDisposable
         where TIHubResponses : class
     {
-        #pragma warning disable CS1591
         public HubUnitTestsBase()
         {
             SetUp();
         }
-        #pragma warning restore CS1591
 
         /// <summary>
         /// Only xUnit should call this. Do not it directly.
         /// </summary>
         public virtual void Dispose()
         {
-            //Nothing to dispose here
+            // Nothing to dispose here
         }
     }
 }

@@ -72,10 +72,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
         public void VerifyContextItemsContainKeyValuePair(object key, object value)
         {
             bool shouldThrowException = false;
-#pragma warning disable IDE0059 // Unnecessary assignment of a value
-            string exceptionMessage = $"Context items don`t contain that key-value pair: {key}-{value}. ";
-#pragma warning restore IDE0059 // Unnecessary assignment of a value
-
+            string exceptionMessage;
             try
             {
                 if (!ItemsFake.ContainsValue(value))

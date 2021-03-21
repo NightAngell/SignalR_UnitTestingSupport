@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>$(TargetFrameworkForLib)</TargetFramework>
 
     <IsPackable>true</IsPackable>
 
@@ -51,8 +51,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNetCore.SignalR.UnitTestingSupport.Common" Version="2.0.0" />
     <PackageReference Include="xunit" Version="2.4.1" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(UseUnitTestingSupportNugetsInsteadOfProjects)' == 'false'">
+    <ProjectReference Include="..\SignalR_UnitTestingSupportCommon\SignalR_UnitTestingSupportCommon.csproj" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(UseUnitTestingSupportNugetsInsteadOfProjects)' == 'true'">
+    <PackageReference Include="AspNetCore.SignalR.UnitTestingSupport.Common" Version="$(UnitTestingSupportNugetsVersion)" />
   </ItemGroup>
 
 </Project>

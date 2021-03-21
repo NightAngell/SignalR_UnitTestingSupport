@@ -1,21 +1,24 @@
-﻿using ExampleSignalRCoreProject.Databases;
-using ExampleSignalRCoreProject.Hubs;
-using Microsoft.AspNetCore.SignalR;
-using Moq;
-using Xunit;
-using SignalR_UnitTestingSupportXUnit.Hubs;
-using System;
+﻿using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Linq;
-using Microsoft.EntityFrameworkCore;
+using ExampleSignalRCoreProject.Databases;
+using ExampleSignalRCoreProject.Hubs;
 using ExampleSignalRCoreProject.Models;
+using Moq;
+using SignalR_UnitTestingSupportXUnit.Hubs;
+using Xunit;
 
 namespace TestsWithUnitTestingSupport.Hubs
 {
     public class ExampleNonGenericHubTests : HubUnitTestsWithEF<Db>
     {
-        ExampleNonGenericHub _exampleHub;
+        private ExampleNonGenericHub _exampleHub;
+
+        public ExampleNonGenericHubTests() : base()
+        {
+            // Update 21.03.2021 - to be sure that tests are independent
+            _exampleHub = null;
+        }
 
         [Fact]
         public void TryGetDbContexMock_DbContextMockSuccesfullyTaken()
@@ -38,7 +41,10 @@ namespace TestsWithUnitTestingSupport.Hubs
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "xUnit1026:Theory methods should use all of their parameters", Justification = "This param is required here")]
+#pragma warning disable IDE0060 // Remove unused parameter
         public async Task TryGetDbInMemorySqlite_WeGetClearInstanceOfDbInEveryTest(bool twiceCalledTest)
+#pragma warning restore IDE0060 // Remove unused parameter
         {
             Assert.True(DbInMemorySqlite.Note.Count() == 0);
 
@@ -49,7 +55,10 @@ namespace TestsWithUnitTestingSupport.Hubs
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "xUnit1026:Theory methods should use all of their parameters", Justification = "This param is required here")]
+#pragma warning disable IDE0060 // Remove unused parameter
         public async Task TryGetDbInMemory_WeGetClearInstanceOfDbInEveryTest(bool twiceCalledTest)
+#pragma warning restore IDE0060 // Remove unused parameter
         {
             Assert.True(DbInMemory.Note.Count() == 0);
 
@@ -66,7 +75,7 @@ namespace TestsWithUnitTestingSupport.Hubs
             await _exampleHub.NotifyAllAboutSomething();
 
             ClientsAllMock
-                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", new object[] { }, It.IsAny<CancellationToken>()));
+                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", System.Array.Empty<object>(), It.IsAny<CancellationToken>()));
         }
 
         [Fact]
@@ -78,7 +87,7 @@ namespace TestsWithUnitTestingSupport.Hubs
             await _exampleHub.NotifyAllExceptAboutSomething();
 
             ClientsAllExceptMock
-                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", new object[] { }, It.IsAny<CancellationToken>()));
+                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", System.Array.Empty<object>(), It.IsAny<CancellationToken>()));
         }
 
         [Fact]
@@ -90,7 +99,7 @@ namespace TestsWithUnitTestingSupport.Hubs
             await _exampleHub.NotifyCallerAboutSomething();
 
             ClientsCallerMock
-                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", new object[] { }, It.IsAny<CancellationToken>()));
+                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", System.Array.Empty<object>(), It.IsAny<CancellationToken>()));
         }
 
         [Fact]
@@ -102,7 +111,7 @@ namespace TestsWithUnitTestingSupport.Hubs
             await _exampleHub.NotifyClientAboutSomething();
 
             ClientsClientMock
-                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", new object[] { }, It.IsAny<CancellationToken>()));
+                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", System.Array.Empty<object>(), It.IsAny<CancellationToken>()));
         }
 
         [Fact]
@@ -114,7 +123,7 @@ namespace TestsWithUnitTestingSupport.Hubs
             await _exampleHub.NotifyClientsAboutSomething();
 
             ClientsClientsMock
-                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", new object[] { }, It.IsAny<CancellationToken>()));
+                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", System.Array.Empty<object>(), It.IsAny<CancellationToken>()));
         }
 
         [Fact]
@@ -126,7 +135,7 @@ namespace TestsWithUnitTestingSupport.Hubs
             await _exampleHub.NotifyGrgoupAboutSomething();
 
             ClientsGroupMock
-                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", new object[] { }, It.IsAny<CancellationToken>()));
+                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", System.Array.Empty<object>(), It.IsAny<CancellationToken>()));
         }
 
         [Fact]
@@ -138,7 +147,7 @@ namespace TestsWithUnitTestingSupport.Hubs
             await _exampleHub.NotifyGrgoupExceptAboutSomething();
 
             ClientsGroupExceptMock
-                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", new object[] { }, It.IsAny<CancellationToken>()));
+                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", System.Array.Empty<object>(), It.IsAny<CancellationToken>()));
         }
 
         [Fact]
@@ -150,7 +159,7 @@ namespace TestsWithUnitTestingSupport.Hubs
             await _exampleHub.NotifyGroupsAboutSomething();
 
             ClientsGroupsMock
-                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", new object[] { }, It.IsAny<CancellationToken>()));
+                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", System.Array.Empty<object>(), It.IsAny<CancellationToken>()));
         }
 
         [Fact]
@@ -162,7 +171,7 @@ namespace TestsWithUnitTestingSupport.Hubs
             await _exampleHub.NotifyOthersAboutSomething();
 
             ClientsOthersMock
-                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", new object[] { }, It.IsAny<CancellationToken>()));
+                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", System.Array.Empty<object>(), It.IsAny<CancellationToken>()));
         }
 
         [Fact]
@@ -174,7 +183,7 @@ namespace TestsWithUnitTestingSupport.Hubs
             await _exampleHub.NotifyOthersInGroupAboutSomething();
 
             ClientsOthersInGroupMock
-                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", new object[] { }, It.IsAny<CancellationToken>()));
+                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", System.Array.Empty<object>(), It.IsAny<CancellationToken>()));
         }
 
         [Fact]
@@ -186,7 +195,7 @@ namespace TestsWithUnitTestingSupport.Hubs
             await _exampleHub.NotifyUserAboutSomething();
 
             ClientsUserMock
-                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", new object[] { }, It.IsAny<CancellationToken>()));
+                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", System.Array.Empty<object>(), It.IsAny<CancellationToken>()));
         }
 
         [Fact]
@@ -198,7 +207,7 @@ namespace TestsWithUnitTestingSupport.Hubs
             await _exampleHub.NotifyUsersAboutSomething();
 
             ClientsUsersMock
-                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", new object[] { }, It.IsAny<CancellationToken>()));
+                .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", System.Array.Empty<object>(), It.IsAny<CancellationToken>()));
         }
     }
 }

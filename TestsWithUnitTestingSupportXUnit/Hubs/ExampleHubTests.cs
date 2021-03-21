@@ -1,22 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using ExampleSignalRCoreProject.Databases;
 using ExampleSignalRCoreProject.Hubs;
 using ExampleSignalRCoreProject.Hubs.Interfaces;
 using ExampleSignalRCoreProject.Models;
 using Moq;
-using Xunit;
-using Microsoft.EntityFrameworkCore;
 using SignalR_UnitTestingSupportXUnit.Hubs;
-using System.Linq;
+using Xunit;
 
 namespace TestsWithUnitTestingSupport.Hubs
 {
-    public class ExampleHubTests : HubUnitTestsWithEF<ExampleHubResponses, Db>
+    public class ExampleHubTests : HubUnitTestsWithEF<IExampleHubResponses, Db>
     {
-        ExampleHub _exampleHub;
+        private ExampleHub _exampleHub;
+
+        public ExampleHubTests() : base()
+        {
+            // Update 21.03.2021 - to be sure that tests are independent
+            _exampleHub = null;
+        }
 
         [Fact]
         public void TryGetDbContexMock_DbContextMockSuccesfullyTaken()
@@ -27,21 +29,24 @@ namespace TestsWithUnitTestingSupport.Hubs
         [Fact]
         public void TryGetDbInMemorySqlite_ClearDbInMemorySqliteSuccesfullyTaken()
         {
-            Assert.True(DbInMemorySqlite.Note.Count() == 0);
+            Assert.True(!DbInMemorySqlite.Note.Any());
         }
 
         [Fact]
         public void TryGetDbInMemory_ClearDbInMemoryMockSuccesfullyTaken()
         {
-            Assert.True(DbInMemory.Note.Count() == 0);
+            Assert.True(!DbInMemory.Note.Any());
         }
 
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:Field names should not use Hungarian notation", Justification = "This param is required here")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "xUnit1026:Theory methods should use all of their parameters", Justification = "This param is required here")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "This param is required here")]
         public async Task TryGetDbInMemorySqlite_WeGetClearInstanceOfDbInEveryTest(bool iWantDoThisTest2Times)
         {
-            Assert.True(DbInMemorySqlite.Note.Count() == 0);
+            Assert.True(!DbInMemorySqlite.Note.Any());
 
             DbInMemorySqlite.Note.Add(new Note { Content = "test content" });
             await DbInMemorySqlite.SaveChangesAsync();
@@ -50,9 +55,12 @@ namespace TestsWithUnitTestingSupport.Hubs
         [Theory]
         [InlineData(true)]
         [InlineData(false)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.NamingRules", "SA1305:Field names should not use Hungarian notation", Justification = "This param is required here")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "xUnit1026:Theory methods should use all of their parameters", Justification = "This param is required here")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0060:Remove unused parameter", Justification = "This param is required here")]
         public async Task TryGetDbInMemory_WeGetClearInstanceOfDbInEveryTest(bool iWantDoThisTest2Times)
         {
-            Assert.True(DbInMemory.Note.Count() == 0);
+            Assert.True(!DbInMemory.Note.Any());
 
             DbInMemory.Note.Add(new Note { Content = "test content" });
             await DbInMemory.SaveChangesAsync();
@@ -64,7 +72,7 @@ namespace TestsWithUnitTestingSupport.Hubs
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            await  _exampleHub.OnConnectedAsync();
+            await _exampleHub.OnConnectedAsync();
 
             ClientsAllMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
