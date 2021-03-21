@@ -7,6 +7,7 @@ namespace SignalR_UnitTestingSupportMSTest.Hubs
     /// <summary>
     /// Hub unit tests base with Entity Framework Core
     /// </summary>
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1649:File name should match first type name", Justification = "Legacy name")]
     public abstract class HubUnitTestsWithEF<TIHubResponses, TDbContext>
         : HubUnitTestsWithEFSupport<TIHubResponses, TDbContext>
         where TIHubResponses : class

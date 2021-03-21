@@ -1,14 +1,12 @@
 ﻿using ExampleSignalRCoreProject.Hubs;
-using Moq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
 using SignalR_UnitTestingSupportMSTest.Hubs;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace TestsWithUnitTestingSupport.Hubs
 {
     [TestClass]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("StyleCop.CSharp.DocumentationRules", "SA1649:File name should match first type name", Justification = "Legacy name")]
     public class V101FeaturesTests : HubUnitTestsBase
     {
         [TestMethod]
