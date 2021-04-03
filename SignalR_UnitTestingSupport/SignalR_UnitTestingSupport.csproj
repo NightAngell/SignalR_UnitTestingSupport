@@ -3,55 +3,32 @@
   <PropertyGroup>
     <TargetFramework>$(TargetFrameworkForLib)</TargetFramework>
 
-    <IsPackable>true</IsPackable>
-
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-
-    <Copyright>Mateusz Soboń (NightAngell)</Copyright>
-
-    <PackageLicenseUrl></PackageLicenseUrl>
-
-    <PackageProjectUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</PackageProjectUrl>
-
-    <RepositoryUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</RepositoryUrl>
-
-    <PackageTags>SignalR SignalRCore SignalRUnitTest SignalRCoreUnitTest SignalRUnitTesting SignalRCoreUnitTesting SignalRUnitTests SignalRCoreUnitTests Unit Test Tests Testing NUnit SignalRUnitTestingSupport SignalRCoreUnitTestingSupport AspNetCore AspNetCore.SignalR aspnetcore "AspNetCore SignalR Unit Test"  "AspNetCore SignalR Unit Tests"  "AspNetCore SignalR Unit Testing"</PackageTags>
-
-    <PackageReleaseNotes>Updated dependencies</PackageReleaseNotes>
-
     <PackageId>SignalR.UnitTestingSupport.NUnit</PackageId>
-
-    <Authors>Mateusz Soboń (NightAngell)</Authors>
-
-    <Company />
-
     <Product>SignalRCore_UnitTestingSupport</Product>
+    <Description>$(NugetCommonDescription) NUnit and Moq. Check my github for xUnit or MSTest version</Description>
+    <PackageTags>$(NugetCommonTags) NUnit</PackageTags>
 
-    <Description>Easy to use, small, SignalR Core (2.1+) unit testing support with NUnit and Moq.</Description>
-
+    <IsPackable>$(NugetIsPackable)</IsPackable>
+    <PackageRequireLicenseAcceptance>$(NugetPackageRequireLicenseAcceptance)</PackageRequireLicenseAcceptance>
+    <Copyright>$(NugetCopyright)</Copyright>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageProjectUrl>$(NuGetPackageProjectUrl)</PackageProjectUrl>
+    <RepositoryUrl>$(NuGetRepositoryUrl)</RepositoryUrl>
+    <PackageReleaseNotes>$(NugetPackageReleaseNotes)</PackageReleaseNotes>
+    <Authors>$(NugetAuthors)</Authors>
+    <Company>$(NugetCompany)</Company>
     <ApplicationIcon />
-
-    <OutputType>Library</OutputType>
-
+    <OutputType>$(NugetOutputType)</OutputType>
     <StartupObject />
-
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-
-    <Version>2.0.0</Version>
-
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
-
-    <FileVersion>2.0.0.0</FileVersion>
-
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>$(NuGetGeneratePackageOnBuild)</GeneratePackageOnBuild>
+    <Version>$(NugetVersion)</Version>
+    <AssemblyVersion>$(NugetAssemblyVersion)</AssemblyVersion>
+    <FileVersion>$(NugetFileVersion)</FileVersion>
+    <PackageLicenseExpression>$(NugetPackageLicenseExpression)</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>C:\Users\sobta\Desktop\update\SignalR_UnitTestingSupport\SignalR_UnitTestingSupport\SignalR_UnitTestingSupport.xml</DocumentationFile>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile></DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup Condition="'$(UseUnitTestingSupportNugetsInsteadOfProjects)' == 'false'">
@@ -65,5 +42,4 @@
   <ItemGroup>
     <PackageReference Include="nunit" Version="3.13.1" />
   </ItemGroup>
-
 </Project>

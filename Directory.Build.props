@@ -37,4 +37,34 @@
   </PropertyGroup>
   <!--END: StyleCop-->
   
+  <!--Nugets configuration (for publish)-->
+  <PropertyGroup>
+    
+    <!--Authors and license-->
+    <NugetAuthors>Mateusz Soboń (NightAngell)</NugetAuthors>
+    <NugetCompany>Mateusz Soboń (NightAngell)</NugetCompany>
+    <NugetPackageLicenseExpression>MIT</NugetPackageLicenseExpression>
+    <NugetPackageRequireLicenseAcceptance>true</NugetPackageRequireLicenseAcceptance>
+    <NugetCopyright>MIT License (Mateusz Soboń)</NugetCopyright>
+    
+    <!--Vesion-->
+    <NugetVersion>5.0.0</NugetVersion>
+    <NugetAssemblyVersion>5.0.0.0</NugetAssemblyVersion>
+    <NugetFileVersion>5.0.0.0</NugetFileVersion>
+    <NugetPackageReleaseNotes>Updated to netstandard2.1</NugetPackageReleaseNotes>
+    
+    <!--Repo url-->
+    <NuGetPackageProjectUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</NuGetPackageProjectUrl>
+    <NuGetRepositoryUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</NuGetRepositoryUrl>
+    
+    <!--Description and common tags-->
+    <NugetCommonDescription>Easy to use, small, SignalR Core (2.1+) unit testing support with</NugetCommonDescription>
+    <NugetCommonTags>SignalR SignalRCore SignalRUnitTest SignalRCoreUnitTest SignalRUnitTesting SignalRCoreUnitTesting SignalRUnitTests SignalRCoreUnitTests Unit Test Tests Testing MSTest SignalRUnitTestingSupport SignalRCoreUnitTestingSupport AspNetCore AspNetCore.SignalR aspnetcore "AspNetCore SignalR Unit Test"  "AspNetCore SignalR Unit Tests"  "AspNetCore SignalR Unit Testing"</NugetCommonTags>
+    
+    <!--Others-->
+    <NugetIsPackable>true</NugetIsPackable>
+    <NuGetGeneratePackageOnBuild>false</NuGetGeneratePackageOnBuild>
+    <NugetOutputType>Library</NugetOutputType>
+  
+  </PropertyGroup>
 </Project>

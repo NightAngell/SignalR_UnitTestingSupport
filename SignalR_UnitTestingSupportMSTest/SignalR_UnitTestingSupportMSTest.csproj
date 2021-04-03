@@ -3,57 +3,33 @@
   <PropertyGroup>
     <TargetFramework>$(TargetFrameworkForLib)</TargetFramework>
 
-    <IsPackable>true</IsPackable>
-
-    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
-
-    <Copyright>Mateusz Soboń (NightAngell)</Copyright>
-
-    <PackageLicenseUrl></PackageLicenseUrl>
-
-    <PackageProjectUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</PackageProjectUrl>
-
-    <RepositoryUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</RepositoryUrl>
-
-    <PackageTags>SignalR SignalRCore SignalRUnitTest SignalRCoreUnitTest SignalRUnitTesting SignalRCoreUnitTesting SignalRUnitTests SignalRCoreUnitTests Unit Test Tests Testing MSTest SignalRUnitTestingSupport SignalRCoreUnitTestingSupport AspNetCore AspNetCore.SignalR aspnetcore "AspNetCore SignalR Unit Test"  "AspNetCore SignalR Unit Tests"  "AspNetCore SignalR Unit Testing"</PackageTags>
-
-    <PackageReleaseNotes>Ported to .net standard.</PackageReleaseNotes>
-
     <PackageId>SignalR.UnitTestingSupport.MSTest</PackageId>
-
-    <Authors>Mateusz Soboń (NightAngell)</Authors>
-
-    <Company />
-
     <Product>SignalRCore_UnitTestingSupportMSTest</Product>
+    <Description>$(NugetCommonDescription) MSTest and Moq. For Nunit or xUnit version see my github.</Description>
+    <PackageTags>$(NugetCommonTags) MSTest</PackageTags>
 
-    <Description>Easy to use, small, SignalR Core unit testing support with MSTest and Moq. For Nunit or xUnit version see my github.</Description>
-
+    <IsPackable>$(NugetIsPackable)</IsPackable>
+    <PackageRequireLicenseAcceptance>$(NugetPackageRequireLicenseAcceptance)</PackageRequireLicenseAcceptance>
+    <Copyright>$(NugetCopyright)</Copyright>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <PackageProjectUrl>$(NuGetPackageProjectUrl)</PackageProjectUrl>
+    <RepositoryUrl>$(NuGetRepositoryUrl)</RepositoryUrl>
+    <PackageReleaseNotes>$(NugetPackageReleaseNotes)</PackageReleaseNotes>
+    <Authors>$(NugetAuthors)</Authors>
+    <Company>$(NugetCompany)</Company>
     <ApplicationIcon />
-
-    <OutputType>Library</OutputType>
-
+    <OutputType>$(NugetOutputType)</OutputType>
     <StartupObject />
-
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
-
-    <Version>2.0.0</Version>
-
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
-
-    <FileVersion>2.0.0.0</FileVersion>
-
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <GeneratePackageOnBuild>$(NuGetGeneratePackageOnBuild)</GeneratePackageOnBuild>
+    <Version>$(NugetVersion)</Version>
+    <AssemblyVersion>$(NugetAssemblyVersion)</AssemblyVersion>
+    <FileVersion>$(NugetFileVersion)</FileVersion>
+    <PackageLicenseExpression>$(NugetPackageLicenseExpression)</PackageLicenseExpression>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DocumentationFile>C:\Users\sobta\Desktop\update\SignalR_UnitTestingSupport\SignalR_UnitTestingSupportMSTest\SignalR_UnitTestingSupportMSTest.xml</DocumentationFile>
   </PropertyGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
-    <PackageReference Include="MSTest.TestFramework" Version="2.2.3" />
-  </ItemGroup>
   
   <ItemGroup Condition="'$(UseUnitTestingSupportNugetsInsteadOfProjects)' == 'false'">
     <ProjectReference Include="..\SignalR_UnitTestingSupportCommon\SignalR_UnitTestingSupportCommon.csproj" />
@@ -63,4 +39,8 @@
     <PackageReference Include="AspNetCore.SignalR.UnitTestingSupport.Common" Version="$(UnitTestingSupportNugetsVersion)" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.9.1" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.3" />
+  </ItemGroup>
 </Project>
