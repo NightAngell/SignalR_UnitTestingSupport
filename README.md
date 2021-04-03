@@ -11,7 +11,7 @@ This lib provide support objects and base classes for testing ```Hub, Hub<T>, IH
 
 # Which nuget version should I choose?
 1. netcoreapp (2.1, 2,2, 3.0, 3,1) - 2.0.0
-2. net5 - 5.0.0.0
+2. net5 - 5.0.0
 
 # How to install
 #### 1. Using Visual Studio Nuget Package Manager
