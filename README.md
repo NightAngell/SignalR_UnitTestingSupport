@@ -48,6 +48,7 @@ If you get NullReferenceException when you try testing with my lib see [this](ht
 
 Error after update for ASP.NET Core 3.0:
 [Help with migration from ASP.NET Core 2.1 or 2.2 to 3.0](https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki/Help-with-migration-from-netcore2.1-or-netcore2.2-to-netcore3.0-for-SignalR_UnitTestingSupport2.0)
+[Help with migration from netstandard2.0 to netstandard.2.1 compatibile project](https://github.com/NightAngell/SignalR_UnitTestingSupport/wiki/Help-with-migration-from-netstandard2.0-to-netstandars2.1)
 
 # How to use
 After you add nuget to your test project, SignalR_UnitTestingSupport is ready to use.
