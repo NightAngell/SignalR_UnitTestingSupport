@@ -7,7 +7,9 @@
     <TargetFrameworkForLib>netstandard2.1</TargetFrameworkForLib>
   </PropertyGroup>
 
-  <!--Unit testins support nugets related config-->
+  <!-- Unit testins support nugets related config. 
+       Warning! UseUnitTestingSupportNugetsInsteadOfProjects and nugets version options are supported from nuget 2.0.0 version and higher.
+       Nugets versions below version 2.0.0 were not consistent.-->
   <PropertyGroup>
     
     <!--Allowed values: true, false-->
