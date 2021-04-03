@@ -3,13 +3,13 @@
   
   <!--Target framework-->
   <PropertyGroup>
+    <!--Supported values: {net5.0, netstandard2.1}. Any other values may require additional projects configuration-->
     <TargetFrameworkForExampleAndTests>net5.0</TargetFrameworkForExampleAndTests>
     <TargetFrameworkForLib>netstandard2.1</TargetFrameworkForLib>
   </PropertyGroup>
 
   <!-- Unit testins support nugets related config. 
-       Warning! UseUnitTestingSupportNugetsInsteadOfProjects and nugets version options are supported from nuget 2.0.0 version and higher.
-       Nugets versions below version 2.0.0 were not consistent.-->
+       Warning! UseUnitTestingSupportNugetsInsteadOfProjects and nugets version options are supported from nuget 5.0.0 version and higher.-->
   <PropertyGroup>
     
     <!--Allowed values: true, false-->
