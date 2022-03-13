@@ -71,5 +71,7 @@
     <NugetIsPackable>true</NugetIsPackable>
     <NuGetGeneratePackageOnBuild>false</NuGetGeneratePackageOnBuild>
     <NugetOutputType>Library</NugetOutputType>
+	<IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 </Project>
