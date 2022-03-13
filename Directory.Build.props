@@ -1,23 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project>
   
-  <!--Target framework-->
   <PropertyGroup>
-    <!--Supported values: {net5.0, netstandard2.1}. Any other values may require additional projects configuration-->
-    <TargetFrameworkForExampleAndTests>net5.0</TargetFrameworkForExampleAndTests>
-    <TargetFrameworkForLib>netstandard2.1</TargetFrameworkForLib>
+    <!--Supported values: 
+	    {net5.0, netstandard2.1},
+		{net6.0, net6.0}
+	It is also important to made sure that tests and example project have valid dependencies-->
+    <TargetFrameworkForExampleAndTests>net6.0</TargetFrameworkForExampleAndTests>
+    <TargetFrameworkForLib>net6.0</TargetFrameworkForLib>
+
+	<EntityFrameworkMinSupportedVersion>6.0.0</EntityFrameworkMinSupportedVersion>
+	<EntityFrameworkCurrentVersion>6.0.*</EntityFrameworkCurrentVersion>
+	<MicrosoftTestSDKVersion>17.1.0</MicrosoftTestSDKVersion>
   </PropertyGroup>
 
-  <!-- Unit testins support nugets related config. 
-       Warning! UseUnitTestingSupportNugetsInsteadOfProjects and nugets version options are supported from nuget 5.0.0 version and higher.-->
+  <!-- Unit testing support nugets related config. 
+       Warning! 
+	   UseUnitTestingSupportNugetsInsteadOfProjects 
+	   and nugets version options
+	   are supported from nuget 5.0.0 version and higher.-->
   <PropertyGroup>
-    
     <!--Allowed values: true, false-->
     <UseUnitTestingSupportNugetsInsteadOfProjects>false</UseUnitTestingSupportNugetsInsteadOfProjects>
     
     <!--Used only if UseUnitTestingSupportNugetsInsteadOfProjects is set to true -->
-    <UnitTestingSupportNugetsVersion>2.0.0</UnitTestingSupportNugetsVersion>
-    
+    <UnitTestingSupportNugetsVersion>6.0.0</UnitTestingSupportNugetsVersion>
   </PropertyGroup>
 
   <!--StyleCop-->
@@ -39,7 +46,6 @@
   
   <!--Nugets configuration (for publish)-->
   <PropertyGroup>
-    
     <!--Authors and license-->
     <NugetAuthors>Mateusz Soboń (NightAngell)</NugetAuthors>
     <NugetCompany>Mateusz Soboń (NightAngell)</NugetCompany>
@@ -47,24 +53,23 @@
     <NugetPackageRequireLicenseAcceptance>true</NugetPackageRequireLicenseAcceptance>
     <NugetCopyright>MIT License (Mateusz Soboń)</NugetCopyright>
     
-    <!--Vesion-->
-    <NugetVersion>5.0.0</NugetVersion>
-    <NugetAssemblyVersion>5.0.0.0</NugetAssemblyVersion>
-    <NugetFileVersion>5.0.0.0</NugetFileVersion>
-    <NugetPackageReleaseNotes>Updated to netstandard2.1</NugetPackageReleaseNotes>
+    <!--Version-->
+    <NugetVersion>6.0.0</NugetVersion>
+    <NugetAssemblyVersion>6.0.0.0</NugetAssemblyVersion>
+    <NugetFileVersion>6.0.0.0</NugetFileVersion>
+    <NugetPackageReleaseNotes>Updated to net6.0. Updated dependencies.</NugetPackageReleaseNotes>
     
     <!--Repo url-->
     <NuGetPackageProjectUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</NuGetPackageProjectUrl>
     <NuGetRepositoryUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</NuGetRepositoryUrl>
     
     <!--Description and common tags-->
-    <NugetCommonDescription>Easy to use, small, SignalR Core (2.1+) unit testing support with</NugetCommonDescription>
+    <NugetCommonDescription>Easy to use, small, SignalR Core unit testing support with</NugetCommonDescription>
     <NugetCommonTags>SignalR SignalRCore SignalRUnitTest SignalRCoreUnitTest SignalRUnitTesting SignalRCoreUnitTesting SignalRUnitTests SignalRCoreUnitTests Unit Test Tests Testing MSTest SignalRUnitTestingSupport SignalRCoreUnitTestingSupport AspNetCore AspNetCore.SignalR aspnetcore "AspNetCore SignalR Unit Test"  "AspNetCore SignalR Unit Tests"  "AspNetCore SignalR Unit Testing"</NugetCommonTags>
     
     <!--Others-->
     <NugetIsPackable>true</NugetIsPackable>
     <NuGetGeneratePackageOnBuild>false</NuGetGeneratePackageOnBuild>
     <NugetOutputType>Library</NugetOutputType>
-  
   </PropertyGroup>
 </Project>
