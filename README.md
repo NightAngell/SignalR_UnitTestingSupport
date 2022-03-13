@@ -12,6 +12,7 @@ This lib provide support objects and base classes for testing ```Hub, Hub<T>, IH
 # Which nuget version should I choose?
 1. netcoreapp (2.1, 2,2, 3.0, 3,1) - 2.0.0
 2. net5 - 5.0.0
+3. net6.0 - 6.0.0
 
 # How to install
 #### 1. Using Visual Studio Nuget Package Manager
@@ -23,15 +24,15 @@ SignalR.UnitTestingSupport.MSTest
 ```
 #### 2. Using Packet Manager Console
 ```
-Install-Package SignalR.UnitTestingSupport.NUnit -Version 5.0.0
-Install-Package SignalR.UnitTestingSupport.xUnit -Version 5.0.0
-Install-Package SignalR.UnitTestingSupport.MSTest -Version 5.0.0
+Install-Package SignalR.UnitTestingSupport.NUnit -Version 6.0.0
+Install-Package SignalR.UnitTestingSupport.xUnit -Version 6.0.0
+Install-Package SignalR.UnitTestingSupport.MSTest -Version 6.0.0
 ```
 #### 3. Using .Net CLI
 ```
-dotnet add package SignalR.UnitTestingSupport.NUnit --version 5.0.0
-dotnet add package SignalR.UnitTestingSupport.xUnit --version 5.0.0
-dotnet add package SignalR.UnitTestingSupport.MSTest --version 5.0.0
+dotnet add package SignalR.UnitTestingSupport.NUnit --version 6.0.0
+dotnet add package SignalR.UnitTestingSupport.xUnit --version 6.0.0
+dotnet add package SignalR.UnitTestingSupport.MSTest --version 6.0.0
 ```
 ## Troubleshooting!
 Install ```NUnit3TestAdapter``` nuget for visual studio testing with NUnit in visual studio.                     https://www.nuget.org/packages/NUnit3TestAdapter/
