@@ -31,12 +31,12 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
         /// <summary>
         /// Gets mock for Hub.Clients.Caller
         /// </summary>
-        public Mock<IClientProxy> ClientsCallerMock { get; private set; }
+        public Mock<ISingleClientProxy> ClientsCallerMock { get; private set; }
 
         /// <summary>
         /// Gets mock which is returned when Hub.Clients.Client() is called
         /// </summary>
-        public Mock<IClientProxy> ClientsClientMock { get; private set; }
+        public Mock<ISingleClientProxy> ClientsClientMock { get; private set; }
 
         /// <summary>
         /// Gets mock which is returned when Hub.Clients.Clients() is called
@@ -116,7 +116,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
 
         internal override void SetUpClientsCaller()
         {
-            ClientsCallerMock = new Mock<IClientProxy>();
+            ClientsCallerMock = new Mock<ISingleClientProxy>();
             ClientsMock
                 .Setup(x => x.Caller)
                 .Returns(ClientsCallerMock.Object);
@@ -124,7 +124,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs
 
         internal override void SetUpClientsClient()
         {
-            ClientsClientMock = new Mock<IClientProxy>();
+            ClientsClientMock = new Mock<ISingleClientProxy>();
             ClientsMock
                 .Setup(x => x.Client(It.IsAny<string>()))
                 .Returns(ClientsClientMock.Object);

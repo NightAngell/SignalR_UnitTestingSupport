@@ -34,7 +34,7 @@ namespace SignalR_UnitTestingSupportCommon.IHubContextSupport
         /// <summary>
         /// Gets or sets mock for IHubContext.Clients.Client()
         /// </summary>
-        public Mock<IClientProxy> ClientsClientMock { get; protected set; }
+        public Mock<ISingleClientProxy> ClientsClientMock { get; protected set; }
 
         /// <summary>
         /// Gets or sets mock for IHubContext.Clients.Clients()
@@ -110,7 +110,7 @@ namespace SignalR_UnitTestingSupportCommon.IHubContextSupport
 
         internal override void SetUpClientsClient()
         {
-            ClientsClientMock = _getClientProxyMock();
+            ClientsClientMock = _getSingleClientProxyMock();
             ClientsMock
                 .Setup(x => x.Client(It.IsAny<string>()))
                 .Returns(ClientsClientMock.Object);
@@ -167,6 +167,11 @@ namespace SignalR_UnitTestingSupportCommon.IHubContextSupport
         private Mock<IClientProxy> _getClientProxyMock()
         {
             return new Mock<IClientProxy>();
+        }
+
+        private Mock<ISingleClientProxy> _getSingleClientProxyMock()
+        {
+            return new Mock<ISingleClientProxy>();
         }
     }
 }
