@@ -37,61 +37,61 @@ namespace ExampleSignalRCoreProject.Hubs
             await _db.SaveChangesAsync();
         }
 
-        public void NotifyAboutSomethingElseAllExcept()
+        public async Task NotifyAboutSomethingElseAllExcept()
         {
             var excludedConnectionIds = new List<string> { };
-            Clients.AllExcept(excludedConnectionIds.AsReadOnly()).NotifyAboutSomethingElse();
+            await Clients.AllExcept(excludedConnectionIds.AsReadOnly()).NotifyAboutSomethingElse();
         }
 
-        public void NotifyCallerAboutSomethingElse()
+        public async Task NotifyCallerAboutSomethingElse()
         {
-            Clients.Caller.NotifyAboutSomethingElse();
+            await Clients.Caller.NotifyAboutSomethingElse();
         }
 
-        public void NotifyClientAboutSomethingElse()
+        public async Task NotifyClientAboutSomethingElse()
         {
-            Clients.Client(string.Empty).NotifyAboutSomethingElse();
+            await Clients.Client(string.Empty).NotifyAboutSomethingElse();
         }
 
-        public void NotifyClientsAboutSomethingElse()
+        public async Task NotifyClientsAboutSomethingElse()
         {
             var excludedConnectionIds = new List<string> { };
-            Clients.Clients(excludedConnectionIds).NotifyAboutSomethingElse();
+            await Clients.Clients(excludedConnectionIds).NotifyAboutSomethingElse();
         }
 
-        public void NotifyGroupAboutSomethingElse()
+        public async Task NotifyGroupAboutSomethingElse()
         {
-            Clients.Group(string.Empty).NotifyAboutSomethingElse();
+            await Clients.Group(string.Empty).NotifyAboutSomethingElse();
         }
 
-        public void NotifyGroupExceptAboutSomethingElse()
+        public async Task NotifyGroupExceptAboutSomethingElse()
         {
-            Clients.GroupExcept(string.Empty, new List<string>().AsReadOnly()).NotifyAboutSomethingElse();
+            await Clients.GroupExcept(string.Empty, new List<string>().AsReadOnly()).NotifyAboutSomethingElse();
         }
 
-        public void NotifyGroupsAboutSomethingElse()
+        public async Task NotifyGroupsAboutSomethingElse()
         {
-            Clients.Groups(new List<string>().AsReadOnly()).NotifyAboutSomethingElse();
+            await Clients.Groups(new List<string>().AsReadOnly()).NotifyAboutSomethingElse();
         }
 
-        public void NotifyOthersAboutSomethingElse()
+        public async Task NotifyOthersAboutSomethingElse()
         {
-            Clients.Others.NotifyAboutSomethingElse();
+            await Clients.Others.NotifyAboutSomethingElse();
         }
 
-        public void NotifyOthersInGroupAboutSomethingElse()
+        public async Task NotifyOthersInGroupAboutSomethingElse()
         {
-            Clients.OthersInGroup(string.Empty).NotifyAboutSomethingElse();
+            await Clients.OthersInGroup(string.Empty).NotifyAboutSomethingElse();
         }
 
-        public void NotifyUserAboutSomethingElse()
+        public async Task NotifyUserAboutSomethingElse()
         {
-            Clients.User(string.Empty).NotifyAboutSomethingElse();
+            await Clients.User(string.Empty).NotifyAboutSomethingElse();
         }
 
-        public void NotifyUsersAboutSomethingElse()
+        public async Task NotifyUsersAboutSomethingElse()
         {
-            Clients.Users(new List<string>().AsReadOnly()).NotifyAboutSomethingElse();
+            await Clients.Users(new List<string>().AsReadOnly()).NotifyAboutSomethingElse();
         }
 
         public void AddLoremAsKeyAndIpsumAsValueToContextItems()
@@ -99,14 +99,14 @@ namespace ExampleSignalRCoreProject.Hubs
             Context.Items.Add("Lorem", "Ipsum");
         }
 
-        public void AddSomebodyToGroup()
+        public async Task AddSomebodyToGroup()
         {
-            Groups.AddToGroupAsync(string.Empty, string.Empty);
+            await Groups.AddToGroupAsync(string.Empty, string.Empty);
         }
 
-        public void RemoveSomebodyFromGroup()
+        public async Task RemoveSomebodyFromGroup()
         {
-            Groups.RemoveFromGroupAsync(string.Empty, string.Empty);
+            await Groups.RemoveFromGroupAsync(string.Empty, string.Empty);
         }
     }
 }
