@@ -12,7 +12,7 @@
 
 	<EntityFrameworkMinSupportedVersion>7.0.0</EntityFrameworkMinSupportedVersion>
 	<EntityFrameworkCurrentVersion>7.0.*</EntityFrameworkCurrentVersion>
-	<MicrosoftTestSDKVersion>17.1.0</MicrosoftTestSDKVersion>
+	<MicrosoftTestSDKVersion>17.4.0</MicrosoftTestSDKVersion>
   </PropertyGroup>
 
   <!-- Unit testing support nugets related config. 
