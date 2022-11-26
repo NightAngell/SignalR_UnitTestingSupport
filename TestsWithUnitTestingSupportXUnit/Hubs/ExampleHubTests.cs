@@ -254,5 +254,21 @@ namespace TestsWithUnitTestingSupport.Hubs
             var noteFromDb = DbInMemory.Note.FirstOrDefault();
             Assert.NotNull(noteFromDb);
         }
+
+        [Fact]
+        public async Task GetMessageFromClient_MessageReceived()
+        {
+            _exampleHub = new ExampleHub(DbInMemory);
+            AssignToHubRequiredProperties(_exampleHub);
+
+            var expectedMessage = "Pizza!";
+            ClientsClientMock
+                .Setup(x => x.GetMessage())
+                .Returns(Task.FromResult(expectedMessage));
+
+            var message = await _exampleHub.GetMessageFromClient();
+
+            Assert.Equal(expectedMessage, message);
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using ExampleSignalRCoreProject.Hubs;
 using ExampleSignalRCoreProject.Hubs.Interfaces;
 using ExampleSignalRCoreProject.Services;
@@ -102,6 +103,20 @@ namespace TestsWithIHubContextSupport
             _unitTestingSupport
                 .ClientsUsersMock
                 .Verify(x => x.NotifyAboutSomethingElse(), Times.Once());
+        }
+
+        [Test]
+        public async Task GetMessageFromClient_MessageReceived()
+        {
+            var expectedMessage = "Pizza!";
+            _unitTestingSupport
+                .ClientsClientMock
+                .Setup(x => x.GetMessage())
+                .Returns(Task.FromResult(expectedMessage));
+
+            var message = await _service.GetMessageFromClient();
+
+            Assert.AreEqual(expectedMessage, message);
         }
     }
 }

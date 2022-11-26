@@ -4,6 +4,7 @@ using ExampleSignalRCoreProject.Databases;
 using ExampleSignalRCoreProject.Hubs;
 using ExampleSignalRCoreProject.Hubs.Interfaces;
 using ExampleSignalRCoreProject.Models;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using SignalR_UnitTestingSupportMSTest.Hubs;
@@ -251,6 +252,22 @@ namespace TestsWithUnitTestingSupport.Hubs
 
             var noteFromDb = DbInMemory.Note.FirstOrDefault();
             Assert.IsNotNull(noteFromDb);
+        }
+
+        [TestMethod]
+        public async Task GetMessageFromClient_MessageReceived()
+        {
+            _exampleHub = new ExampleHub(DbInMemory);
+            AssignToHubRequiredProperties(_exampleHub);
+
+            var expectedMessage = "Pizza!";
+            ClientsClientMock
+                .Setup(x => x.GetMessage())
+                .Returns(Task.FromResult(expectedMessage));
+
+            var message = await _exampleHub.GetMessageFromClient();
+
+            Assert.AreEqual(expectedMessage, message);
         }
     }
 }

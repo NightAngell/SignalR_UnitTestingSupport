@@ -141,6 +141,23 @@ namespace TestsWithIHubContextSupport
                     It.IsAny<CancellationToken>()
                 ), Times.Once());
         }
+
+        [Test]
+        public async Task GetMessageFromClient_MessageReceived()
+        {
+            var expectedMessage = "Pizza!";
+            _unitTestingSupport
+                .ClientsClientMock
+                .Setup(x => x.InvokeCoreAsync<string>(
+                    ExampleNonGenericHub.GetMessageInvoke,
+                    Array.Empty<object>(),
+                    It.IsAny<CancellationToken>()))
+                .Returns(Task.FromResult(expectedMessage));
+
+            var message = await _service.GetMessageFromClient();
+
+            Assert.AreEqual(expectedMessage, message);
+        }
     }
 }
 #pragma warning restore SA1111 // Closing parenthesis should be on line of last parameter
