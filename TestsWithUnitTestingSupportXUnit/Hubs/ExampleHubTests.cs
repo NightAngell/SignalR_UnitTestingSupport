@@ -78,122 +78,122 @@ namespace TestsWithUnitTestingSupport.Hubs
         }
 
         [Fact]
-        public void NotifyAboutSomethingElseAllExcept_AllExceptNotified()
+        public async Task NotifyAboutSomethingElseAllExcept_AllExceptNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyAboutSomethingElseAllExcept();
+            await _exampleHub.NotifyAboutSomethingElseAllExcept();
 
             ClientsAllExceptMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [Fact]
-        public void NotifyCallerAboutSomethingElse_CallerNotified()
+        public async Task NotifyCallerAboutSomethingElse_CallerNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyCallerAboutSomethingElse();
+            await _exampleHub.NotifyCallerAboutSomethingElse();
 
             ClientsCallerMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [Fact]
-        public void NotifyClientAboutSomethingElse_ClientNotified()
+        public async Task NotifyClientAboutSomethingElse_ClientNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyClientAboutSomethingElse();
+            await _exampleHub.NotifyClientAboutSomethingElse();
 
             ClientsClientMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [Fact]
-        public void NotifyClientsAboutSomethingElse_ClientsNotified()
+        public async Task NotifyClientsAboutSomethingElse_ClientsNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyClientsAboutSomethingElse();
+            await _exampleHub.NotifyClientsAboutSomethingElse();
 
             ClientsClientsMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [Fact]
-        public void NotifyGroupAboutSomethingElse_GroupNotified()
+        public async Task NotifyGroupAboutSomethingElse_GroupNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyGroupAboutSomethingElse();
+            await _exampleHub.NotifyGroupAboutSomethingElse();
 
             ClientsGroupMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [Fact]
-        public void NotifyGroupExceptAboutSomethingElse_GropuExceptNotified()
+        public async Task NotifyGroupExceptAboutSomethingElse_GropuExceptNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyGroupExceptAboutSomethingElse();
+            await _exampleHub.NotifyGroupExceptAboutSomethingElse();
 
             ClientsGroupExceptMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [Fact]
-        public void NotifyGroupsAboutSomethingElse_GropusNotified()
+        public async Task NotifyGroupsAboutSomethingElse_GropusNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyGroupsAboutSomethingElse();
+            await _exampleHub.NotifyGroupsAboutSomethingElse();
 
             ClientsGroupsMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [Fact]
-        public void NotifyOthersAboutSomethingElse_OthersNotified()
+        public async Task NotifyOthersAboutSomethingElse_OthersNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyOthersAboutSomethingElse();
+            await _exampleHub.NotifyOthersAboutSomethingElse();
 
             ClientsOthersMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [Fact]
-        public void NotifyOthersInGroupAboutSomethingElse_OthersInGroupNotified()
+        public async Task NotifyOthersInGroupAboutSomethingElse_OthersInGroupNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyOthersInGroupAboutSomethingElse();
+            await _exampleHub.NotifyOthersInGroupAboutSomethingElse();
 
             ClientsOthersInGroupMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [Fact]
-        public void NotifyUserAboutSomethingElse_UserNotified()
+        public async Task NotifyUserAboutSomethingElse_UserNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyUserAboutSomethingElse();
+            await _exampleHub.NotifyUserAboutSomethingElse();
 
             ClientsUserMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [Fact]
-        public void NotifyUsersAboutSomethingElse_UsersNotified()
+        public async Task NotifyUsersAboutSomethingElse_UsersNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyUsersAboutSomethingElse();
+            await _exampleHub.NotifyUsersAboutSomethingElse();
 
             ClientsUsersMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
@@ -210,23 +210,23 @@ namespace TestsWithUnitTestingSupport.Hubs
         }
 
         [Fact]
-        public void AddSomebodyToGroup_SomebodyAdded()
+        public async Task AddSomebodyToGroup_SomebodyAddedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.AddSomebodyToGroup();
+            await _exampleHub.AddSomebodyToGroup();
 
             VerifySomebodyAddedToGroup(Times.Once());
         }
 
         [Fact]
-        public void RemoveSomebodyFromGroup_SomebodyRemoved()
+        public async Task RemoveSomebodyFromGroup_SomebodyRemovedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.RemoveSomebodyFromGroup();
+            await _exampleHub.RemoveSomebodyFromGroup();
 
             VerifySomebodyRemovedFromGroup(Times.Once());
         }
