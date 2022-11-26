@@ -1,4 +1,6 @@
-﻿using ExampleSignalRCoreProject.Hubs;
+﻿using System.Threading;
+using System.Threading.Tasks;
+using ExampleSignalRCoreProject.Hubs;
 using ExampleSignalRCoreProject.Hubs.Interfaces;
 using ExampleSignalRCoreProject.Services;
 using Moq;
@@ -21,9 +23,9 @@ namespace TestsWithIHubContextSupport
         }
 
         [Test]
-        public void NotifyAllAboutSomethingElse_AllNotifiedAboutSomethingElse()
+        public async Task NotifyAllAboutSomethingElse_AllNotifiedAboutSomethingElseAsync()
         {
-            _service.NotifyAllAboutSomethingElse();
+            await _service.NotifyAllAboutSomethingElse();
             _unitTestingSupport
                 .ClientsAllMock
                 .Verify(x => x.NotifyAboutSomethingElse(), 
@@ -31,9 +33,9 @@ namespace TestsWithIHubContextSupport
         }
 
         [Test]
-        public void NotifyAllExceptAboutSomethingElse_AllExceptNotifiedAboutSomethingElse()
+        public async Task NotifyAllExceptAboutSomethingElse_AllExceptNotifiedAboutSomethingElseAsync()
         {
-            _service.NotifyAboutSomethingElseAllExcept();
+            await _service.NotifyAboutSomethingElseAllExcept();
             _unitTestingSupport
                 .ClientsAllExceptMock
                 .Verify(x => x.NotifyAboutSomethingElse(), 
@@ -41,66 +43,80 @@ namespace TestsWithIHubContextSupport
         }
 
         [Test]
-        public void NotifyClientsAboutSomethingElse_ClientsNotifiedAboutSomethingElse()
+        public async Task NotifyClientsAboutSomethingElse_ClientsNotifiedAboutSomethingElseAsync()
         {
-            _service.NotifyClientsAboutSomethingElse();
+            await _service.NotifyClientsAboutSomethingElse();
             _unitTestingSupport
                 .ClientsClientsMock
                 .Verify(x => x.NotifyAboutSomethingElse(), Times.Once());
         }
 
         [Test]
-        public void NotifyClientAboutSomethingElse_ClientNotifiedAboutSomethingElse()
+        public async Task NotifyClientAboutSomethingElse_ClientNotifiedAboutSomethingElseAsync()
         {
-            _service.NotifyClientAboutSomethingElse();
+            await _service.NotifyClientAboutSomethingElse();
             _unitTestingSupport
                 .ClientsClientMock
                 .Verify(x => x.NotifyAboutSomethingElse(), Times.Once());
         }
 
         [Test]
-        public void NotifyGroupAboutSomethingElse_GroupNotifiedAboutSomethingElse()
+        public async Task NotifyGroupAboutSomethingElse_GroupNotifiedAboutSomethingElseAsync()
         {
-            _service.NotifyGroupAboutSomethingElse();
+            await _service.NotifyGroupAboutSomethingElse();
             _unitTestingSupport
                 .ClientsGroupMock
                 .Verify(x => x.NotifyAboutSomethingElse(), Times.Once());
         }
 
         [Test]
-        public void NotifyGroupsAboutSomethingElse_GroupsNotifiedAboutSomethingElse()
+        public async Task NotifyGroupsAboutSomethingElse_GroupsNotifiedAboutSomethingElseAsync()
         {
-            _service.NotifyGroupsAboutSomethingElse();
+            await _service.NotifyGroupsAboutSomethingElse();
             _unitTestingSupport
                 .ClientsGroupsMock
                 .Verify(x => x.NotifyAboutSomethingElse(), Times.Once());
         }
 
         [Test]
-        public void NotifyGroupExceptAboutSomethingElse_GroupExceptNotifiedAboutSomethingElse()
+        public async Task NotifyGroupExceptAboutSomethingElse_GroupExceptNotifiedAboutSomethingElseAsync()
         {
-            _service.NotifyGroupExceptAboutSomethingElse();
+            await _service.NotifyGroupExceptAboutSomethingElse();
             _unitTestingSupport
                 .ClientsGroupExceptMock
                 .Verify(x => x.NotifyAboutSomethingElse(), Times.Once());
         }
 
         [Test]
-        public void NotifyUserAboutSomethingElse_UserNotifiedAboutSomethingElse()
+        public async Task NotifyUserAboutSomethingElse_UserNotifiedAboutSomethingElseAsync()
         {
-            _service.NotifyUserAboutSomethingElse();
+            await _service.NotifyUserAboutSomethingElse();
             _unitTestingSupport
                 .ClientsUserMock
                 .Verify(x => x.NotifyAboutSomethingElse(), Times.Once());
         }
 
         [Test]
-        public void NotifyUsersAboutSomething_UsersNotifiedAboutSomething()
+        public async Task NotifyUsersAboutSomething_UsersNotifiedAboutSomethingAsync()
         {
-            _service.NotifyUsersAboutSomethingElse();
+            await _service.NotifyUsersAboutSomethingElse();
             _unitTestingSupport
                 .ClientsUsersMock
                 .Verify(x => x.NotifyAboutSomethingElse(), Times.Once());
+        }
+
+        [Test]
+        public async Task GetMessageFromClient_MessageReceived()
+        {
+            var expectedMessage = "Pizza!";
+            _unitTestingSupport
+                .ClientsClientMock
+                .Setup(x => x.GetMessage())
+                .Returns(Task.FromResult(expectedMessage));
+
+            var message = await _service.GetMessageFromClient();
+
+            Assert.AreEqual(expectedMessage, message);
         }
     }
 }

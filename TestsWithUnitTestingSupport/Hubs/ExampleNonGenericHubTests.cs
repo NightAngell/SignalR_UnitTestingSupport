@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using ExampleSignalRCoreProject.Databases;
@@ -204,6 +205,25 @@ namespace TestsWithUnitTestingSupport.Hubs
 
             ClientsUsersMock
                 .Verify(x => x.SendCoreAsync("NotifyUserAboutSomething", new object[] { }, It.IsAny<CancellationToken>()));
+        }
+
+        [Test]
+        public async Task GetMessageFromClient_MessageReceived()
+        {
+            _exampleHub = new ExampleNonGenericHub();
+            AssignToHubRequiredProperties(_exampleHub);
+
+            var expectedMessage = "Pizza!";
+            ClientsClientMock
+                .Setup(x => x.InvokeCoreAsync<string>(
+                    ExampleNonGenericHub.GetMessageInvoke,
+                    Array.Empty<object>(),
+                    It.IsAny<CancellationToken>()))
+                .Returns(Task.FromResult(expectedMessage));
+
+            var message = await _exampleHub.GetMessageFromClient();
+
+            Assert.AreEqual(expectedMessage, message);
         }
     }
 }

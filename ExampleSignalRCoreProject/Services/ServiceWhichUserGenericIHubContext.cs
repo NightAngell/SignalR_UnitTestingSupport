@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using ExampleSignalRCoreProject.Hubs;
 using ExampleSignalRCoreProject.Hubs.Interfaces;
 using Microsoft.AspNetCore.SignalR;
@@ -14,51 +15,56 @@ namespace ExampleSignalRCoreProject.Services
             _exampleHub = exampleHub;
         }
 
-        public void NotifyAllAboutSomethingElse()
+        public async Task NotifyAllAboutSomethingElse()
         {
-            _exampleHub.Clients.All.NotifyAboutSomethingElse();
+            await _exampleHub.Clients.All.NotifyAboutSomethingElse();
         }
 
-        public void NotifyAboutSomethingElseAllExcept()
+        public async Task NotifyAboutSomethingElseAllExcept()
         {
             var excludedConnectionIds = new List<string> { };
-            _exampleHub.Clients.AllExcept(excludedConnectionIds.AsReadOnly()).NotifyAboutSomethingElse();
+            await _exampleHub.Clients.AllExcept(excludedConnectionIds.AsReadOnly()).NotifyAboutSomethingElse();
         }
 
-        public void NotifyClientAboutSomethingElse()
+        public async Task NotifyClientAboutSomethingElse()
         {
-            _exampleHub.Clients.Client(string.Empty).NotifyAboutSomethingElse();
+            await _exampleHub.Clients.Client(string.Empty).NotifyAboutSomethingElse();
         }
 
-        public void NotifyClientsAboutSomethingElse()
+        public async Task NotifyClientsAboutSomethingElse()
         {
             var excludedConnectionIds = new List<string> { };
-            _exampleHub.Clients.Clients(excludedConnectionIds).NotifyAboutSomethingElse();
+            await _exampleHub.Clients.Clients(excludedConnectionIds).NotifyAboutSomethingElse();
         }
 
-        public void NotifyGroupAboutSomethingElse()
+        public async Task NotifyGroupAboutSomethingElse()
         {
-            _exampleHub.Clients.Group(string.Empty).NotifyAboutSomethingElse();
+            await _exampleHub.Clients.Group(string.Empty).NotifyAboutSomethingElse();
         }
 
-        public void NotifyGroupExceptAboutSomethingElse()
+        public async Task NotifyGroupExceptAboutSomethingElse()
         {
-            _exampleHub.Clients.GroupExcept(string.Empty, new List<string>().AsReadOnly()).NotifyAboutSomethingElse();
+            await _exampleHub.Clients.GroupExcept(string.Empty, new List<string>().AsReadOnly()).NotifyAboutSomethingElse();
         }
 
-        public void NotifyGroupsAboutSomethingElse()
+        public async Task NotifyGroupsAboutSomethingElse()
         {
-            _exampleHub.Clients.Groups(new List<string>().AsReadOnly()).NotifyAboutSomethingElse();
+            await _exampleHub.Clients.Groups(new List<string>().AsReadOnly()).NotifyAboutSomethingElse();
         }
 
-        public void NotifyUserAboutSomethingElse()
+        public async Task NotifyUserAboutSomethingElse()
         {
-            _exampleHub.Clients.User(string.Empty).NotifyAboutSomethingElse();
+            await _exampleHub.Clients.User(string.Empty).NotifyAboutSomethingElse();
         }
 
-        public void NotifyUsersAboutSomethingElse()
+        public async Task NotifyUsersAboutSomethingElse()
         {
-            _exampleHub.Clients.Users(new List<string>().AsReadOnly()).NotifyAboutSomethingElse();
+            await _exampleHub.Clients.Users(new List<string>().AsReadOnly()).NotifyAboutSomethingElse();
+        }
+
+        public Task<string> GetMessageFromClient()
+        {
+            return _exampleHub.Clients.Client(string.Empty).GetMessage();
         }
     }
 }

@@ -6,5 +6,7 @@ namespace ExampleSignalRCoreProject.Hubs.Interfaces
     {
         Task NotifyAboutSomething(string topic, string content);
         Task NotifyAboutSomethingElse();
+
+        Task<string> GetMessage();
     }
 }

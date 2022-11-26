@@ -7,6 +7,7 @@ namespace ExampleSignalRCoreProject.Hubs
     public class ExampleNonGenericHub : Hub
     {
         public const string NotifyUserAboutSomethingResponse = "NotifyUserAboutSomething";
+        public const string GetMessageInvoke = "GetMessage";
 
         public async Task NotifyAllAboutSomething()
         {
@@ -66,6 +67,24 @@ namespace ExampleSignalRCoreProject.Hubs
         public async Task NotifyUsersAboutSomething()
         {
             await Clients.Users(new List<string>().AsReadOnly()).SendAsync(NotifyUserAboutSomethingResponse);
+        }
+
+        public async Task<string> GetMessageFromCaller()
+        {
+            var messageFromCaller = await Clients
+                .Caller
+                .InvokeAsync<string>(GetMessageInvoke, default);
+
+            return messageFromCaller;
+        }
+
+        public async Task<string> GetMessageFromClient()
+        {
+            var messageFromCaller = await Clients
+                .Client(string.Empty)
+                .InvokeAsync<string>(GetMessageInvoke, default);
+
+            return messageFromCaller;
         }
     }
 }

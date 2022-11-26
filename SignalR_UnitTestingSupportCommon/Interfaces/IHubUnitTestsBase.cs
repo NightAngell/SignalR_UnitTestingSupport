@@ -26,12 +26,12 @@ namespace SignalR_UnitTestingSupportCommon.Interfaces
         /// <summary>
         /// Gets mock for Hub.Clients.Caller
         /// </summary>
-        Mock<IClientProxy> ClientsCallerMock { get; }
+        Mock<ISingleClientProxy> ClientsCallerMock { get; }
 
         /// <summary>
         /// Gets mock which is returned when Hub.Clients.Client() is called
         /// </summary>
-        Mock<IClientProxy> ClientsClientMock { get; }
+        Mock<ISingleClientProxy> ClientsClientMock { get; }
 
         /// <summary>
         /// Gets mock which is returned when Hub.Clients.Clients() is called

@@ -1,4 +1,5 @@
-﻿using ExampleSignalRCoreProject.Hubs;
+﻿using System.Threading.Tasks;
+using ExampleSignalRCoreProject.Hubs;
 using Moq;
 using SignalR_UnitTestingSupportXUnit.Hubs;
 using Xunit;
@@ -31,23 +32,23 @@ namespace TestsWithUnitTestingSupport.Hubs
         }
 
         [Fact]
-        public void VerifyUserAddedToGroupByConnId_UserAdded()
+        public async Task VerifyUserAddedToGroupByConnId_UserAddedAsync()
         {
             var hub = new V101FeaturesHub();
             AssignToHubRequiredProperties(hub);
 
-            hub.AddUserToGroup();
+            await hub.AddUserToGroup();
 
             VerifyUserAddedToGroupByConnId(Times.Once(), ContextMock.Object.ConnectionId);
         }
 
         [Fact]
-        public void VerifyUserRemovedFromGroupByConnId_UserAdded()
+        public async Task VerifyUserRemovedFromGroupByConnId_UserAddedAsync()
         {
             var hub = new V101FeaturesHub();
             AssignToHubRequiredProperties(hub);
 
-            hub.RemoveUserFromGroupByConnIdGroup();
+            await hub.RemoveUserFromGroupByConnIdGroup();
 
             VerifyUserRemovedFromGroupByConnId(Times.Once(), ContextMock.Object.ConnectionId);
         }

@@ -4,6 +4,7 @@ using ExampleSignalRCoreProject.Databases;
 using ExampleSignalRCoreProject.Hubs;
 using ExampleSignalRCoreProject.Hubs.Interfaces;
 using ExampleSignalRCoreProject.Models;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using SignalR_UnitTestingSupportMSTest.Hubs;
@@ -76,128 +77,128 @@ namespace TestsWithUnitTestingSupport.Hubs
         }
 
         [TestMethod]
-        public void NotifyAboutSomethingElseAllExcept_AllExceptNotified()
+        public async Task NotifyAboutSomethingElseAllExcept_AllExceptNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyAboutSomethingElseAllExcept();
+            await _exampleHub.NotifyAboutSomethingElseAllExcept();
 
             ClientsAllExceptMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [TestMethod]
-        public void NotifyCallerAboutSomethingElse_CallerNotified()
+        public async Task NotifyCallerAboutSomethingElse_CallerNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyCallerAboutSomethingElse();
+            await _exampleHub.NotifyCallerAboutSomethingElse();
 
             ClientsCallerMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [TestMethod]
-        public void NotifyClientAboutSomethingElse_ClientNotified()
+        public async Task NotifyClientAboutSomethingElse_ClientNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyClientAboutSomethingElse();
+            await _exampleHub.NotifyClientAboutSomethingElse();
 
             ClientsClientMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [TestMethod]
-        public void NotifyClientsAboutSomethingElse_ClientsNotified()
+        public async Task NotifyClientsAboutSomethingElse_ClientsNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyClientsAboutSomethingElse();
+            await _exampleHub.NotifyClientsAboutSomethingElse();
 
             ClientsClientsMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [TestMethod]
-        public void NotifyGroupAboutSomethingElse_GroupNotified()
+        public async Task NotifyGroupAboutSomethingElse_GroupNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyGroupAboutSomethingElse();
+            await _exampleHub.NotifyGroupAboutSomethingElse();
 
             ClientsGroupMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [TestMethod]
-        public void NotifyGroupExceptAboutSomethingElse_GropuExceptNotified()
+        public async Task NotifyGroupExceptAboutSomethingElse_GropuExceptNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyGroupExceptAboutSomethingElse();
+            await _exampleHub.NotifyGroupExceptAboutSomethingElse();
 
             ClientsGroupExceptMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [TestMethod]
-        public void NotifyGroupsAboutSomethingElse_GropusNotified()
+        public async Task NotifyGroupsAboutSomethingElse_GropusNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyGroupsAboutSomethingElse();
+            await _exampleHub.NotifyGroupsAboutSomethingElse();
 
             ClientsGroupsMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [TestMethod]
-        public void NotifyOthersAboutSomethingElse_OthersNotified()
+        public async Task NotifyOthersAboutSomethingElse_OthersNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyOthersAboutSomethingElse();
+            await _exampleHub.NotifyOthersAboutSomethingElse();
 
             ClientsOthersMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [TestMethod]
-        public void NotifyOthersInGroupAboutSomethingElse_OthersInGroupNotified()
+        public async Task NotifyOthersInGroupAboutSomethingElse_OthersInGroupNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyOthersInGroupAboutSomethingElse();
+            await _exampleHub.NotifyOthersInGroupAboutSomethingElse();
 
             ClientsOthersInGroupMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [TestMethod]
-        public void NotifyUserAboutSomethingElse_UserNotified()
+        public async Task NotifyUserAboutSomethingElse_UserNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyUserAboutSomethingElse();
+            await _exampleHub.NotifyUserAboutSomethingElse();
 
             ClientsUserMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [TestMethod]
-        public void NotifyUsersAboutSomethingElse_UsersNotified()
+        public async Task NotifyUsersAboutSomethingElse_UsersNotifiedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.NotifyUsersAboutSomethingElse();
+            await _exampleHub.NotifyUsersAboutSomethingElse();
 
             ClientsUsersMock.Verify(x => x.NotifyAboutSomethingElse(), Times.Once);
         }
 
         [TestMethod]
-        public void AddLoremAsKeyAndIpsumAsValueToContextItems_ContextContainThatKeyValuPair()
+        public void AddLoremAsKeyAndIpsumAsValueToContextItems_ContextContainThatKeyValuPairAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
@@ -208,23 +209,23 @@ namespace TestsWithUnitTestingSupport.Hubs
         }
 
         [TestMethod]
-        public void AddSomebodyToGroup_SomebodyAdded()
+        public async Task AddSomebodyToGroup_SomebodyAddedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.AddSomebodyToGroup();
+            await _exampleHub.AddSomebodyToGroup();
 
             VerifySomebodyAddedToGroup(Times.Once());
         }
 
         [TestMethod]
-        public void RemoveSomebodyFromGroup_SomebodyRemoved()
+        public async Task RemoveSomebodyFromGroup_SomebodyRemovedAsync()
         {
             _exampleHub = new ExampleHub(DbContextMock.Object);
             AssignToHubRequiredProperties(_exampleHub);
 
-            _exampleHub.RemoveSomebodyFromGroup();
+            await _exampleHub.RemoveSomebodyFromGroup();
 
             VerifySomebodyRemovedFromGroup(Times.Once());
         }
@@ -251,6 +252,22 @@ namespace TestsWithUnitTestingSupport.Hubs
 
             var noteFromDb = DbInMemory.Note.FirstOrDefault();
             Assert.IsNotNull(noteFromDb);
+        }
+
+        [TestMethod]
+        public async Task GetMessageFromClient_MessageReceived()
+        {
+            _exampleHub = new ExampleHub(DbInMemory);
+            AssignToHubRequiredProperties(_exampleHub);
+
+            var expectedMessage = "Pizza!";
+            ClientsClientMock
+                .Setup(x => x.GetMessage())
+                .Returns(Task.FromResult(expectedMessage));
+
+            var message = await _exampleHub.GetMessageFromClient();
+
+            Assert.AreEqual(expectedMessage, message);
         }
     }
 }

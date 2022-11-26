@@ -5,13 +5,14 @@
     <!--Supported values: 
 	    {net5.0, netstandard2.1},
 		{net6.0, net6.0}
+		{net7.0, net7.0}
 	It is also important to made sure that tests and example project have valid dependencies-->
-    <TargetFrameworkForExampleAndTests>net6.0</TargetFrameworkForExampleAndTests>
-    <TargetFrameworkForLib>net6.0</TargetFrameworkForLib>
+    <TargetFrameworkForExampleAndTests>net7.0</TargetFrameworkForExampleAndTests>
+    <TargetFrameworkForLib>net7.0</TargetFrameworkForLib>
 
-	<EntityFrameworkMinSupportedVersion>6.0.0</EntityFrameworkMinSupportedVersion>
-	<EntityFrameworkCurrentVersion>6.0.*</EntityFrameworkCurrentVersion>
-	<MicrosoftTestSDKVersion>17.1.0</MicrosoftTestSDKVersion>
+	<EntityFrameworkMinSupportedVersion>7.0.0</EntityFrameworkMinSupportedVersion>
+	<EntityFrameworkCurrentVersion>7.0.*</EntityFrameworkCurrentVersion>
+	<MicrosoftTestSDKVersion>17.4.0</MicrosoftTestSDKVersion>
   </PropertyGroup>
 
   <!-- Unit testing support nugets related config. 
@@ -24,7 +25,7 @@
     <UseUnitTestingSupportNugetsInsteadOfProjects>false</UseUnitTestingSupportNugetsInsteadOfProjects>
     
     <!--Used only if UseUnitTestingSupportNugetsInsteadOfProjects is set to true -->
-    <UnitTestingSupportNugetsVersion>6.0.0</UnitTestingSupportNugetsVersion>
+    <UnitTestingSupportNugetsVersion>7.0.0</UnitTestingSupportNugetsVersion>
   </PropertyGroup>
 
   <!--StyleCop-->
@@ -54,10 +55,10 @@
     <NugetCopyright>MIT License (Mateusz Soboń)</NugetCopyright>
     
     <!--Version-->
-    <NugetVersion>6.0.0</NugetVersion>
-    <NugetAssemblyVersion>6.0.0.0</NugetAssemblyVersion>
-    <NugetFileVersion>6.0.0.0</NugetFileVersion>
-    <NugetPackageReleaseNotes>Updated to net6.0. Updated dependencies.</NugetPackageReleaseNotes>
+    <NugetVersion>7.0.0</NugetVersion>
+    <NugetAssemblyVersion>7.0.0.0</NugetAssemblyVersion>
+    <NugetFileVersion>7.0.0.0</NugetFileVersion>
+    <NugetPackageReleaseNotes>Updated to net7.0. Updated dependencies.</NugetPackageReleaseNotes>
     
     <!--Repo url-->
     <NuGetPackageProjectUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</NuGetPackageProjectUrl>

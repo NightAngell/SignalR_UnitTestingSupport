@@ -10,7 +10,6 @@ namespace SignalR_UnitTestingSupportMSTest.Hubs
     public class HubUnitTestsWithEF<TDbContext> : HubUnitTestsWithEFSupport<TDbContext>
         where TDbContext : DbContext
     {
-
         /// <summary>
         /// Only MSTest Should Call it. Do not call it directly.
         /// </summary>

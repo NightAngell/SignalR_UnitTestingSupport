@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.SignalR;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.SignalR;
 
 namespace ExampleSignalRCoreProject.Hubs
 {
@@ -10,14 +11,14 @@ namespace ExampleSignalRCoreProject.Hubs
             var y = Context.ConnectionId;
         }
 
-        public void AddUserToGroup()
+        public async Task AddUserToGroup()
         {
-            Groups.AddToGroupAsync(Context.ConnectionId, string.Empty);
+            await Groups.AddToGroupAsync(Context.ConnectionId, string.Empty);
         }
 
-        public void RemoveUserFromGroupByConnIdGroup()
+        public async Task RemoveUserFromGroupByConnIdGroup()
         {
-            Groups.RemoveFromGroupAsync(Context.ConnectionId, string.Empty);
+            await Groups.RemoveFromGroupAsync(Context.ConnectionId, string.Empty);
         }
     }
 }
