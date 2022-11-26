@@ -108,5 +108,15 @@ namespace ExampleSignalRCoreProject.Hubs
         {
             await Groups.RemoveFromGroupAsync(string.Empty, string.Empty);
         }
+
+        public Task<string> GetMessageFromCaller()
+        {
+            return Clients.Caller.GetMessage();
+        }
+
+        public Task<string> GetMessageFromClient()
+        {
+            return Clients.Client(string.Empty).GetMessage();
+        }
     }
 }

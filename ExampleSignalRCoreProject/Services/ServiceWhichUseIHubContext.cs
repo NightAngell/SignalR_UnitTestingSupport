@@ -59,5 +59,15 @@ namespace ExampleSignalRCoreProject.Services
         {
             await _exampleHub.Clients.Users(new List<string>().AsReadOnly()).SendAsync(NotifyUserAboutSomethingResponse);
         }
+
+        public async Task<string> GetMessageFromClient()
+        {
+            var messageFromCaller = await _exampleHub
+                .Clients
+                .Client(string.Empty)
+                .InvokeAsync<string>(ExampleNonGenericHub.GetMessageInvoke, default);
+
+            return messageFromCaller;
+        }
     }
 }

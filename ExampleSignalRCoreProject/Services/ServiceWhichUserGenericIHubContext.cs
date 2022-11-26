@@ -61,5 +61,10 @@ namespace ExampleSignalRCoreProject.Services
         {
             await _exampleHub.Clients.Users(new List<string>().AsReadOnly()).NotifyAboutSomethingElse();
         }
+
+        public Task<string> GetMessageFromClient()
+        {
+            return _exampleHub.Clients.Client(string.Empty).GetMessage();
+        }
     }
 }
