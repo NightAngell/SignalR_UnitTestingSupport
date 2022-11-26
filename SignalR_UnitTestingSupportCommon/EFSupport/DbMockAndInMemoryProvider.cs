@@ -77,28 +77,14 @@ namespace SignalR_UnitTestingSupportCommon.EFSupport
         /// </summary>
         public void TearDown()
         {
-            try
+            if (_dbInMemorySqliteLazy != null && _dbInMemorySqliteLazy.IsValueCreated)
             {
-                if (_dbInMemorySqliteLazy != null && _dbInMemorySqliteLazy.IsValueCreated)
-                {
-                    DbInMemorySqlite.Dispose();
-                }
-            }
-            catch (Exception)
-            {
-                // TODO: Add logger later
+                DbInMemorySqlite.Dispose();
             }
 
-            try
+            if (_dbInMemoryInMemoryLazy != null && _dbInMemoryInMemoryLazy.IsValueCreated)
             {
-                if (_dbInMemoryInMemoryLazy != null && _dbInMemoryInMemoryLazy.IsValueCreated)
-                {
-                    DbInMemory.Dispose();
-                }
-            }
-            catch (Exception)
-            {
-                // TODO: Add logger later
+                DbInMemory.Dispose();
             }
         }
 
