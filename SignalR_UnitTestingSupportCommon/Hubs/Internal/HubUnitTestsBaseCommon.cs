@@ -13,7 +13,7 @@ namespace SignalR_UnitTestingSupportCommon.Hubs.Internal
     public abstract class HubUnitTestsBaseCommon : SignalRUnitTestingSupportCommon, IHubUnitTestsBaseCommon
     {
         /// <summary>
-        /// Gets fake for Hub.Contex.Items
+        /// Gets fake for Hub.Context.Items
         /// </summary>
         public Dictionary<object, object> ItemsFake { get; internal set; }
 
