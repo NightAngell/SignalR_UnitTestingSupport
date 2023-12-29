@@ -19,8 +19,8 @@
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="$(EntityFrameworkCurrentVersion)" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="$(EntityFrameworkCurrentVersion)" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="$(MicrosoftTestSDKVersion)" />
-    <PackageReference Include="MSTest.TestAdapter" Version="2.2.10" />
-    <PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
+    <PackageReference Include="MSTest.TestAdapter" Version="$(MsTestAdapterCurrentVersion)" />
+    <PackageReference Include="MSTest.TestFramework" Version="$(MsTestCurrentVersion)" />
   </ItemGroup>
 
   <ItemGroup>
