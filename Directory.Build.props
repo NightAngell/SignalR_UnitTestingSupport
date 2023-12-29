@@ -6,13 +6,14 @@
 	    {net5.0, netstandard2.1},
 		{net6.0, net6.0}
 		{net7.0, net7.0}
+    {net8.0, net8.0}
 	It is also important to made sure that tests and example project have valid dependencies-->
-    <TargetFrameworkForExampleAndTests>net7.0</TargetFrameworkForExampleAndTests>
-    <TargetFrameworkForLib>net7.0</TargetFrameworkForLib>
+    <TargetFrameworkForExampleAndTests>net8.0</TargetFrameworkForExampleAndTests>
+    <TargetFrameworkForLib>net8.0</TargetFrameworkForLib>
 
-	<EntityFrameworkMinSupportedVersion>7.0.0</EntityFrameworkMinSupportedVersion>
-	<EntityFrameworkCurrentVersion>7.0.*</EntityFrameworkCurrentVersion>
-	<MicrosoftTestSDKVersion>17.4.0</MicrosoftTestSDKVersion>
+	<EntityFrameworkMinSupportedVersion>8.0.0</EntityFrameworkMinSupportedVersion>
+	<EntityFrameworkCurrentVersion>8.0.*</EntityFrameworkCurrentVersion>
+	<MicrosoftTestSDKVersion>17.8.0</MicrosoftTestSDKVersion>
   </PropertyGroup>
 
   <!-- Unit testing support nugets related config. 
@@ -25,7 +26,7 @@
     <UseUnitTestingSupportNugetsInsteadOfProjects>false</UseUnitTestingSupportNugetsInsteadOfProjects>
     
     <!--Used only if UseUnitTestingSupportNugetsInsteadOfProjects is set to true -->
-    <UnitTestingSupportNugetsVersion>7.0.0</UnitTestingSupportNugetsVersion>
+    <UnitTestingSupportNugetsVersion>8.0.0</UnitTestingSupportNugetsVersion>
   </PropertyGroup>
 
   <!--StyleCop-->
@@ -55,10 +56,10 @@
     <NugetCopyright>MIT License (Mateusz Soboń)</NugetCopyright>
     
     <!--Version-->
-    <NugetVersion>7.0.0</NugetVersion>
-    <NugetAssemblyVersion>7.0.0.0</NugetAssemblyVersion>
-    <NugetFileVersion>7.0.0.0</NugetFileVersion>
-    <NugetPackageReleaseNotes>Updated to net7.0. Updated dependencies.</NugetPackageReleaseNotes>
+    <NugetVersion>8.0.0</NugetVersion>
+    <NugetAssemblyVersion>8.0.0.0</NugetAssemblyVersion>
+    <NugetFileVersion>8.0.0.0</NugetFileVersion>
+    <NugetPackageReleaseNotes>Updated to net8.0. Updated dependencies.</NugetPackageReleaseNotes>
     
     <!--Repo url-->
     <NuGetPackageProjectUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</NuGetPackageProjectUrl>
@@ -72,7 +73,7 @@
     <NugetIsPackable>true</NugetIsPackable>
     <NuGetGeneratePackageOnBuild>false</NuGetGeneratePackageOnBuild>
     <NugetOutputType>Library</NugetOutputType>
-	<IncludeSymbols>true</IncludeSymbols>
+    <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 </Project>
