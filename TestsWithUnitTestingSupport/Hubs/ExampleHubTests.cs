@@ -25,19 +25,19 @@ namespace TestsWithUnitTestingSupport.Hubs
         [Test]
         public void TryGetDbContexMock_DbContextMockSuccesfullyTaken()
         {
-            Assert.NotNull(DbContextMock.Object);
+            Assert.That(DbContextMock.Object, Is.Not.Null);
         }
 
         [Test]
         public void TryGetDbInMemorySqlite_ClearDbInMemorySqliteSuccesfullyTaken()
         {
-            Assert.Zero(DbInMemorySqlite.Note.Count());
+            Assert.That(DbInMemorySqlite.Note.Count(), Is.Zero);
         }
 
         [Test]
         public void TryGetDbInMemory_ClearDbInMemoryMockSuccesfullyTaken()
         {
-            Assert.Zero(DbInMemory.Note.Count());
+            Assert.That(DbInMemory.Note.Count(), Is.Zero);
         }
 
         [Test]
@@ -45,7 +45,7 @@ namespace TestsWithUnitTestingSupport.Hubs
         [TestCase]
         public async Task TryGetDbInMemorySqlite_WeGetClearInstanceOfDbInEveryTest()
         {
-            Assert.IsTrue(DbInMemorySqlite.Note.Count() == 0);
+            Assert.That(DbInMemorySqlite.Note.Count(), Is.EqualTo(0));
 
             DbInMemorySqlite.Note.Add(new Note { Content = "test content" });
             await DbInMemorySqlite.SaveChangesAsync();
@@ -56,7 +56,7 @@ namespace TestsWithUnitTestingSupport.Hubs
         [TestCase]
         public async Task TryGetDbInMemory_WeGetClearInstanceOfDbInEveryTest()
         {
-            Assert.IsTrue(DbInMemory.Note.Count() == 0);
+            Assert.That(DbInMemory.Note.Count(), Is.EqualTo(0));
 
             DbInMemory.Note.Add(new Note { Content = "test content" });
             await DbInMemory.SaveChangesAsync();
@@ -236,7 +236,7 @@ namespace TestsWithUnitTestingSupport.Hubs
             await _exampleHub.AddNoteWithLoremIpsumAsContentToDb();
 
             var noteFromDb = DbInMemorySqlite.Note.FirstOrDefault();
-            Assert.NotNull(noteFromDb);
+            Assert.That(noteFromDb, Is.Not.Null);
         }
 
         [Test]
@@ -248,7 +248,7 @@ namespace TestsWithUnitTestingSupport.Hubs
             await _exampleHub.AddNoteWithLoremIpsumAsContentToDb();
 
             var noteFromDb = DbInMemory.Note.FirstOrDefault();
-            Assert.NotNull(noteFromDb);
+            Assert.That(noteFromDb, Is.Not.Null);
         }
 
         [Test]
@@ -264,7 +264,7 @@ namespace TestsWithUnitTestingSupport.Hubs
 
             var message = await _exampleHub.GetMessageFromClient();
 
-            Assert.AreEqual(expectedMessage, message);
+            Assert.That(message, Is.EqualTo(expectedMessage));
         }
     }
 }

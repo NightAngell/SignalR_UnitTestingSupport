@@ -18,7 +18,7 @@ namespace TestsWithUnitTestingSupport.Hubs
             string connId1 = ContextMock.Object.ConnectionId;
             string connId2 = ContextMock.Object.ConnectionId;
 
-            Assert.AreEqual(connId1, connId2);
+            Assert.That(connId2, Is.EqualTo(connId1));
         }
 
         [Test]

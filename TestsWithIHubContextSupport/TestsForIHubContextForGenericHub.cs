@@ -1,5 +1,4 @@
-﻿using System.Threading;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using ExampleSignalRCoreProject.Hubs;
 using ExampleSignalRCoreProject.Hubs.Interfaces;
 using ExampleSignalRCoreProject.Services;
@@ -116,7 +115,7 @@ namespace TestsWithIHubContextSupport
 
             var message = await _service.GetMessageFromClient();
 
-            Assert.AreEqual(expectedMessage, message);
+            Assert.That(message, Is.EqualTo(expectedMessage));
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿#pragma warning disable SA1009 // Closing parenthesis should be spaced correctly
 #pragma warning disable SA1111 // Closing parenthesis should be on line of last parameter
+#pragma warning disable IDE0301 // Simplify collection initialization
 using System;
 using System.Threading;
 using System.Threading.Tasks;
@@ -28,13 +29,13 @@ namespace TestsWithIHubContextSupport
         public async Task NotifyAllAboutSomething_AllNotifiedAboutSomething()
         {
             await _service.NotifyAllAboutSomething();
+
             _unitTestingSupport
                 .ClientsAllMock
                 .Verify(x => x.SendCoreAsync(
                     ExampleNonGenericHub.NotifyUserAboutSomethingResponse,
                     Array.Empty<object>(),
                     It.IsAny<CancellationToken>()
-
                 ), Times.Once());
         }
 
@@ -156,9 +157,10 @@ namespace TestsWithIHubContextSupport
 
             var message = await _service.GetMessageFromClient();
 
-            Assert.AreEqual(expectedMessage, message);
+            Assert.That(message, Is.EqualTo(expectedMessage));
         }
     }
 }
+#pragma warning restore IDE0301 // Simplify collection initialization
 #pragma warning restore SA1111 // Closing parenthesis should be on line of last parameter
 #pragma warning restore SA1009 // Closing parenthesis should be spaced correctly
