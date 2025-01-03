@@ -5,7 +5,7 @@
   "$schema": "https://raw.githubusercontent.com/DotNetAnalyzers/StyleCopAnalyzers/master/StyleCop.Analyzers/StyleCop.Analyzers/Settings/stylecop.schema.json",
   "settings": {
     "documentationRules": {
-      "companyName": "Mateusz Soboñ",
+      "companyName": "Mateusz SoboÅ„",
       "xmlHeader": false,
 
       "documentExposedElements": false,
@@ -39,8 +39,8 @@
     },
 
     "namingRules": {
-      //Min version: 1.2.0: 
-      //https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/Configuration.md#namespace-components
+      // Min version: 1.2.0: 
+      // https://github.com/DotNetAnalyzers/StyleCopAnalyzers/blob/master/documentation/Configuration.md#namespace-components
       "allowedNamespaceComponents": [
         "Entities",
         "Services",

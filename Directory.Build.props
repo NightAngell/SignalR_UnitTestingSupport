@@ -6,12 +6,13 @@
         {net6.0, net6.0}
         {net7.0, net7.0}
         {net8.0, net8.0}
+        {net9.0, net9.0}
 	It is also important to made sure that tests and example project have valid dependencies-->
-    <TargetFrameworkForExampleAndTests>net8.0</TargetFrameworkForExampleAndTests>
-    <TargetFrameworkForLib>net8.0</TargetFrameworkForLib>
+    <TargetFrameworkForExampleAndTests>net9.0</TargetFrameworkForExampleAndTests>
+    <TargetFrameworkForLib>net9.0</TargetFrameworkForLib>
 
-	<EntityFrameworkMinSupportedVersion>8.0.0</EntityFrameworkMinSupportedVersion>
-	<EntityFrameworkCurrentVersion>8.0.*</EntityFrameworkCurrentVersion>
+	<EntityFrameworkMinSupportedVersion>9.0.0</EntityFrameworkMinSupportedVersion>
+	<EntityFrameworkCurrentVersion>9.0.*</EntityFrameworkCurrentVersion>
 	<MicrosoftTestSDKVersion>*</MicrosoftTestSDKVersion>
      
     <!--I do not want to force any newer version of MOQ due to this: 
@@ -41,10 +42,10 @@
 	   are supported from nuget 5.0.0 version and higher.-->
   <PropertyGroup>
     <!--Allowed values: true, false-->
-    <UseUnitTestingSupportNugetsInsteadOfProjects>false</UseUnitTestingSupportNugetsInsteadOfProjects>
+    <UseUnitTestingSupportNugetsInsteadOfProjects>true</UseUnitTestingSupportNugetsInsteadOfProjects>
     
     <!--Used only if UseUnitTestingSupportNugetsInsteadOfProjects is set to true -->
-    <UnitTestingSupportNugetsVersion>8.0.0</UnitTestingSupportNugetsVersion>
+    <UnitTestingSupportNugetsVersion>9.0.0</UnitTestingSupportNugetsVersion>
   </PropertyGroup>
 
   <!--StyleCop-->
@@ -74,10 +75,10 @@
     <NugetCopyright>MIT License (Mateusz Soboń)</NugetCopyright>
     
     <!--Version-->
-    <NugetVersion>8.0.0</NugetVersion>
-    <NugetAssemblyVersion>8.0.0.0</NugetAssemblyVersion>
-    <NugetFileVersion>8.0.0.0</NugetFileVersion>
-    <NugetPackageReleaseNotes>Updated to net8.0. Updated dependencies.</NugetPackageReleaseNotes>
+    <NugetVersion>9.0.0</NugetVersion>
+    <NugetAssemblyVersion>9.0.0.0</NugetAssemblyVersion>
+    <NugetFileVersion>9.0.0.0</NugetFileVersion>
+    <NugetPackageReleaseNotes>Updated to net9.0</NugetPackageReleaseNotes>
     
     <!--Repo url-->
     <NuGetPackageProjectUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</NuGetPackageProjectUrl>
