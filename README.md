@@ -15,6 +15,7 @@ This lib provide support objects and base classes for testing ```Hub, Hub<T>, IH
 3. net6.0 - 6.0.0
 4. net7.0 - 7.0.0
 5. net8.0 - 8.0.0
+6. net9.0 - 9.0.0
 
 # How to install
 #### 1. Using Visual Studio Nuget Package Manager
