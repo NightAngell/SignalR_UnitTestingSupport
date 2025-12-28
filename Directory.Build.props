@@ -2,33 +2,30 @@
 <Project>
   <PropertyGroup>
     <!--Supported values: 
-        {net5.0, netstandard2.1},
-        {net6.0, net6.0}
-        {net7.0, net7.0}
-        {net8.0, net8.0}
-        {net9.0, net9.0}
-	It is also important to made sure that tests and example project have valid dependencies-->
-    <TargetFrameworkForExampleAndTests>net9.0</TargetFrameworkForExampleAndTests>
-    <TargetFrameworkForLib>net9.0</TargetFrameworkForLib>
+        {net5.0, netstandard2.1}, {net6.0, net6.0}, {net7.0, net7.0}, {net8.0, net8.0}, {net9.0, net9.0},
+        {net10.0, net10.0}
+	  It is also important to made sure that tests and example project have valid dependencies-->
+    <TargetFrameworkForExampleAndTests>net10.0</TargetFrameworkForExampleAndTests>
+    <TargetFrameworkForLib>net10.0</TargetFrameworkForLib>
 
-	<EntityFrameworkMinSupportedVersion>9.0.0</EntityFrameworkMinSupportedVersion>
-	<EntityFrameworkCurrentVersion>9.0.*</EntityFrameworkCurrentVersion>
-	<MicrosoftTestSDKVersion>*</MicrosoftTestSDKVersion>
-     
+    <EntityFrameworkMinSupportedVersion>10.0.0</EntityFrameworkMinSupportedVersion>
+    <EntityFrameworkCurrentVersion>10.0.*</EntityFrameworkCurrentVersion>
+    <MicrosoftTestSDKVersion>*</MicrosoftTestSDKVersion>
+
     <!--I do not want to force any newer version of MOQ due to this: 
         https://github.com/devlooped/moq/issues/1372-->
     <MoqMinVersion>4.18.4</MoqMinVersion>
-      
+
     <!--NUnit-->
     <NUnitMinSupportedVersion>4.0.1</NUnitMinSupportedVersion>
     <NUnitCurrentVersion>*</NUnitCurrentVersion>
     <NUnitTestAdapterCurrentVersion>*</NUnitTestAdapterCurrentVersion>
-      
+
     <!--MSTest-->
-    <MsTestMinSupportedVersion>3.1.1</MsTestMinSupportedVersion>
+    <MsTestMinSupportedVersion>4.0.0</MsTestMinSupportedVersion>
     <MsTestCurrentVersion>*</MsTestCurrentVersion>
     <MsTestAdapterCurrentVersion>*</MsTestAdapterCurrentVersion>
-      
+
     <!--xUnit-->
     <xUnitMinSupportedVersion>2.6.4</xUnitMinSupportedVersion>
     <xUnitCurrentVersion>*</xUnitCurrentVersion>
@@ -36,16 +33,16 @@
   </PropertyGroup>
 
   <!-- Unit testing support nugets related config. 
-       Warning! 
+     Warning! 
 	   UseUnitTestingSupportNugetsInsteadOfProjects 
 	   and nugets version options
 	   are supported from nuget 5.0.0 version and higher.-->
   <PropertyGroup>
     <!--Allowed values: true, false-->
     <UseUnitTestingSupportNugetsInsteadOfProjects>true</UseUnitTestingSupportNugetsInsteadOfProjects>
-    
+
     <!--Used only if UseUnitTestingSupportNugetsInsteadOfProjects is set to true -->
-    <UnitTestingSupportNugetsVersion>9.0.0</UnitTestingSupportNugetsVersion>
+    <UnitTestingSupportNugetsVersion>10.0.0</UnitTestingSupportNugetsVersion>
   </PropertyGroup>
 
   <!--StyleCop-->
@@ -54,9 +51,9 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    
+
     <AdditionalFiles Include="..\stylecop.json" Link="stylecop.json">
-       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </AdditionalFiles>
   </ItemGroup>
 
@@ -64,7 +61,7 @@
     <CodeAnalysisRuleSet>..\Global.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <!--END: StyleCop-->
-  
+
   <!--Nugets configuration (for publish)-->
   <PropertyGroup>
     <!--Authors and license-->
@@ -73,21 +70,21 @@
     <NugetPackageLicenseExpression>MIT</NugetPackageLicenseExpression>
     <NugetPackageRequireLicenseAcceptance>true</NugetPackageRequireLicenseAcceptance>
     <NugetCopyright>MIT License (Mateusz Soboń)</NugetCopyright>
-    
+
     <!--Version-->
-    <NugetVersion>9.0.0</NugetVersion>
-    <NugetAssemblyVersion>9.0.0.0</NugetAssemblyVersion>
-    <NugetFileVersion>9.0.0.0</NugetFileVersion>
-    <NugetPackageReleaseNotes>Updated to net9.0</NugetPackageReleaseNotes>
-    
+    <NugetVersion>10.0.0</NugetVersion>
+    <NugetAssemblyVersion>10.0.0.0</NugetAssemblyVersion>
+    <NugetFileVersion>10.0.0.0</NugetFileVersion>
+    <NugetPackageReleaseNotes>Updated to net10.0. Minimal supported version of MSTest is now 4.0.0</NugetPackageReleaseNotes>
+
     <!--Repo url-->
     <NuGetPackageProjectUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</NuGetPackageProjectUrl>
     <NuGetRepositoryUrl>https://github.com/NightAngell/SignalR_UnitTestingSupport</NuGetRepositoryUrl>
-    
+
     <!--Description and common tags-->
     <NugetCommonDescription>Easy to use, small, SignalR Core unit testing support with</NugetCommonDescription>
     <NugetCommonTags>SignalR SignalRCore SignalRUnitTest SignalRCoreUnitTest SignalRUnitTesting SignalRCoreUnitTesting SignalRUnitTests SignalRCoreUnitTests Unit Test Tests Testing MSTest SignalRUnitTestingSupport SignalRCoreUnitTestingSupport AspNetCore AspNetCore.SignalR aspnetcore "AspNetCore SignalR Unit Test"  "AspNetCore SignalR Unit Tests"  "AspNetCore SignalR Unit Testing"</NugetCommonTags>
-    
+
     <!--Others-->
     <NugetIsPackable>true</NugetIsPackable>
     <NuGetGeneratePackageOnBuild>false</NuGetGeneratePackageOnBuild>
