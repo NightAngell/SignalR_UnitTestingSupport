@@ -10,33 +10,10 @@
 This lib provide support objects and base classes for testing ```Hub, Hub<T>, IHubContext<T>, IHubContext<T, P>```. For example preconfigured mocks and helpfull verify methods. There is also support for testing Hubs and IHubContexts with ```Entity Framework Core```.
 
 # Which nuget version should I choose?
-1. netcoreapp (2.1, 2,2, 3.0, 3,1) - 2.0.0
-2. net5 - 5.0.0
-3. net6.0 - 6.0.0
-4. net7.0 - 7.0.0
-5. net8.0 - 8.0.0
-6. net9.0 - 9.0.0
+1. net8.0 - 8.0.0
+2. net9.0 - 9.0.0
+3. net10 - 10.0.0
 
-# How to install
-#### 1. Using Visual Studio Nuget Package Manager
-> If you dont know how install nuget via Visual Studio see this: https://www.youtube.com/watch?v=jX5HlrerIos
-```
-SignalR.UnitTestingSupport.NUnit
-SignalR.UnitTestingSupport.xUnit
-SignalR.UnitTestingSupport.MSTest
-```
-#### 2. Using Packet Manager Console
-```
-Install-Package SignalR.UnitTestingSupport.NUnit
-Install-Package SignalR.UnitTestingSupport.xUnit
-Install-Package SignalR.UnitTestingSupport.MSTest
-```
-#### 3. Using .Net CLI
-```
-dotnet add package SignalR.UnitTestingSupport.NUnit
-dotnet add package SignalR.UnitTestingSupport.xUnit
-dotnet add package SignalR.UnitTestingSupport.MSTest
-```
 ## Troubleshooting!
 Install ```NUnit3TestAdapter``` nuget for visual studio testing with NUnit in visual studio.                     https://www.nuget.org/packages/NUnit3TestAdapter/
 
